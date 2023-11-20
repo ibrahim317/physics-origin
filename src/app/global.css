@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+background: #080c14;
+color:white;
+opacity: 80%;
+}
+.asd{
+
+background-image: url("./asd.png");
+
+}
