@@ -1,9 +1,7 @@
-
-
 export const metadata = {
-  title: 'Ahmed Youssef',
-  description: 'منصة احمد يوسف لتدريس منهج الفيزياء للصفوف الثانوية',
-}
+  title: "Ahmed Youssef",
+  description: "منصة احمد يوسف لتدريس منهج الفيزياء للصفوف الثانوية",
+};
 
 export default function RootLayout({
   children,
@@ -12,9 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
