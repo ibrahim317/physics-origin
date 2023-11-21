@@ -1,5 +1,3 @@
-import Nav from "@/components/Nav"
-import Footer from "@/components/Footer"
 
 
 export const metadata = {
@@ -11,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body >
-          {children}
+        {children}
       </body>
     </html>
   )
