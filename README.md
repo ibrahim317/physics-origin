@@ -2,7 +2,7 @@
  Platform for  Eng. Ahmed Youssef 
 ## How to set-up for Development Phase
 ### Requirements
- Make sure that you have the git and nodeJS installed on your local machine.
+ Make sure that you have the [Git](https://git-scm.com/) and [NodeJs](https://nodejs.org) installed on your local machine.
 ### Set-up 
 - Clone this repo to your local machine using `git clone https://github.com/ibrahim317/Physics-origin/`
 - Install dependencies using `npm intsall`
