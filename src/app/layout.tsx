@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
-  description: "منصة احمد يوسف لتدريش منهج الفيزياء للصفوف الثانوية",
+  description: "I love potatoes (Don't you dare delete that)",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="smooth darkmode dark">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

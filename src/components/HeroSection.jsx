@@ -15,14 +15,7 @@ const HeroSection = () => {
           height={500}
         />
       </div>
-      <div>
-        <Image
-          className="absolute bottom-0 left-1/2 my-6"
-          src={"/assets/scroll.png"}
-          width={50}
-          height={50}
-        />
-      </div>
+      
     </section>
   );
 };
