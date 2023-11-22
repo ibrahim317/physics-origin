@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { Almarai } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
   description: "I love potatoes (Don't you dare delete that)",
 };
+const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 
 export default function RootLayout({
   children,
@@ -13,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

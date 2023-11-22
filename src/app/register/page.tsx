@@ -5,16 +5,13 @@ import Image from "next/image";
 const page = () => {
   return (
     <>
-      <div className="w-full bg-cover"
-      style={{ backgroundImage: "url('/assets/bg.png')" }}
+      <div
+        className="w-full bg-cover"
+        style={{ backgroundImage: "url('/assets/bg.png')" }}
       >
         <div className="halfPageSection flex flex-col lg:flex-row lg:min-h-screen space-y-10 lg:space-y-0">
           <div className="lg:basis-2/5 min-w-0 flex justify-center items-center">
-            <Image
-              src={SideImage}
-              width={300}
-              height={300}
-            />
+            <Image src={SideImage} width={300} height={300} alt="logo" />
           </div>
           <div className="lg:basis-3/5 flex-center-both pb-nav-margin">
             <div className="w-4/5 h-4/5 flex justify-center lg:px-10 flex-col space-y-6">
@@ -22,7 +19,7 @@ const page = () => {
                 <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse space-x-2">
                   <span className="text-[#F9C500] text-5xl">مستني ايه..</span>
                   <span className="text-2xl my-10">
-                 سجل اسمك في لائحة المتفوقين!!
+                    سجل اسمك في لائحة المتفوقين!!
                   </span>
                 </div>
               </div>
@@ -78,7 +75,9 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">الاسم الأول</span>
+                                <span className="text-[#fff] opacity-70">
+                                  الاسم الأول
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -130,7 +129,9 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">الاسم الأخير</span>
+                                <span className="text-[#fff] opacity-70">
+                                  الاسم الأخير
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -167,7 +168,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">رقم الهاتف</span>
+                                <span className="text-[#fff] opacity-70">
+                                  رقم الهاتف
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -204,7 +207,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">رقم هاتف ولي الأمر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  رقم هاتف ولي الأمر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -241,7 +246,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">البريد الإلكتروني</span>
+                                <span className="text-[#fff] opacity-70">
+                                  البريد الإلكتروني
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -278,7 +285,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">كلمة السر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  كلمة السر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -315,7 +324,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">تأكيد كلمة السر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  تأكيد كلمة السر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -336,9 +347,7 @@ const page = () => {
               <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse clr-text-secondary font-normal space-x-2">
                 <span className="text-[#ffffff8d]">عندك حساب قبل كده؟</span>
                 <a href="/login">
-                  <span className="text-[#f9c500]">
-                    سجل الدخول من هنا !
-                  </span>
+                  <span className="text-[#f9c500]">سجل الدخول من هنا !</span>
                 </a>
               </div>
             </div>
