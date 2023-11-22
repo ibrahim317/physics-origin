@@ -8,8 +8,16 @@ const HeroSection = () => {
         <Image
           src={"/assets/design.png"}
           alt='Physics Origin'
-          width={450}
-          height={450}
+          width={500}
+          height={500}
+        />
+      </div>
+      <div>
+      <Image
+          className='absolute bottom-0 left-1/2 my-6'
+          src={"/assets/scroll.png"}
+          width={50}
+          height={50}
         />
       </div>
     </section>
