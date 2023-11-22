@@ -16,6 +16,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -26,4 +30,5 @@ body {
     rgb(var(--background-start-rgb));
 
     @apply text-xl;
+    
 }
