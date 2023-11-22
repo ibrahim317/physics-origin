@@ -1,13 +1,25 @@
 import React from 'react'
-import Image from 'next/image'
 
 const NavBar = () => {
   return (
-    <nav>
-        <div className='items-center justify-left flex p-8'>
-            <a href={"/"}><Image src='/assets/po_logo.png' alt='LOGO' width={80} height={80}/></a>
-            <h3 className='mx-auto font-thin text-xl'>E n g i n e e r . A h m e d  Y o u s e f</h3>
+    <nav className='fixed flex items-center w-full h-24'>
+
+        <div className='container flex w-fit justify-around mx-10'> {/*/SignUp LogIn side (left side)/*/}
+            
+            <a href="#" className='px-10 py-4 mx-4 min-w-max'>سجل الدخول</a>
+            <a href="#" className='px-10 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px]'>اشترك الان!</a>
+
         </div>
+
+        <div className='container flex items-center'> {/*/(right side) #F9C500/*/}
+            <ul className='container flex justify-around'>
+                <li><a href="#" className='hover:text-[#F9C500] transition ease-in-out duration-300'>About</a></li>
+                <li><a href="#" className='hover:text-[#F9C500] transition ease-in-out duration-300'>Courses</a></li>
+                <li><a href="#" className='hover:text-[#F9C500] transition ease-in-out duration-300'>Contact</a></li>
+                <li><a href="#" className='hover:text-[#F9C500] transition ease-in-out duration-300'>Home</a></li>
+            </ul>
+        </div>
+
     </nav>
   )
 }

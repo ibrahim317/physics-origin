@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Alexandria } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Alexandria({ weight: '500', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Physics Origin',
