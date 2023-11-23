@@ -10,7 +10,7 @@ const CreateForm = () => {
   const { register, handleSubmit } = useForm();
 
   const sendData = async (data: any) => {
-    await axios.post("/api/register", data);
+    await axios.post("/api/auth/callback/credentials", data);
     router.push("/login");
   };
 
@@ -25,7 +25,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("first_name")}
+                  {...register("username")}
                   defaultValue=""
                 />
 
