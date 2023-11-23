@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import { Almarai } from "next/font/google";
 import "./globals.css";
+import NavBar from "../components/NavBar";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
-  description: "منصة احمد يوسف لتدريش منهج الفيزياء للصفوف الثانوية",
+  description: "I love potatoes (Don't you dare delete that)",
 };
+const inter = Almarai({ subsets: ["arabic"], weight: "400" });
+const classnames = inter.className + " darkmode smooth dark";
 
 export default function RootLayout({
   children,
@@ -13,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="smooth darkmode dark">{children}</body>
+      <body className={classnames}>{children}</body>
     </html>
   );
 }

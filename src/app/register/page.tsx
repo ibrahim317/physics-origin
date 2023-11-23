@@ -1,31 +1,27 @@
 import React from "react";
-import "./login.css";
-import SideImage from "@/public/assets/sideImage.jpg";
+import "./register.css";
+import SideImage from "@/public/assets/logo.png";
 import Image from "next/image";
 const page = () => {
   return (
     <>
-      <div className="w-full">
+      <div
+        className="w-full bg-cover"
+        style={{ backgroundImage: "url('/assets/bg.png')" }}
+      >
         <div className="halfPageSection flex flex-col lg:flex-row lg:min-h-screen space-y-10 lg:space-y-0">
-          <div className="lg:basis-2/5 min-w-0">
-            <Image
-              className="h-64 lg:h-full w-full overflow-hidden relative scalable-image"
-              src={SideImage}
-              alt="SideImage"
-            />
+          <div className="lg:basis-2/5 min-w-0 flex justify-center items-center">
+            <Image src={SideImage} width={300} height={300} alt="logo" />
           </div>
           <div className="lg:basis-3/5 flex-center-both pb-nav-margin">
             <div className="w-4/5 h-4/5 flex justify-center lg:px-10 flex-col space-y-6">
               <div className="font-h2 text-white font-w-bold relative">
                 <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse space-x-2">
-                  <span className="">أنشء</span>
-                  <span className="text-rose-600 dark:text-rose-400">
-                    حسابك الآن :
+                  <span className="text-[#F9C500] text-5xl">مستني ايه..</span>
+                  <span className="text-2xl my-10">
+                    سجل اسمك في لائحة المتفوقين!!
                   </span>
                 </div>
-              </div>
-              <div className="clr-text-secondary font-normal ">
-                ادخل بياناتك بشكل صحيح للحصول علي افضل تجربة داخل الموقع
               </div>
               <div className="">
                 <form encType="multipart/form-data">
@@ -79,7 +75,9 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span>الاسم الأول</span>
+                                <span className="text-[#fff] opacity-70">
+                                  الاسم الأول
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -131,7 +129,9 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span>الاسم الأخير</span>
+                                <span className="text-[#fff] opacity-70">
+                                  الاسم الأخير
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -168,7 +168,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span>رقم الهاتف</span>
+                                <span className="text-[#fff] opacity-70">
+                                  رقم الهاتف
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -205,7 +207,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span>رقم هاتف ولي الأمر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  رقم هاتف ولي الأمر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -242,7 +246,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span>البريد الإلكتروني</span>
+                                <span className="text-[#fff] opacity-70">
+                                  البريد الإلكتروني
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -279,7 +285,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span>كلمة السر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  كلمة السر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -316,7 +324,9 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span>تأكيد كلمة السر</span>
+                                <span className="text-[#fff] opacity-70">
+                                  تأكيد كلمة السر
+                                </span>
                               </div>
                             </label>
                           </div>
@@ -326,7 +336,7 @@ const page = () => {
                     <div className="flex">
                       <button
                         type="submit"
-                        className="  border-2 smooth false px-20 py-3 bg-rose-500 border-rose-500 dark:bg-rose-500 dark:border-rose-500 hover:bg-opacity-0 dark:hover:bg-opacity-0 dark:bg-opacity-100 bg-opacity-100 hover:text-rose-500 dark:hover:text-rose-500 clr-white rounded-md "
+                        className="text-[#fff] border-2 smooth false px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:bg-[#F9C500] hover:text-[#000] transition ease-in-out duration-300 border-[#F9C500] rounded-[25px] "
                       >
                         انشئ الحساب !
                       </button>
@@ -335,11 +345,9 @@ const page = () => {
                 </form>
               </div>
               <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse clr-text-secondary font-normal space-x-2">
-                <span>يوجد لديك حساب بالفعل؟</span>
+                <span className="text-[#ffffff8d]">عندك حساب قبل كده؟</span>
                 <a href="/login">
-                  <span className="text-blue-500 dark:text-blue-400">
-                    ادخل إلى حسابك الآن !
-                  </span>
+                  <span className="text-[#f9c500]">سجل الدخول من هنا !</span>
                 </a>
               </div>
             </div>
