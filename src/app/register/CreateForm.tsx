@@ -4,13 +4,45 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { z, ZodError } from "zod";
 
 const CreateForm = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
 
-  const sendData = async (data: any) => {
-    await axios.post("/api/auth/callback/credentials", data);
+  // Creating an object using {z} to help in vaildation
+  const userSchema = z.object({
+    name: z.string(),
+    last_name: z.string(),
+    phone: z.string(),
+    email: z.string().email(),
+    password: z.string(),
+  });
+  interface user {
+    id: number;
+    name: string;
+    last_name: string;
+    phone: string;
+    email: string;
+    password: string;
+    repassword: string;
+  }
+
+  const sendData = async (data: user) => {
+    try {
+      userSchema.parse(data);
+      console.log("Data is valid!");
+    } catch (error) {
+      if (error instanceof ZodError) {
+        console.error("Validation failed:", error.errors);
+      } else {
+        console.error("An unexpected error occurred:", error);
+      }
+    }
+    if (data.password != data.repassword) {
+      throw new Error("passowrd didn't match");
+    }
+    await axios.post("/api/register", data);
     router.push("/login");
   };
 
@@ -25,7 +57,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("username")}
+                  {...register("name")}
                   defaultValue=""
                 />
 
@@ -272,7 +304,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="password"
                   required
-                  {...register("password_confirmation")}
+                  {...register("repassword")}
                   defaultValue=""
                 />
                 <span className="bg" />
