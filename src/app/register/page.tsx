@@ -3,7 +3,7 @@ import CreateForm from "./CreateForm";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-import "./register.css";
+import "@/src/styles/register.css";
 
 export const metadata: Metadata = {
   title: "انشاء حساب جديد",

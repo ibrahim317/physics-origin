@@ -3,12 +3,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const CreateForm = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
 
-  const sendData = (data: any) => {};
+  const sendData = async (data: any) => {
+    await axios.post("/api/register", data);
+    router.push("/login");
+  };
 
   return (
     <form onSubmit={handleSubmit((data: any) => sendData(data))}>
@@ -24,6 +28,7 @@ const CreateForm = () => {
                   {...register("first_name")}
                   defaultValue=""
                 />
+
                 <span className="bg" />
                 <span className="highlight" />
                 <span className="bar" />

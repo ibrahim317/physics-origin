@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
-import "./globals.css";
+import "@/src/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
