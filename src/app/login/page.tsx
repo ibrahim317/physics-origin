@@ -1,5 +1,11 @@
 import React from "react";
 import "@/src/app/register/register.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "تسجيل دخول",
+};
+
 const page = () => {
   return (
     <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen ">
