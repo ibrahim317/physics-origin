@@ -75,7 +75,7 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className=" font-semibold text-[#fff] opacity-70">
                                   الاسم الأول
                                 </span>
                               </div>
@@ -129,7 +129,7 @@ const page = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   الاسم الأخير
                                 </span>
                               </div>
@@ -168,7 +168,7 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   رقم الهاتف
                                 </span>
                               </div>
@@ -207,7 +207,7 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   رقم هاتف ولي الأمر
                                 </span>
                               </div>
@@ -246,7 +246,7 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   البريد الإلكتروني
                                 </span>
                               </div>
@@ -285,7 +285,7 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   كلمة السر
                                 </span>
                               </div>
@@ -324,7 +324,7 @@ const page = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-[#fff] opacity-70">
+                                <span className="text-[#fff] opacity-70 font-semibold">
                                   تأكيد كلمة السر
                                 </span>
                               </div>
