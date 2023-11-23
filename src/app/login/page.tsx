@@ -1,5 +1,5 @@
 import React from "react";
-import "@/src/app/register/register.css";
+import "@/src/styles/register.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,8 +8,9 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
-    style={{ backgroundImage: "url('/assets/bg.png')" }}
+    <div
+      className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: "url('/assets/bg.png')" }}
     >
       <div className="w-3/5 h-3/5 my-auto mx-auto flex justify-center lg:px-10 flex-col  space-y-12">
         <div className="text-xl font-w-bold relative">
@@ -58,10 +59,7 @@ const page = () => {
                               />
                             </svg>
                           </span>
-                          <span
-                          className="font-semibold"
-                          >رقم الهاتف
-                          </span>
+                          <span className="font-semibold">رقم الهاتف</span>
                         </div>
                       </label>
                     </div>
@@ -98,11 +96,7 @@ const page = () => {
                               />
                             </svg>
                           </span>
-                          <span
-                          className="font-semibold"
-                          >
-                            كلمة السر
-                          </span>
+                          <span className="font-semibold">كلمة السر</span>
                         </div>
                       </label>
                     </div>
@@ -123,9 +117,7 @@ const page = () => {
         <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse clr-text-secondary font-normal space-x-2">
           <span className="text-[#ffffff8d]">معنكش حساب؟</span>
           <a href="/register">
-            <span className="text-[#f9c500]">
-              اعمل حسابك دلوقتي من هنا !
-            </span>
+            <span className="text-[#f9c500]">اعمل حسابك دلوقتي من هنا !</span>
           </a>
         </div>
       </div>

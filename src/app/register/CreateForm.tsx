@@ -3,12 +3,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const CreateForm = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
 
-  const sendData = (data: any) => {};
+  const sendData = async (data: any) => {
+    await axios.post("/api/auth/callback/credentials", data);
+    router.push("/login");
+  };
 
   return (
     <form onSubmit={handleSubmit((data: any) => sendData(data))}>
@@ -21,9 +25,10 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("first_name")}
+                  {...register("username")}
                   defaultValue=""
                 />
+
                 <span className="bg" />
                 <span className="highlight" />
                 <span className="bar" />

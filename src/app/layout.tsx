@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
-import "./globals.css";
+import "@/src/styles/globals.css";
+import Provider from "../components/Provider";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={classnames}>{children}</body>
+      <body className={classnames}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
