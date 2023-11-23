@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
+
+      
       name: "Credentials",
       credentials: {
         username: {
@@ -17,6 +19,9 @@ export const options: NextAuthOptions = {
           placeholder: "your-password",
         },
       },
+
+
+
       async authorize(credentials) {
         const user: any = { id: 12, name: "ibrahim", password: "123" };
         if (
