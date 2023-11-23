@@ -2,20 +2,18 @@ import React from "react";
 import "@/src/app/register/register.css";
 const page = () => {
   return (
-    <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen ">
-      <div
-        className="w-full bg-cover"
-        style={{ backgroundImage: "url('/assets/bg.png')" }}
-      ></div>
+    <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
+    style={{ backgroundImage: "url('/assets/bg.png')" }}
+    >
       <div className="w-3/5 h-3/5 my-auto mx-auto flex justify-center lg:px-10 flex-col  space-y-12">
         <div className="text-xl font-w-bold relative">
           <div className="flex flex-wrap lg:space-x-reverse  space-x-2">
-            <span className="">تسجيل</span>
-            <span className="text-blue-700 dark:text-blue-400">الدخول :</span>
+            <span className="text-[#F9C500] text-5xl">تسجيل </span>
+            <span className="text-5xl">الدخول</span>
           </div>
         </div>
-        <div className="clr-text-secondary font-normal ">
-          ادخل علي حسابك بإدخال رقم الهاتف و كلمة المرور المسجل بهم من قبل
+        <div className="text-2xl opacity-70">
+          ادخل علي حسابك برقم الهاتف و كلمة المرور اللي مسجل بيهم قبل كده
         </div>
         <div className="">
           <form encType="multipart/form-data">
@@ -54,7 +52,10 @@ const page = () => {
                               />
                             </svg>
                           </span>
-                          <span>رقم الهاتف</span>
+                          <span
+                          className="font-semibold"
+                          >رقم الهاتف
+                          </span>
                         </div>
                       </label>
                     </div>
@@ -91,7 +92,11 @@ const page = () => {
                               />
                             </svg>
                           </span>
-                          <span>كلمة السر</span>
+                          <span
+                          className="font-semibold"
+                          >
+                            كلمة السر
+                          </span>
                         </div>
                       </label>
                     </div>
@@ -101,7 +106,7 @@ const page = () => {
               <div className="flex">
                 <button
                   type="submit"
-                  className="  border-2 smooth false px-20 py-3 bg-blue-500 border-blue-500 dark:bg-blue-600 dark:border-blue-600 hover:bg-opacity-0 dark:hover:bg-opacity-0 dark:bg-opacity-100 bg-opacity-100 hover:text-blue-500 dark:hover:text-blue-600 clr-white rounded-md "
+                  className="text-[#fff] border-2 smooth false px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:bg-[#F9C500] hover:text-[#000] transition ease-in-out duration-300 border-[#F9C500] rounded-[25px]"
                 >
                   تسجيل الدخول
                 </button>
@@ -110,10 +115,10 @@ const page = () => {
           </form>
         </div>
         <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse clr-text-secondary font-normal space-x-2">
-          <span>لا يوجد لديك حساب؟</span>
+          <span className="text-[#ffffff8d]">معنكش حساب؟</span>
           <a href="/register">
-            <span className="text-rose-600 dark:text-rose-300">
-              انشئ حسابك الآن !
+            <span className="text-[#f9c500]">
+              اعمل حسابك دلوقتي من هنا !
             </span>
           </a>
         </div>
