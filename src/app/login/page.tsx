@@ -27,7 +27,7 @@ const page = () => {
                       <input
                         className="smooth z-10"
                         type="text"
-                        required=""
+                        required
                         id="phone"
                         defaultValue=""
                       />
@@ -64,7 +64,7 @@ const page = () => {
                       <input
                         className="smooth z-10"
                         type="password"
-                        required=""
+                        required
                         id="password"
                         defaultValue=""
                       />
