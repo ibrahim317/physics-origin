@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "@/src/styles/globals.css";
 import Provider from "../components/Provider";
+import HeroSection from "../components/HeroSection";
+import NavBar from "../components/NavBar";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -19,6 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={classnames}>
         <Provider>{children}</Provider>
+
+        <NavBar />
+        <HeroSection />
+
       </body>
     </html>
   );
