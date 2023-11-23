@@ -16,3 +16,11 @@ services:
 volumes:
   my-postgres-volume:
 
+# prisma:
+#   image: prismagraphql/prisma:latest
+#   command: ["--host", "db", "--port", "5432", "--schema", "prisma/schema.prisma"]
+#   ports:
+#     - "4466:4466"
+#   depends_on:
+#     - db
+

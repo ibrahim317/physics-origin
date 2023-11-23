@@ -12,6 +12,10 @@ generator client {
 
 model User {
   id    Int     @id @default(autoincrement())
+  first_n String
+  last_n String
+  phone String @unique
+  parent_phone String @unique
   email String  @unique
-  name  String?
+  pass String
 }
