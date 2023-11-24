@@ -2,16 +2,12 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options: NextAuthOptions = {
-
   session: {
-    strategy: 'jwt'
+    strategy: "jwt",
   },
-
 
   providers: [
     CredentialsProvider({
-
-
       name: "Credentials",
       credentials: {
         phone: {
@@ -21,24 +17,21 @@ export const options: NextAuthOptions = {
         password: {
           label: "password",
           type: "password",
-        }
+        },
       },
 
-
-      async authorize(credentials, req) {
-        const {phone, password} = credentials as {
-          phone: string;
-          password: string;
-        };
-
+      async authorize(credentials) {
         // checking
-        if (phone !== '01011111111' || password !== 'banana123#') {
-          throw new Error('Invalid Credentials')
+        if (
+          credentials?.phone != "01011111111" ||
+          credentials?.password != "banana123#"
+        ) {
+          throw new Error("Invalid Credentials");
         }
 
         // if everything is ok
         return "cool";
-      }
+      },
     }),
   ],
 
@@ -46,5 +39,4 @@ export const options: NextAuthOptions = {
     signIn: "@src/app/login",
     signOut: "@src/app/",
   },
-
 };

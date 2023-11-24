@@ -1,3 +1,4 @@
+"use client";
 import React, { FormEventHandler, useState } from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
@@ -8,15 +9,15 @@ export const metadata: Metadata = {
 };
 
 // *****************signin******************************* //
-const [userInfo, setUserInfo] = useState({ phone: "", password: ""});
+const [userInfo, setUserInfo] = useState({ phone: "", password: "" });
 
-const hundleSubmit:FormEventHandler<HTMLFormElement> = async (e) => {
+const hundleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
   e.preventDefault();
-  await signIn('credentials', {
+  await signIn("credentials", {
     phone: userInfo.phone,
     password: userInfo.password,
     redirect: false,
-  })
+  });
 };
 // *****************signin******************************* //
 
@@ -37,10 +38,11 @@ const page = () => {
           ادخل علي حسابك برقم الهاتف و كلمة المرور اللي مسجل بيهم قبل كده
         </div>
         <div className="">
-          <form encType="multipart/form-data"
-// *****************signin******************************* //
-          onSubmit={handleSubmit}
-// *****************signin******************************* //
+          <form
+            encType="multipart/form-data"
+            // *****************signin******************************* //
+            onSubmit={hundleSubmit}
+            // *****************signin******************************* //
           >
             <div className="space-y-6">
               <div>
@@ -55,7 +57,7 @@ const page = () => {
                         defaultValue=""
                         value={userInfo.phone} //**********signin*******//
                         onChange={({ target }) => {
-                          setUserInfo({...userInfo, phone: target.value})
+                          setUserInfo({ ...userInfo, phone: target.value });
                         }}
                       />
                       <span className="bg" />
@@ -96,7 +98,7 @@ const page = () => {
                         defaultValue=""
                         value={userInfo.password} //**********signin*******//
                         onChange={({ target }) => {
-                          setUserInfo({...userInfo, password: target.value})
+                          setUserInfo({ ...userInfo, password: target.value });
                         }}
                       />
                       <span className="bg" />
@@ -132,12 +134,12 @@ const page = () => {
               <div className="flex">
                 <button
                   className="text-[#fff] border-2 smooth false px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:bg-[#F9C500] hover:text-[#000] transition ease-in-out duration-300 border-[#F9C500] rounded-[25px]"
-// *****************signin******************************* //
+                  // *****************signin******************************* //
                   type="submit"
                   onClick={() => {
                     signIn();
                   }}
-// *****************signin******************************* //
+                  // *****************signin******************************* //
                 >
                   تسجيل الدخول
                 </button>
