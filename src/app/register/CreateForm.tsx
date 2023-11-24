@@ -4,6 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { vaild } from "@/src/lib/vaild";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const CreateForm = () => {
   const { register, handleSubmit } = useForm();
@@ -14,7 +15,8 @@ const CreateForm = () => {
     } catch {
       return;
     }
-    router.push("/login");
+    toast.success("تم انشاء الحساب وسيتم التوجه لتسجيل الدخول");
+    setTimeout(() => router.push("/login"), 3500);
   };
   return (
     <form onSubmit={handleSubmit((data: any) => submit(data))}>

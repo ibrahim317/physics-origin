@@ -1,4 +1,4 @@
-import React, { FormEventHandler, useState } from "react";
+import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
 import { signIn } from "next-auth/react";
@@ -24,12 +24,7 @@ const page = () => {
           ادخل علي حسابك برقم الهاتف و كلمة المرور اللي مسجل بيهم قبل كده
         </div>
         <div className="">
-          <form
-            encType="multipart/form-data"
-            // *****************signin******************************* //
-            onSubmit={() => console.log("login")}
-            // *****************signin******************************* //
-          >
+          <form>
             <div className="space-y-6">
               <div>
                 <div className="space-y-12">
@@ -112,12 +107,7 @@ const page = () => {
               <div className="flex">
                 <button
                   className="text-[#fff] border-2 smooth false px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:bg-[#F9C500] hover:text-[#000] transition ease-in-out duration-300 border-[#F9C500] rounded-[25px]"
-                  // *****************signin******************************* //
                   type="submit"
-                  onClick={() => {
-                    signIn();
-                  }}
-                  // *****************signin******************************* //
                 >
                   تسجيل الدخول
                 </button>

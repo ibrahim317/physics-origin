@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={classnames}>
         <Provider>
-          <Toaster />
+          <Toaster position="top-right" reverseOrder />
           {children}
         </Provider>
       </body>
