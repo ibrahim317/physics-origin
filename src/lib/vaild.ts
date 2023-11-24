@@ -15,10 +15,13 @@ export const vaild = async (data: user) => {
   const userSchema = z.object({
     name: z.string(),
     last_name: z.string(),
-    phone: z.string().min(11, "رقم الهاتف غير صحيح").max(11),
-    father_phone: z.string().min(11, "رقم هاتف ولي الأمر غير صحيح").max(11),
+    phone: z
+      .string()
+      .min(11, "رقم الهاتف غير صحيح")
+      .max(11, "رقم الهاتف غير صحيح"),
+    parent_phone: z.string().min(11, "رقم هاتف ولي الأمر غير صحيح").max(11),
     email: z.string().email("البريد الإكتروني غير مناسب"),
-    password: z.string().min(8, "passowrd must be more than 8 characters"),
+    password: z.string().min(8, "كلمة المرور يجب ألا تقل عن 8 احرف"),
   });
 
   const vaildtaion = userSchema.safeParse(data);
@@ -34,7 +37,7 @@ export const vaild = async (data: user) => {
       throw new Error(error);
     }
   } else {
-    toast.error("Password dosen't match");
+    toast.error("كلمة المرور لا تطابق التأكيد");
     throw new Error();
   }
 };

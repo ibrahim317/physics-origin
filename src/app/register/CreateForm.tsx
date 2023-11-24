@@ -16,7 +16,7 @@ const CreateForm = () => {
       return;
     }
     toast.success("تم انشاء الحساب وسيتم التوجه لتسجيل الدخول");
-    setTimeout(() => router.push("/login"), 3500);
+    setTimeout(() => router.push("/login"), 2000);
   };
   return (
     <form onSubmit={handleSubmit((data: any) => submit(data))}>
@@ -161,7 +161,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("father_phone")}
+                  {...register("parent_phone")}
                   defaultValue=""
                 />
                 <span className="bg" />

@@ -6,7 +6,7 @@ import React from "react";
 import "@/src/styles/register.css";
 
 export const metadata: Metadata = {
-  title: "Register",
+  title: "انشاء حساب",
 };
 const page = () => {
   return (
