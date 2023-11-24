@@ -24,7 +24,9 @@ const page = () => {
           ادخل علي حسابك برقم الهاتف و كلمة المرور اللي مسجل بيهم قبل كده
         </div>
         <div className="">
-          <form>
+          <form
+            //***************************************** */
+          >
             <div className="space-y-6">
               <div>
                 <div className="space-y-12">

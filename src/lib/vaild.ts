@@ -1,7 +1,9 @@
+// register thing //
 import axios from "axios";
 import { z, ZodError } from "zod";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+
 interface user {
   id: number;
   name: string;
@@ -11,6 +13,7 @@ interface user {
   password: string;
   repassword: string;
 }
+
 export const vaild = async (data: user) => {
   const userSchema = z.object({
     name: z.string(),
