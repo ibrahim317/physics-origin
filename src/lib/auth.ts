@@ -2,32 +2,41 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const options: NextAuthOptions = {
+  session: {
+    strategy: "jwt",
+  },
+
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: {
-          label: "Username",
+        phone: {
+          label: "phone",
           type: "text",
-          placeholder: "your-username",
         },
         password: {
-          label: "Password",
+          label: "password",
           type: "password",
-          placeholder: "your-password",
         },
       },
+
       async authorize(credentials) {
-        const user: any = { id: 12, name: "ibrahim", password: "123" };
+        // checking
         if (
-          credentials?.password === user.password &&
-          credentials?.username === user.name
+          credentials?.phone != "01011111111" ||
+          credentials?.password != "banana123#"
         ) {
-          return user;
-        } else {
-          return null;
+          throw new Error("Invalid Credentials");
         }
+
+        // if everything is ok
+        return "cool";
       },
     }),
   ],
+
+  pages: {
+    signIn: "@src/app/login",
+    signOut: "@src/app/",
+  },
 };
