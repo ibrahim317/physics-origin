@@ -1,4 +1,3 @@
-"use client";
 import React, { FormEventHandler, useState } from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
@@ -7,19 +6,6 @@ import { signIn } from "next-auth/react";
 export const metadata: Metadata = {
   title: "Login",
 };
-
-// *****************signin******************************* //
-const [userInfo, setUserInfo] = useState({ phone: "", password: "" });
-
-const hundleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-  e.preventDefault();
-  await signIn("credentials", {
-    phone: userInfo.phone,
-    password: userInfo.password,
-    redirect: false,
-  });
-};
-// *****************signin******************************* //
 
 const page = () => {
   return (
@@ -41,7 +27,7 @@ const page = () => {
           <form
             encType="multipart/form-data"
             // *****************signin******************************* //
-            onSubmit={hundleSubmit}
+            onSubmit={() => console.log("login")}
             // *****************signin******************************* //
           >
             <div className="space-y-6">
@@ -55,10 +41,6 @@ const page = () => {
                         required
                         id="phone"
                         defaultValue=""
-                        value={userInfo.phone} //**********signin*******//
-                        onChange={({ target }) => {
-                          setUserInfo({ ...userInfo, phone: target.value });
-                        }}
                       />
                       <span className="bg" />
                       <span className="highlight" />
@@ -96,10 +78,6 @@ const page = () => {
                         required
                         id="password"
                         defaultValue=""
-                        value={userInfo.password} //**********signin*******//
-                        onChange={({ target }) => {
-                          setUserInfo({ ...userInfo, password: target.value });
-                        }}
                       />
                       <span className="bg" />
                       <span className="highlight" />
