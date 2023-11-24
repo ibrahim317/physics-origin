@@ -3,12 +3,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { vaild } from "@/src/lib/vaild";
+import { useRouter } from "next/navigation";
 
 const CreateForm = () => {
   const { register, handleSubmit } = useForm();
-
+  const router = useRouter();
+  const submit = async (data: any) => {
+    try {
+      await vaild(data);
+    } catch {
+      return;
+    }
+    router.push("/login");
+  };
   return (
-    <form onSubmit={handleSubmit((data: any) => vaild(data))}>
+    <form onSubmit={handleSubmit((data: any) => submit(data))}>
       <div className="space-y-6">
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
