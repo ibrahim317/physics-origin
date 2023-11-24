@@ -2,52 +2,13 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { z, ZodError } from "zod";
+import { vaild } from "@/src/lib/vaild";
 
 const CreateForm = () => {
-  const router = useRouter();
   const { register, handleSubmit } = useForm();
 
-  // Creating an object using {z} to help in vaildation
-  const userSchema = z.object({
-    name: z.string(),
-    last_name: z.string(),
-    phone: z.string(),
-    email: z.string().email(),
-    password: z.string(),
-  });
-  interface user {
-    id: number;
-    name: string;
-    last_name: string;
-    phone: string;
-    email: string;
-    password: string;
-    repassword: string;
-  }
-
-  const sendData = async (data: user) => {
-    try {
-      userSchema.parse(data);
-      console.log("Data is valid!");
-    } catch (error) {
-      if (error instanceof ZodError) {
-        console.error("Validation failed:", error.errors);
-      } else {
-        console.error("An unexpected error occurred:", error);
-      }
-    }
-    if (data.password != data.repassword) {
-      throw new Error("passowrd didn't match");
-    }
-    await axios.post("/api/register", data);
-    router.push("/login");
-  };
-
   return (
-    <form onSubmit={handleSubmit((data: any) => sendData(data))}>
+    <form onSubmit={handleSubmit((data: any) => vaild(data))}>
       <div className="space-y-6">
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

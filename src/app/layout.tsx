@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "@/src/styles/globals.css";
 import Provider from "../components/Provider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classnames}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Toaster />
+          {children}
+        </Provider>
       </body>
     </html>
   );

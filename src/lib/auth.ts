@@ -23,7 +23,6 @@ export const options: NextAuthOptions = {
           credentials?.password === user.password &&
           credentials?.username === user.name
         ) {
-          console.log(user);
           return user;
         } else {
           return null;
