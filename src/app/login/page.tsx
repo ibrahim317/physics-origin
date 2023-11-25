@@ -15,7 +15,7 @@ const session = await getServerSession();
 const page = () => {
 
   if (session) {
-    redirect("/login");
+    redirect("/profile");
     return null;
   }
 
