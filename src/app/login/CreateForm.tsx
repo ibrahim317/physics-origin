@@ -19,11 +19,18 @@ const CreateForm = () => {
                 password,
                 redirect: false, // does not redirect from the page the visitor come from before redirecting to the login
             })
+
+            if (res.error) {
+                toast.error("البيانات غير صحيحة");
+            } else {
+                toast.success("تم تسجيل الدخول بنجاح");
+                setTimeout(() => router.push("/profile"), 2000);
+            }
+
         } catch(error) {
             return;
         }
-        toast.success("تم تسجيل الدخول بنجاح");
-        setTimeout(() => router.push("/profile"), 2000);
+        
     }
 
     
