@@ -1,14 +1,15 @@
 import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
-import { signIn } from "next-auth/react";
 import CreateForm from "./CreateForm";
 
 export const metadata: Metadata = {
   title: "Login",
 };
 
+
 const page = () => {
+
   return (
     <div
       className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"

@@ -1,7 +1,17 @@
+'use client';
 import Link from "next/link";
 import React from "react";
+import { getServerSession } from "next-auth";
 
-const NavBar = () => {
+
+const NavBar = async () => {
+
+  const session = await getServerSession()
+
+  if (session) {
+    return null;
+  }
+
   return (
     <nav className="fixed flex items-center justify-around w-full h-28 px-20">
       <div className="container flex w-fit justify-around mx-10 drop-shadow-md shadow-lg rounded-[50px] bg-black bg-opacity-20 py-4">
