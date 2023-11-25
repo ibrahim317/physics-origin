@@ -3,10 +3,11 @@ import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
 import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "تسجيل الدخول",
 };
 
 const session = await getServerSession();
@@ -14,6 +15,7 @@ const session = await getServerSession();
 const page = () => {
 
   if (session) {
+    redirect("/login");
     return null;
   }
 
