@@ -23,7 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={classnames}>
-        <SessionProvider session={session}> {/*/ This is what keeps the session /*/}
+        <SessionProvider session={session}> {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
           {children}
         </SessionProvider>
