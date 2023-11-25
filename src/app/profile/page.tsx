@@ -1,4 +1,4 @@
-"use client"; // may change
+"use client"; // may
 import { useSession, signOut, signIn } from "next-auth/react"
 
 const profile = () => {
