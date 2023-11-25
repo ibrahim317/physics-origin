@@ -13,7 +13,7 @@ const page = () => {
     <>
       <div
         className="w-full bg-cover"
-        style={{ backgroundImage: "url('/assets/bg.png')" }}
+        style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
       >
         <div className="halfPageSection flex flex-col lg:flex-row lg:min-h-screen space-y-10 lg:space-y-0">
           <div className="lg:basis-2/5 min-w-0 flex justify-center items-center">
