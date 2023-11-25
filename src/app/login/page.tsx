@@ -19,7 +19,7 @@ const page = async () => {
   return (
     <div
       className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/bg.png')" }}
+      style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
     >
       <div className="w-3/5 h-3/5 my-auto mx-auto flex justify-center lg:px-10 flex-col  space-y-12">
         <div className="text-xl font-w-bold relative">
