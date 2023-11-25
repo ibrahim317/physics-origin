@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import "@/src/styles/register.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "إنشاء حساب",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
+      <Link href="/" className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]">رجوع</Link>
       <div
         className="w-full bg-cover"
         style={{ backgroundImage: "url('/assets/bg2.jpg')" }}

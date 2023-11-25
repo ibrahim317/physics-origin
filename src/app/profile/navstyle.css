@@ -1,0 +1,50 @@
+nav {
+    position: relative;
+}
+nav a{
+    cursor: pointer;
+    color: #fff;
+    z-index: 1;
+    text-align: center;
+    display: inline-block;
+    line-height: 48px;
+    z-index: 1;
+    position: relative;
+}
+
+a:nth-child(1){
+    width: 150px;
+}
+a:nth-child(2){
+    width: 150px;
+}
+a:nth-child(3){
+    width: 150px;
+}
+
+nav .animation{
+    position: absolute;
+    padding-top: 55px; /*max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500]*/
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 0;
+    background: #F9C500;
+    border-radius: 25px;
+    transition: all 0.5s ease 0s;
+}
+nav .start-me,
+a:nth-child(3):hover~.animation{
+    width: 130px;
+    right: 15px;
+}
+nav .start-mycourses,
+a:nth-child(2):hover~.animation{
+    width: 140px;
+    right: 160px;
+}
+nav .start-myhistory,
+a:nth-child(1):hover~.animation{
+    width: 125px;
+    right: 320px;
+}
+
