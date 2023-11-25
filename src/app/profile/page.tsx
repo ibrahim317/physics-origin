@@ -16,7 +16,7 @@ const profile = () => {
   return ( // if logged in
         <>
           <h1 className="text-3xl text-center text-black">You are logged in!</h1>
-          <button onClick={() => signOut()} className="text-xl text-black">Sign out</button>
+          <button onClick={async () => await signOut()} className="text-xl text-black">Sign out</button>
         </>
       )
   
