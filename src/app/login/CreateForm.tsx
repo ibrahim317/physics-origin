@@ -20,10 +20,10 @@ const CreateForm = () => {
                 redirect: false, // does not redirect from the page the visitor come from before redirecting to the login
             })
         } catch(error) {
-            console.log(error);
             return;
         }
-        if (res)
+        toast.success("تم تسجيل الدخول بنجاح");
+        setTimeout(() => router.push("/profile"), 2000);
     }
 
     
