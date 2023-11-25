@@ -35,7 +35,7 @@ export const vaild = async (data: user) => {
     try {
       await axios.post("/api/register", data);
     } catch (error: any) {
-      toast.error(error.message);
+      toast.error("هذا الحساب مسجل سابقاً");
       throw new Error(error);
     }
   } else {
