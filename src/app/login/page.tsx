@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   title: "تسجيل الدخول",
 };
 
-const page = () => {
+const session = await getServerSession();
+const page = async () => {
+  if (session) {
+    redirect("/profile");
+  }
+
   return (
     <div
       className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
