@@ -1,9 +1,9 @@
 "use client"; // may change
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const profile = () => {
-  const router = useRouter();
+  // const router = useRouter();
   // const { data: session } = useSession(); // tells if you have a session or not (logged in or not)
 
   // if (!session) {
