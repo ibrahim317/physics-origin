@@ -1,13 +1,12 @@
 'use client';
 import Link from "next/link";
 import React from "react";
-import { getServerSession } from "next-auth";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 
 const NavBar = async () => {
 
-  const session = await getServerSession()
+  const { data: session } = useSession();
 
   if (session) {
     return (

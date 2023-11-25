@@ -2,13 +2,20 @@ import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
+import { getServerSession } from "next-auth";
+
 
 export const metadata: Metadata = {
   title: "Login",
 };
 
+const session = await getServerSession();
 
 const page = () => {
+
+  if (session) {
+    return null;
+  }
 
   return (
     <div
@@ -29,7 +36,7 @@ const page = () => {
           <CreateForm />
         </div>
         <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse clr-text-secondary font-normal space-x-2">
-          <span className="text-[#ffffff8d]">معنكش حساب؟</span>
+          <span className="text-[#ffffff8d]">معندكش حساب؟</span>
           <a href="/register">
             <span className="text-[#f9c500]">اعمل حسابك دلوقتي من هنا !</span>
           </a>
