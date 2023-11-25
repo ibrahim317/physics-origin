@@ -24,7 +24,7 @@ const CreateForm = () => {
                 toast.error("البيانات غير صحيحة");
             } else {
                 toast.success("تم تسجيل الدخول بنجاح");
-                setTimeout(() => router.push("/profile"), 2000);
+                setTimeout(() => router.push("/"), 2000);
             }
 
         } catch(error) {
