@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 };
 
 const session = await getServerSession();
-const page = async () => {
+
+const page = () => {
 
   if (session) {
     redirect("/profile");
