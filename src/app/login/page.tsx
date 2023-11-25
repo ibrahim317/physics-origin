@@ -2,7 +2,6 @@ import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 
