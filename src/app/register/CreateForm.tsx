@@ -1,17 +1,24 @@
 "use client";
-
 import React from "react";
 import { useForm } from "react-hook-form";
+import { vaild } from "@/src/lib/vaild";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const CreateForm = () => {
-  const router = useRouter();
   const { register, handleSubmit } = useForm();
-
-  const sendData = (data: any) => {};
-
+  const router = useRouter();
+  const submit = async (data: any) => {
+    try {
+      await vaild(data);
+    } catch {
+      return;
+    }
+    toast.success("تم انشاء الحساب وسيتم التوجه لتسجيل الدخول");
+    setTimeout(() => router.push("/login"), 2000);
+  };
   return (
-    <form onSubmit={handleSubmit((data: any) => sendData(data))}>
+    <form onSubmit={handleSubmit((data: any) => submit(data))}>
       <div className="space-y-6">
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -21,9 +28,10 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("first_name")}
+                  {...register("name")}
                   defaultValue=""
                 />
+
                 <span className="bg" />
                 <span className="highlight" />
                 <span className="bar" />
@@ -152,7 +160,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="text"
                   required
-                  {...register("father_phone")}
+                  {...register("parent_phone")}
                   defaultValue=""
                 />
                 <span className="bg" />
@@ -267,7 +275,7 @@ const CreateForm = () => {
                   className="smooth z-10"
                   type="password"
                   required
-                  {...register("password_confirmation")}
+                  {...register("repassword")}
                   defaultValue=""
                 />
                 <span className="bg" />
