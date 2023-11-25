@@ -20,6 +20,19 @@ const CreateForm = () => {
                 redirect: false, // does not redirect from the page the visitor come from before redirecting to the login
             })
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      if (res?.error) {
+        toast.error("البيانات غير صحيحة");
+      } else {
+        toast.success("تم تسجيل الدخول بنجاح");
+        setTimeout(() => router.push("/profile"), 2000);
+      }
+    } catch (error) {
+      return;
+=======
+>>>>>>> Stashed changes
             if (res.error) {
                 toast.error("البيانات غير صحيحة");
             } else {
@@ -31,6 +44,10 @@ const CreateForm = () => {
             return;
         }
         
+<<<<<<< Updated upstream
+=======
+>>>>>>> landing-0
+>>>>>>> Stashed changes
     }
 
     

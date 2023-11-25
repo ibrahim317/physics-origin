@@ -2,10 +2,19 @@ import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> landing-0
+>>>>>>> Stashed changes
 export const metadata: Metadata = {
   title: "تسجيل الدخول",
 };
@@ -13,12 +22,21 @@ export const metadata: Metadata = {
 const session = await getServerSession();
 
 const page = () => {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 
   if (session) {
     redirect("/profile");
     return null;
   }
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> landing-0
+>>>>>>> Stashed changes
   return (
     <div
       className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
