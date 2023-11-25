@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import CreateForm from "./CreateForm";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "تسجيل الدخول",
@@ -18,7 +19,9 @@ const page = () => {
   }
 
   return (
-    <div
+    <>
+      <Link href="/" className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]">رجوع</Link>
+      <div
       className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
     >
@@ -43,6 +46,7 @@ const page = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
