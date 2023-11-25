@@ -1,4 +1,4 @@
-// login thing //
+// where we do all the sign in authentications with whatever prividers
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@/prisma/generated/client";
@@ -8,10 +8,11 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  secret: process.env.NEXTAUTH_SECRET,
 
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: "Credentials", // use this name when using signIn function
       credentials: {
         phone: {
           label: "phone",
@@ -23,7 +24,7 @@ export const authOptions: NextAuthOptions = {
         },
       },
 
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         // check to see if user exists
         const user = await prisma.user.findUnique({
           where: {
@@ -41,7 +42,6 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Incorrect password");
         }
 
-        setTimeout(() => console.log("ibrahim is the best"), 2000);
         return user;
       },
     }),
@@ -52,3 +52,4 @@ export const authOptions: NextAuthOptions = {
     signOut: "/",
   },
 };
+
