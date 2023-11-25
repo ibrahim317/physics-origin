@@ -1,41 +1,43 @@
 'use client';
-import { useState } from "react";
+import {useForm} from "react-hook-form"; 
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const CreateForm = () => {
-    const [phone, setPhone] = useState("");
-    const [password, setPassword] = useState("");
+  
+  const route = useRouter();
 
-    const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+  } = useForm();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const onSubmit = async (data: any) => {
 
-        try {
-            const res = await signIn('credentials', {
-                phone,
-                password,
-                redirect: false, // does not redirect from the page the visitor come from before redirecting to the login
-            })
+    const { phone, password } = data;
 
-            if (res.error) {
-                toast.error("البيانات غير صحيحة");
-            } else {
-                toast.success("تم تسجيل الدخول بنجاح");
-                setTimeout(() => router.push("/profile"), 2000);
-            }
+      try { // our login logic
+        const res = await signIn('credentials', {
+          phone,
+          password,
+          redirect: false, // Set to false to handle redirection manually
+        });
 
-        } catch(error) {
-            return;
+        if (res?.error) {
+          toast.error("البيانات غير صحيحة");
+        } else {
+          toast.success("تم تسجيل الدخول بنجاح");
+          setTimeout(() => route.push("/profile"), 750);
         }
-        
-    }
+      
+      } catch(error) {
+        toast.error("حدثت مشكلة أثناء تسجيل الدخول");
+        }
+    };
 
-    
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit((data: any) => onSubmit(data))}>
             <div className="space-y-6">
               <div>
                 <div className="space-y-12">
@@ -47,7 +49,7 @@ const CreateForm = () => {
                         required
                         id="phone"
                         defaultValue=""
-                        onChange={(e) => setPhone(e.target.value)}
+                        {...register("phone")}
                       />
                       <span className="bg" />
                       <span className="highlight" />
@@ -85,7 +87,7 @@ const CreateForm = () => {
                         required
                         id="password"
                         defaultValue=""
-                        onChange={(e) => setPassword(e.target.value)}
+                        {...register("password")}
                       />
                       <span className="bg" />
                       <span className="highlight" />
