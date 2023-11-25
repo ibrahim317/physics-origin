@@ -3,7 +3,7 @@ import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
 export const metadata: Metadata = {
-  title: "Login",
+  title: "تسجيل الدخول",
 };
 
 const page = () => {

@@ -1,8 +1,7 @@
 // register thing //
 import axios from "axios";
-import { z, ZodError } from "zod";
+import { z } from "zod";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 interface user {
   id: number;
