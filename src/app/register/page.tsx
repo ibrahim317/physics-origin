@@ -4,23 +4,22 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import "@/src/styles/register.css";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "إنشاء حساب",
 };
 const page = () => {
   return (
-    <>
-      <Link
-        href="/"
-        className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]"
-      >
-        رجوع
-      </Link>
-      <div className="halfPageSection flex flex-col lg:flex-row lg:min-h-screen space-y-10 lg:space-y-0">
+    <div className="bg-[#232935]">
+      <div className="halfPageSection min-h-[calc(100vh-6rem)] flex flex-col p-14 lg:flex-row  ">
         <div className="lg:basis-2/5 min-w-0 flex justify-center items-center">
-          <Image src={SideImage} width={300} height={300} alt="logo" />
+          <Image
+            src={SideImage}
+            width={300}
+            className=" max-md:hidden"
+            height={300}
+            alt="logo"
+          />
         </div>
         <div className="lg:basis-3/5 flex-center-both pb-nav-margin">
           <div className="w-4/5 h-4/5 flex justify-center lg:px-10 flex-col space-y-6">
@@ -44,7 +43,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

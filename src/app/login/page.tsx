@@ -18,21 +18,15 @@ const page = async () => {
 
   return (
     <>
-      <Link
-        href="/"
-        className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]"
-      >
-        رجوع
-      </Link>
-      <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center">
+      <div className="halfPageSection min-h-[calc(100vh-6rem)] w-screen  flex flex-col lg:flex-row bg-cover bg-center">
         <div className="w-3/5 h-3/5 my-auto mx-auto flex justify-center lg:px-10 flex-col  space-y-12">
           <div className="text-xl font-w-bold relative">
-            <div className="flex flex-wrap lg:space-x-reverse  space-x-2">
-              <span className="text-[#F9C500] text-5xl">تسجيل </span>
-              <span className="text-5xl">الدخول</span>
+            <div className="flex gap-2 lg:space-x-reverse  space-x-2">
+              <span className="text-[#F9C500] text-3xl">تسجيل </span>
+              <span className="text-3xl">الدخول</span>
             </div>
           </div>
-          <div className="text-2xl opacity-70">
+          <div className="text-xl opacity-70">
             ادخل علي حسابك برقم الهاتف و كلمة المرور اللي مسجل بيهم قبل كده
           </div>
           <div className="">

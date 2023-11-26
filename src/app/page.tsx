@@ -5,7 +5,6 @@ import CourceSection from "../components/CourceSection";
 export default function Home() {
   return (
     <>
-      <NavBar />
       <HeroSection />
       <CourceSection />
     </>
