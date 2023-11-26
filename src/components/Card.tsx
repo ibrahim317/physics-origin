@@ -4,7 +4,7 @@ import Image from "next/image";
 const Card = () => {
   return (
     <div
-      className={`min-h-[500px] hover:-translate-x-4 hover:-translate-y-4 duration-500 ease-in-out flex flex-col p-3 gap-5 rounded-lg`}
+      className={`min-h-[500px] hover:border-solid hover:border-y-2 hover:border-white  hover:-translate-x-4 hover:-translate-y-4 transition-transform duration-500 ease-in-out flex flex-col p-3 gap-5 rounded-lg`}
       style={{ backgroundColor: `#111827` }}
     >
       <Image

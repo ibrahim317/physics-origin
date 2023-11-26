@@ -34,7 +34,7 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="fixed flex items-center z-10 justify-around w-full h-28 px-20">
+    <nav className="absolute flex items-center z-10 justify-around w-full h-28 px-20">
       <div className="container flex w-fit justify-around mx-10 drop-shadow-md shadow-lg rounded-[50px] bg-black bg-opacity-20 py-4">
         <Link
           href="/login"

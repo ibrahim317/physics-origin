@@ -13,9 +13,9 @@ const HeroSection = () => {
           alt="Physics Origin"
           width={500}
           height={500}
+          className="max-w-[80%] m-auto"
         />
       </div>
-      
     </section>
   );
 };

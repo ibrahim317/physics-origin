@@ -12,9 +12,14 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      <Link href="/" className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]">رجوع</Link>
+      <Link
+        href="/"
+        className="text-xl absolute top-10 right-10 px-10 max-sm:text-sm max-sm:font-bold py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]"
+      >
+        رجوع
+      </Link>
       <div
-        className="w-full bg-cover"
+        className="w-full bg-cover  max-lg:py-40"
         style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
       >
         <div className="halfPageSection flex flex-col lg:flex-row lg:min-h-screen space-y-10 lg:space-y-0">
