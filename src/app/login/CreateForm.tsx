@@ -116,7 +116,7 @@ const CreateForm = () => {
         </div>
         <div className="flex">
           <button
-            className="text-[#fff] border-2 smooth false px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:bg-[#F9C500] hover:text-[#000] transition ease-in-out duration-300 border-[#F9C500] rounded-[25px]"
+            className="text-[#000] bg-color px-10 max-sm:px-5 py-4 mx-4 min-w-max bg-[#F9C500] hover:bg-[#FFF] transition ease-in-out duration-300 rounded-[25px]"
             type="submit"
           >
             تسجيل الدخول
