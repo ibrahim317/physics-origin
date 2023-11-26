@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import logo from "@/public/assets/logo.png";
-import { usePathname } from "next/navigation";
 
-const NavBar = () => {
+const NavBar = (props: any) => {
   const { data: session } = useSession();
   const [toggled, setToggle] = useState(false);
 
@@ -47,7 +46,7 @@ const NavBar = () => {
         }}
         className="fixed flex flex-col bg-[#1b2029] z-20 justify-around  w-full "
       >
-        <div className="flex justify-around max-sm:justify-between items-center w-full h-24  drop-shadow-md shadow-lg  py-4">
+        <div className="flex justify-around max-sm:justify-between items-center w-full h-24 drop-shadow-md shadow-lg py-4">
           <Link href="/">
             <Image
               src={logo}
@@ -93,22 +92,22 @@ const NavBar = () => {
             <Link
               onClick={() => setToggle(!toggled)}
               href="register"
-              className="px-5  hover:bg-[#F9C500] hover:border-opacity-0 w-[50%] border-white border-[1px] rounded-lg py-4 mx-4 transition ease-in-out duration-300"
+              className="w-[50%] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
             >
               اشترك الان
             </Link>
             <Link
               onClick={() => setToggle(!toggled)}
               href="/login"
-              className="px-5  hover:bg-[#F9C500] hover:border-opacity-0 w-[50%] border-white border-[1px] rounded-lg py-4 mx-4 transition ease-in-out duration-300"
+              className="border-white border-[1px] rounded-3xl w-[50%] px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:text-[#F9C500] hover:border-[#F9C500] transition ease-in-out duration-300"
             >
-              تسجيل دخول
+              سجل الدخول
             </Link>
           </div>
         ) : (
           <></>
         )}
-      </nav>
+      </nav><div className="h-24"></div> {/* reseves a space */}
     </>
   );
 };
