@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import logo from "@/public/assets/logo.png";
 
 const NavBar = () => {
   const { data: session } = useSession();
+  const [toggled, setToggle] = useState(false);
 
   if (session) {
     return (
@@ -60,10 +61,45 @@ const NavBar = () => {
           >
             !اشترك الان
           </Link>
-          <p className="sm:hidden mx-6">menu</p>
+          <button
+            className="sm:hidden mx-6 duration-200"
+            onClick={() => setToggle(!toggled)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width={40}
+              height={40}
+              viewBox="0 0 72 72"
+              style={{ fill: "#FFFFFF" }}
+            >
+              <path d="M56 48c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 48 54.798 48 56 48zM56 32c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 32 54.798 32 56 32zM56 16c2.209 0 4 1.791 4 4 0 2.209-1.791 4-4 4-1.202 0-38.798 0-40 0-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4C17.202 16 54.798 16 56 16z" />
+            </svg>
+          </button>
         </div>
       </nav>
       <div className="h-24"></div>
+      {toggled ? (
+        <div className="sm:hidden drop-shadow-md hadow-lg bg-black  flex text-center items-center flex-row-reverse bg-opacity-20 p-7   justify-end   duration-300">
+          <Link
+            onClick={() => setToggle(!toggled)}
+            href="register"
+            className="px-5  hover:bg-[#F9C500] hover:border-opacity-0 w-[50%] border-white border-[1px] rounded-lg py-4 mx-4 transition ease-in-out duration-300"
+          >
+            اشترك الان
+          </Link>
+          <Link
+            onClick={() => setToggle(!toggled)}
+            href="/login"
+            className="px-5  hover:bg-[#F9C500] hover:border-opacity-0 w-[50%] border-white border-[1px] rounded-lg py-4 mx-4 transition ease-in-out duration-300"
+          >
+            تسجيل دخول
+          </Link>
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
