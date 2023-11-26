@@ -109,6 +109,7 @@ const NavBar = () => {
           <></>
         )}
       </nav>
+      <div className="h-24"></div>
     </>
   );
 };
