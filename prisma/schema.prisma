@@ -15,7 +15,6 @@ model User {
   first_name String
   last_name String
   phone String @unique
-  calss String
   parent_phone String
   email String  @unique @id
   pass String
