@@ -1,12 +1,12 @@
 import HeroSection from "../components/HeroSection";
-import NavBar from "../components/NavBar";
 import CourceSection from "../components/CourceSection";
+import Devider from "../components/Devider";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
       <HeroSection />
+      <Devider />
       <CourceSection />
     </>
   );

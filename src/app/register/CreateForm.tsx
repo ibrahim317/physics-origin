@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 const CreateForm = () => {
   const { register, handleSubmit } = useForm();
-  const route = useRouter()
+  const route = useRouter();
   const submit = async (data: any) => {
     try {
       await vaild(data);

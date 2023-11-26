@@ -215,6 +215,44 @@ input:-webkit-autofill:hover {
   --border-radius-medium: 1rem;
   --border-radius-small: 0.4rem;
 }
+
+.react-select__outer-container > div:first-child > div {
+  background-color: var(--color-inner-container);
+  border-color: var(--color-secondary-container);
+  transition: all var(--transition-smooth) ease;
+}
+.react-select__outer-container
+  > div:first-child
+  > div:nth-child(3)
+  > div:first-child
+  > div:first-child {
+  color: var(--color-text-secondary);
+  transition: all var(--transition-smooth) ease;
+}
+.react-select__outer-container
+  > div:first-child
+  > div:nth-child(3)
+  > div:nth-child(2)
+  > span {
+  background-color: var(--color-text-secondary);
+  transition: all var(--transition-smooth) ease;
+}
+.react-select__outer-container
+  > div:first-child
+  > div:nth-child(3)
+  > div:nth-child(2)
+  > div {
+  color: var(--color-text-secondary);
+  transition: all var(--transition-smooth) ease;
+}
+.react-select__outer-container
+  > div:first-child
+  > div:nth-child(3)
+  > div:nth-child(2)
+  > div:hover {
+  color: var(--color-text-primary);
+  transition: all var(--transition-smooth) ease;
+}
 body.darkmode,
 html.darkmode {
   --color-primary-container: var(--color-dark-0);
