@@ -17,15 +17,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const session = await getServerSession()
+  const session = await getServerSession();
 
   return (
     <html lang="en">
       <body className={classnames}>
-        <SessionProvider session={session}> {/*///// This is what keeps the session /////*/}
+        <SessionProvider session={session}>
+          {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
-          {children}
+          <div
+            className="w-full bg-cover h-screen"
+            style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
+          >
+            {children}
+          </div>
         </SessionProvider>
       </body>
     </html>
