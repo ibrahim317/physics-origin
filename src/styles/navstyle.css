@@ -1,8 +1,8 @@
-nav {
+.snav {
   position: relative;
   width: 490px;
 }
-nav a {
+.snav a {
   cursor: pointer;
   color: #fff;
   z-index: 1;
@@ -13,13 +13,13 @@ nav a {
   position: relative;
 }
 
-a:nth-child(1) {
+.snav :nth-child(1) {
   width: 150px;
 }
-a:nth-child(2) {
+.snav a:nth-child(2) {
   width: 150px;
 }
-a:nth-child(3) {
+.snav a:nth-child(3) {
   width: 150px;
 }
 

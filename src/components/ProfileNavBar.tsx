@@ -21,7 +21,7 @@ const ProfileNavBar = (props: any) => {
   return (
     <>
       <div className="fixed flex items-center justify-around w-full h-28 px-20">
-        <nav className="h-20 flex justify-around items-center w-[490px] drop-shadow-md shadow-lg rounded-[50px] bg-black bg-opacity-20">
+        <nav className="h-20 snav flex justify-around items-center w-[490px] drop-shadow-md shadow-lg rounded-[50px] bg-black bg-opacity-20">
           <a
             href="./myhistory"
             className="text-white hover:text-black transition ease-in-out duration-700"
