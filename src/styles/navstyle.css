@@ -25,7 +25,7 @@ a:nth-child(3){
 
 nav .animation{
     position: absolute;
-    padding-top: 55px; /*max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500]*/
+    padding-top: 55px;
     top: 50%;
     transform: translate(0, -50%);
     z-index: 0;
