@@ -2,5 +2,10 @@ export { default } from "next-auth/middleware";
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "/profile",
+  matcher: [
+    "/profile",
+    "/profile/me",
+    "/profile/mycourses",
+    "/profile/myhistory",
+  ],
 };
