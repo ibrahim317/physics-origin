@@ -1,5 +1,6 @@
 nav {
     position: relative;
+    width: 490px;
 }
 nav a{
     cursor: pointer;
@@ -34,17 +35,17 @@ nav .animation{
 }
 nav .start-me,
 a:nth-child(3):hover~.animation{
-    width: 130px;
-    right: 15px;
+    width: 25%;
+    right: 5%;
 }
 nav .start-mycourses,
 a:nth-child(2):hover~.animation{
-    width: 140px;
-    right: 160px;
+    width: 25%;
+    right: 37%;
 }
 nav .start-myhistory,
 a:nth-child(1):hover~.animation{
-    width: 125px;
-    right: 320px;
+    width: 24%;
+    right: 71%;
 }
 
