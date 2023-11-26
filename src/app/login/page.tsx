@@ -21,14 +21,11 @@ const page = () => {
     <>
       <Link
         href="/"
-        className="text-xl absolute top-10 right-10 px-10 max-sm:text-sm max-sm:font-bold py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]"
+        className="text-xl absolute top-10 right-10 px-10 max-sm:px-[0.09vw] py-4 mx-4 min-w-max bg-[#F9C500] text-[#000] transition ease-in-out duration-300 hover:bg-[#fff] rounded-[25px]"
       >
         رجوع
       </Link>
-      <div
-        className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
-      >
+      <div className="halfPageSection min-h-screen w-screen  flex flex-col lg:flex-row lg:min-h-screen bg-cover bg-center">
         <div className="w-3/5 h-3/5 my-auto mx-auto flex justify-center lg:px-10 flex-col  space-y-12">
           <div className="text-xl font-w-bold relative">
             <div className="flex flex-wrap lg:space-x-reverse  space-x-2">
