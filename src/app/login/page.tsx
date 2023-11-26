@@ -10,9 +10,8 @@ export const metadata: Metadata = {
   title: "تسجيل الدخول",
 };
 
-const session = await getServerSession();
-
-const page = () => {
+const page = async () => {
+  const session = await getServerSession();
   if (session) {
     redirect("/profile/me");
   }
