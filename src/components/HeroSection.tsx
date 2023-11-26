@@ -4,7 +4,7 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <section
-      className="flex justify-center items-center h-screen w-full bg-cover bg-center"
+      className="flex justify-center items-center h-[calc(100vh-6rem)] w-full bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/bg2.jpg')" }}
     >
       <div>
