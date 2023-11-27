@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import CourceImage from "@/public/assets/cource.jpg";
 import Image from "next/image";
-const Card = () => {
+import Link from "next/link";
+
+const Card = (props: any) => {
+  const courseLink = `/course/${props.course.id}`;
   return (
-    <div
+    <Link
+      href={courseLink}
       className={`min-h-[500px] hover:border-solid hover:border-y-2 hover:border-white  hover:-translate-y-4 transition-transform duration-500 ease-in-out flex flex-col p-3 gap-5 rounded-lg`}
       style={{ backgroundColor: `#111827` }}
     >
@@ -12,13 +16,8 @@ const Card = () => {
         alt="courceImage"
         className="w-full rounded-md"
       />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum
-        magnam molestias qui pariatur doloribus a libero distinctio molestiae
-        illo non tempore corporis inventore, ullam reiciendis tempora
-        necessitatibus! Incidunt, sit!
-      </p>
-    </div>
+      <p>{props.course.des}</p>
+    </Link>
   );
 };
 

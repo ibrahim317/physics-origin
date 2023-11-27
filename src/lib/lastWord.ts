@@ -1,4 +1,4 @@
-export const getLastSegmentFromUrl = (url: string): string | null => {
+export const getLastSegmentFromUrl = (url: string) => {
   // Remove trailing slashes
   const trimmedUrl = url.replace(/\/+$/, "");
 
@@ -8,5 +8,5 @@ export const getLastSegmentFromUrl = (url: string): string | null => {
   // Get the last non-empty segment
   const lastSegment = segments.pop();
 
-  return lastSegment || null;
+  return lastSegment;
 };

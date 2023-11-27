@@ -20,7 +20,7 @@ model User {
   pass String
 }
 model Course {
-  id String @id
+  id String @id 
   name String  
   des String
   price Int

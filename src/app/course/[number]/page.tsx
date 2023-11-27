@@ -1,29 +1,26 @@
+"use client";
 import React from "react";
-import axios from "axios";
-import { headers } from "next/headers";
+import { redirect, usePathname } from "next/navigation";
+import getCourse from "@/src/lib/getCourse";
 
-const page = async () => {
-  const getLastSegmentFromUrl = (url: string): string | undefined => {
-    // Remove trailing slashes
-    const trimmedUrl = url.replace(/\/+$/, "");
-
-    // Split the URL by '/'
-    const segments = trimmedUrl.split("/");
-
-    // Get the last non-empty segment
-    const lastSegment = segments.pop();
-
-    return lastSegment || undefined;
-  };
-  const headersList = headers();
-  const fullUrl = headersList.get("referer") || "";
-  const id = getLastSegmentFromUrl(fullUrl);
-  console.log(id);
-  return (
-    <section className="p-8 rtl">
-      <h2 className="font-extrabold text-7xl max-md:text-5xl">الكورس الثالث</h2>
-    </section>
-  );
+const page = () => {
+  const pathname = usePathname();
+  const url = pathname;
+  const content = getCourse(url)
+    .then((course) => {
+      return (
+        <section className="p-8 rtl">
+          <h2 className="font-extrabold m-6 text-7xl max-md:text-5xl">
+            {course.name}
+          </h2>
+          <div className="text-xl opacity-70">{course.des}</div>
+        </section>
+      );
+    })
+    .catch(() => {
+      return <></>;
+      redirect("/not-found");
+    });
+  return content;
 };
-
 export default page;
