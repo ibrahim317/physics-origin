@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import CourceImage from "@/public/assets/cource.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
 
 const Card = (props: any) => {
-  console.log(props.course.id);
   const courseLink = `/course/${props.course.id}`;
   return (
     <Link

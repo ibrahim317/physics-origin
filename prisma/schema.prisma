@@ -19,7 +19,7 @@ model User {
   email String  @unique @id
   pass String
 }
-model course {
+model Course {
   id String @id 
   name String  
   des String
