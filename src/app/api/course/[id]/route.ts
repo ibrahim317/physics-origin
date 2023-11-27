@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getLastSegmentFromUrl } from "@/src/lib/lastWord";
 export async function GET(request: NextRequest) {
   const a = getLastSegmentFromUrl(request.url);
-  const b = a?.at(a.length - 1)?.toString();
+  const b = a?.toString();
   try {
     const course = await prisma.course.findFirst({
       where: { id: b },
