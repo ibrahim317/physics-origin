@@ -19,20 +19,8 @@ model User {
   email String  @unique @id
   pass String
 }
-model Course_year1 {
+model course {
   id String @id 
-  name String  
-  des String
-  price Int
-}
-model Course_year2 {
-  id String @id
-  name String  
-  des String
-  price Int
-}
-model Course_year3 {
-  id String @id
   name String  
   des String
   price Int
