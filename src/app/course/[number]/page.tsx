@@ -3,7 +3,7 @@ import React from "react";
 import { redirect, usePathname } from "next/navigation";
 import getCourse from "@/src/lib/getCourse";
 
-const page = async () => {
+const page = () => {
   const pathname = usePathname();
   const url = pathname;
   const content = getCourse(url)
