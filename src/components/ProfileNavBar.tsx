@@ -29,7 +29,7 @@ const ProfileNavBar = (props: any) => {
           </a>
           <div className={"animation " + name}></div>
         </nav>
-      </div>
+      </div> <div className="h-24"></div> {/* reseves a space */}
     </>
   );
 };

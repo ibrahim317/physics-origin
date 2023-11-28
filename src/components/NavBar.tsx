@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import logo from "@/public/assets/logo.png";
+import { useRouter } from "next/navigation";
 
-const NavBar = (props: any) => {
+const NavBar = () => {
   const { data: session } = useSession();
   const [toggled, setToggle] = useState(false);
+  const router = useRouter();
 
   if (session) {
     return (
@@ -32,10 +34,10 @@ const NavBar = (props: any) => {
             </Link>
             <div className="flex flex-row">
               <button
-                onClick={async () => await signOut()}
+                onClick={() => router.push('/profile/me')}
                 className="px-10 max-sm:px-5 max-sm:hidden py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
               >
-                تسجيل خروج
+                الصفحة الشخصية
               </button>
               <button
                 className="sm:hidden mx-6 duration-200"
@@ -56,12 +58,12 @@ const NavBar = (props: any) => {
             </div>
           </div>
           {toggled ? (
-            <div className="sm:hidden drop-shadow-md shadow-lg  flex text-center items-center flex-row-reverse bg-opacity-20 p-7  justify-end   duration-300">
+            <div className="sm:hidden drop-shadow-md shadow-lg  flex text-center items-center flex-row-reverse bg-opacity-20 p-7 justify-center duration-300">
               <button
-                onClick={() => setToggle(!toggled)}
-                className="px-5  hover:bg-[#F9C500] hover:border-opacity-0 w-[50%] border-white border-[1px] rounded-lg py-4 mx-4 transition ease-in-out duration-300"
+                onClick={() => router.push('/profile/me')}
+                className="px-10 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
               >
-                تسجيل خروج
+                الصفحة الشخصية
               </button>
             </div>
           ) : (

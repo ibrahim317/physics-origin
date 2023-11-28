@@ -4,11 +4,20 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 import "@/src/styles/register.css";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "إنشاء حساب",
 };
-const page = () => {
+const page = async () => {
+
+  const session = await getServerSession();
+
+  if (session) {
+    redirect("/profile/me");
+  }
+
   return (
     <div className="bg-[#232935]">
       <div className="halfPageSection min-h-[calc(100vh-6rem)] flex flex-col p-14 lg:flex-row  ">
