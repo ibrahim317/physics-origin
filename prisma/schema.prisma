@@ -24,4 +24,8 @@ model Course {
   name String  
   des String
   price Int
+  thumbnail String
+}
+model Current_Course {
+  id String @id
 }
