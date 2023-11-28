@@ -10,7 +10,3 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(err, { status: 400 });
   }
 }
-
-export async function POST(request: NextRequest) {
-  return NextResponse.json({ status: 201 });
-}
