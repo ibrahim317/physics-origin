@@ -3,7 +3,7 @@ import Card from "./Card";
 import getCourse from "../lib/getCourse";
 
 const CourceSection = async () => {
-  const courses = await getCourse("/course");
+  const courses = await getCourse("course");
   return (
     <section className=" bg-[#1c232d] p-3 flex flex-col">
       <div className="flex bg-[#1c232d] max-lg:justify-center flex-row-reverse">
