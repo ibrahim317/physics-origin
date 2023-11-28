@@ -17,7 +17,13 @@ const Card = (props: any) => {
         alt="courceImage"
         className="w-full max-h-[70%] rounded-md"
       />
-      <p>{props.course.des}</p>
+      <h2 className="text-3xl opacity-80 font-bold">{props.course.name}</h2>
+      <p className="font-light opacity-70 text-lg ">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore
+        tenetur similique, hic repellat deleniti, molestiae illo molestias sit
+        culpa inventore possimus error. Nisi repellat dolore, commodi deleniti
+        perferendis excepturi!
+      </p>
     </Link>
   );
 };
