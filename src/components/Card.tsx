@@ -1,5 +1,5 @@
 import React from "react";
-import CourceImage from "@/public/assets/cource.jpg";
+import CourseImage from "@/public/assets/cource.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const Card = (props: any) => {
       style={{ backgroundColor: `#111827` }}
     >
       <Image
-        src={CourceImage}
+        src={CourseImage}
         alt="courceImage"
         className="w-full rounded-md"
       />
