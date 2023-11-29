@@ -1,3 +1,8 @@
+@import "https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;900&family=Comfortaa:wght@400;600;700&family=Comforter&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Kufam:wght@400;600;700;900&family=Rubik:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&family=Vibes&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap";
+:root {
+  --font-family: "Almarai";
+}
 .snav {
   position: relative;
   width: 490px;
@@ -47,4 +52,9 @@ nav .myhistory,
 a:nth-child(1):hover ~ .animation {
   width: 24%;
   right: 71%;
+}
+@media only screen and (max-width: 500px) {
+  nav .animation {
+    padding-top: 40px;
+  }
 }

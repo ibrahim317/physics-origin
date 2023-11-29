@@ -8,6 +8,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font-family: "Almarai";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,4 +40,37 @@ body {
 }
 .rtl {
   direction: rtl;
+}
+
+.loading-hidden {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.loading-bar {
+  animation: loading-bar 1s cubic-bezier(0.43, 0.28, 0.96, 0.98) infinite;
+  -webkit-animation: loading-bar 1s cubic-bezier(0.43, 0.28, 0.96, 0.98)
+    infinite;
+  background: linear-gradient(124deg, #f43f5e, #f43f5e 50%, #ffe4e6 0, #ffe4e6);
+  background-size: 300% 50%;
+  z-index: 1000;
+}
+.darkmode .loading-bar {
+  background: linear-gradient(124deg, #f43f5e, #f43f5e 50%, #881337 0, #881337);
+  background-size: 300% 50%;
+}
+@-webkit-keyframes loading-bar {
+  0% {
+    background-position: 300% 100%;
+  }
+  to {
+    background-position: 0 100%;
+  }
+}
+@keyframes loading-bar {
+  0% {
+    background-position: 300% 100%;
+  }
+  to {
+    background-position: 0 100%;
+  }
 }

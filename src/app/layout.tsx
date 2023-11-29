@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "I love potatoes (Don't you dare delete that)",
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
-const classnames = inter.className + " darkmode smooth bg-[#232935] dark";
+const classnames = inter.className + "  bg-[#232935] ";
 
 export default async function RootLayout({
   children,
@@ -26,6 +26,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
+          <div className="darkmode loading-bar"></div>
           <NavBar />
           {children}
         </SessionProvider>
