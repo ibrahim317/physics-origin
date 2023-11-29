@@ -40,7 +40,7 @@ const Card = (props: any) => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore
           tenetur similique, hic repellat deleniti, molestiae illo molestias sit
           culpa inventore possimus error. Nisi repellat dolore, commodi deleniti
-          perferendis excepturi!
+          perferendis excepturi!kkkkkkkkkkkk
         </p>
       </Link>
     );

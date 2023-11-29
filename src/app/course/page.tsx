@@ -64,7 +64,7 @@ const page = async ({
             المحتوى
           </h2>
         </div>
-        <Sections id={course.id} />
+        <Sections id={course.id} /> {/* بيعرض كل الدروس */}
       </section>
     );
   } else {
