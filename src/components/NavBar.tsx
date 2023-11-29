@@ -140,7 +140,7 @@ const NavBar = () => {
             <Link
               onClick={() => setToggle(!toggled)}
               href="/login"
-              className="border-white border-[1px] rounded-3xl w-[50%] px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:text-[#F9C500] hover:border-[#F9C500] transition ease-in-out duration-300"
+              className="border-white border-[3px] rounded-3xl w-[50%] px-10 max-sm:px-5 py-4 mx-4 min-w-max hover:text-[#F9C500] hover:border-[#F9C500] transition ease-in-out duration-300"
             >
               سجل الدخول
             </Link>
