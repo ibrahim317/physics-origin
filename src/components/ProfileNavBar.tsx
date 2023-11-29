@@ -1,7 +1,7 @@
 "use client";
 import "@/src/styles/navstyle.css";
 import { usePathname } from "next/navigation";
-import { getLastSegmentFromUrl } from "../lib/lastWord";
+import { getLastSegmentFromUrl } from "../lib/get_last_word";
 const ProfileNavBar = (props: any) => {
   const pathname = usePathname();
   const name = getLastSegmentFromUrl(pathname);

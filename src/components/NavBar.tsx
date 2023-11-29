@@ -24,7 +24,9 @@ const NavBar = () => {
         >
           <div className="flex justify-around max-sm:justify-between items-center w-full h-24  drop-shadow-md shadow-lg  py-4">
             <Link href="/" className="flex">
-              <h1 className="text-xl my-auto mx-5"><span className="text-[#F9C500]">الصفحة</span> الرئيسية</h1>
+              <h1 className="text-xl my-auto mx-5">
+                <span className="text-[#F9C500]">الصفحة</span> الرئيسية
+              </h1>
               <Image
                 src={logo}
                 alt="origin logo"
@@ -35,7 +37,7 @@ const NavBar = () => {
             </Link>
             <div className="flex flex-row">
               <button
-                onClick={() => router.push('/profile/me')}
+                onClick={() => router.push("/profile/me")}
                 className="px-10 max-sm:px-5 max-sm:hidden py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
               >
                 الصفحة الشخصية
@@ -61,7 +63,7 @@ const NavBar = () => {
           {toggled ? (
             <div className="sm:hidden drop-shadow-md shadow-lg  flex text-center items-center flex-row-reverse bg-opacity-20 p-7 justify-center duration-300">
               <button
-                onClick={() => router.push('/profile/me')}
+                onClick={() => router.push("/profile/me")}
                 className="px-10 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
               >
                 الصفحة الشخصية
@@ -88,7 +90,9 @@ const NavBar = () => {
       >
         <div className="flex justify-around max-sm:justify-between items-center w-full h-24 drop-shadow-md shadow-lg py-4">
           <Link href="/" className="flex">
-            <h1 className="text-xl my-auto mx-5"><span className="text-[#F9C500]">الصفحة</span> الرئيسية</h1>
+            <h1 className="text-xl my-auto mx-5">
+              <span className="text-[#F9C500]">الصفحة</span> الرئيسية
+            </h1>
             <Image
               src={logo}
               alt="origin logo"
@@ -108,7 +112,7 @@ const NavBar = () => {
               href="/register"
               className="px-10 max-sm:px-5 max-sm:hidden py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
             >
-              !اشترك الان
+              انشئ حسابك
             </Link>
             <button
               className="sm:hidden mx-6 duration-200"
