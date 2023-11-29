@@ -185,7 +185,7 @@ input:-webkit-autofill:hover {
   --color-outer-container: var(--color-grey-1);
   --color-inner-container: var(--color-white);
   --color-middle-container: var(--color-grey-2);
-  --color-text-primary: var(--color-dark-1);
+  --color-text-primary: var(--color-white);
   --color-text-secondary: var(--color-dark-4);
   --font-size-h1: 1.5rem;
   --font-size-h2: 1.25rem;

@@ -11,19 +11,28 @@ generator client {
 }
 
 model User {
-  id String
+  id   Int      @id @default(autoincrement())
   first_name String
   last_name String
   phone String @unique
   parent_phone String
-  email String  @unique @id
+  email String  @unique 
   pass String
 }
 model Course {
-  id String @id 
+  id   Int      @id @default(autoincrement())
+  name String  
+  des String 
+  price Int
+  sections Int[]
+  thumbnail String?
+}
+model Section{
+  id Int @id @default(autoincrement())
+  course String 
   name String  
   des String
-  price Int
-  thumbnail String
-  vidlink String
+  tag String?
+  thumbnail String?
+  vidlink String?
 }

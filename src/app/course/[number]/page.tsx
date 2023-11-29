@@ -3,7 +3,7 @@ import Image from "next/image";
 import courseList from "@/src/lib/courseList";
 import Devider from "@/src/components/Devider";
 import NotFound from "../../not-found";
-import YouTubeEmbed from "@/src/components/YouTubeEmbed";
+import Sections from "@/src/components/SectionsList";
 
 const page = async ({
   params,
@@ -16,6 +16,7 @@ const page = async ({
   const c_id = searchParams.id;
   const course = courses.filter((course: any) => course.id == c_id)[0];
 
+  const tmp = "PLS9nTTHlz5KbiNVUI2hfRPKHrC0EJqm22";
   if (course) {
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
@@ -38,20 +39,16 @@ const page = async ({
               height={100}
               alt="courceImage"
               className="w-full border-8 border-white border-solid border-opacity-5 max-h-[50vh] rounded-[14px]"
-            /> 
+            />
           </div>
         </div>
-
         <Devider /> {/*/===============================================/*/}
-        
         <div className="max-sm:shadow-md rounded-xl p-5 max-sm:bg-[#2c3342] sm:max-w-full max-sm:max-w-none flex flex-col items-center">
           <h2 className="font-extrabold my-6 max-sm:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
             المحتوى
           </h2>
-
-          <YouTubeEmbed vidlink={course.vidlink} />
-
         </div>
+        <Sections id={course.id} />
       </section>
     );
   } else {

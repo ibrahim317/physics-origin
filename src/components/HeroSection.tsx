@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DoubleArrowDownIcon } from '@radix-ui/react-icons';
+import { DoubleArrowDownIcon } from "@radix-ui/react-icons";
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,7 @@ const HeroSection = () => {
           height={500}
           className="max-w-[80%] mx-auto mb-8 -my-36"
         />
-        <div className="flex items-center flex-col">
+        <div className="flex items-center gap-6 flex-col">
           <Link
             href="/register"
             className="px-10 max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300 text-xl"
@@ -28,7 +28,8 @@ const HeroSection = () => {
             href="#CoursesSection"
             className="flex border-[3px] border-[#F9C500] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-xl"
           >
-            <DoubleArrowDownIcon width={25} height={25}/>شوف الكورسات
+            <DoubleArrowDownIcon width={25} height={25} />
+            شوف الكورسات
           </Link>
         </div>
       </div>

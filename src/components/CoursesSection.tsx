@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "./CourseCard";
 import courseList from "@/src/lib/courseList";
 
 const CourceSection = async () => {
