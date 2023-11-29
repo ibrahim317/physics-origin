@@ -25,7 +25,5 @@ model Course {
   des String
   price Int
   thumbnail String
-}
-model Current_Course {
-  id String @id
+  vidlink String
 }

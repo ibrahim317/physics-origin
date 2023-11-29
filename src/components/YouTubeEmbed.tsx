@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
-const YouTubeEmbed = () => {
+const YouTubeEmbed = ({vidlink}: any) => {
   const [videoId, setVideoId] = useState<string | null>(null);
 
   const embedVideo = (youtubeUrl: string) => {
@@ -24,11 +24,11 @@ const YouTubeEmbed = () => {
   };
 
   useEffect(() => {
-    const YouTubeUrl = 'https://www.youtube.com/watch?v=xROmDsULcLE'; // ibrahim job :)
+    const YouTubeUrl = vidlink; // ibrahim job :)
 
     // Embed the video when the component mounts
     embedVideo(YouTubeUrl);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, [vidlink]); // Empty dependency array ensures the effect runs only once on mount
 
   return (
     <div>

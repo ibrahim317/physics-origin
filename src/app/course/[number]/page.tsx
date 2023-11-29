@@ -17,6 +17,7 @@ const page = async ({
   const course = courses.filter((course: any) => course.id == c_id)[0];
 
   if (course) {
+    console.log(course);
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
         <div className="my-6 flex gap-6 justify-between max-h-fit max-sm:flex-col-reverse w-full ">
@@ -38,7 +39,7 @@ const page = async ({
               height={100}
               alt="courceImage"
               className="w-full border-8 border-white border-solid border-opacity-5 max-h-[50vh] rounded-[14px]"
-            />
+            /> 
           </div>
         </div>
 
@@ -49,7 +50,7 @@ const page = async ({
             المحتوى
           </h2>
 
-          <YouTubeEmbed />
+          <YouTubeEmbed vidlink={course.vidlink} />
 
         </div>
       </section>
