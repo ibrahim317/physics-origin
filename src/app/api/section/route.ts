@@ -8,7 +8,6 @@ export async function GET(req: NextRequest) {
     const sections = await prisma.section.findMany({
       where: { course: id },
     });
-    console.log(sections);
     return NextResponse.json(sections, { status: 201 });
   } catch (err) {
     return NextResponse.json(err, { status: 400 });

@@ -7,7 +7,6 @@ const getSection = async (id: number) => {
     const sections = await instance.get("/api/section", {
       params: { id: id },
     });
-    console.log(sections.data);
     return await sections.data;
   } catch (err) {
     throw err;
