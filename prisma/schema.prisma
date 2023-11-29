@@ -22,16 +22,17 @@ model User {
 model Course {
   id   Int      @id @default(autoincrement())
   name String  
-  des String
+  des String 
   price Int
-  thumbnail String
-  vidlink String
+  sections Int[]
+  thumbnail String?
 }
 model Section{
-  id String @id 
+  id Int @id @default(autoincrement())
+  course String 
   name String  
   des String
-  tag String
-  thumbnail String
-  vidlink String
+  tag String?
+  thumbnail String?
+  vidlink String?
 }
