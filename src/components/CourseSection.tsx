@@ -5,7 +5,7 @@ import courseList from "@/src/lib/courseList";
 const CourceSection = async () => {
   const courses = await courseList();
   return (
-    <section className=" bg-[#1c232d] p-3 flex flex-col">
+    <section className=" bg-[#1c232d] p-3 flex flex-col" id="CourseSection">
       <div className="flex bg-[#1c232d] max-lg:justify-center flex-row-reverse">
         <h2 className="text-7xl text-white p-10  ">الكورسات</h2>
       </div>

@@ -1,5 +1,5 @@
 import HeroSection from "../components/HeroSection";
-import CourceSection from "../components/CourceSection";
+import CourseSection from "../components/CourseSection";
 import Devider from "../components/Devider";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <HeroSection />
       <Devider />
-      <CourceSection />
+      <CourseSection />
     </>
   );
 }
