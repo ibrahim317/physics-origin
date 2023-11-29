@@ -17,7 +17,6 @@ const page = async ({
   const course = courses.filter((course: any) => course.id == c_id)[0];
 
   if (course) {
-    console.log(course);
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
         <div className="my-6 flex gap-6 justify-between max-h-fit max-sm:flex-col-reverse w-full ">
