@@ -3,6 +3,7 @@ import Image from "next/image";
 import courseList from "@/src/lib/courseList";
 import Devider from "@/src/components/Devider";
 import NotFound from "../../not-found";
+import YouTubeEmbed from "@/src/components/YouTubeEmbed";
 
 const page = async ({
   params,
@@ -14,6 +15,7 @@ const page = async ({
   const courses = await courseList();
   const c_id = searchParams.id;
   const course = courses.filter((course: any) => course.id == c_id)[0];
+
   if (course) {
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
@@ -29,7 +31,7 @@ const page = async ({
               voluptatem alias deserunt ab ut!
             </div>
           </div>
-          <div className="w-[45vw] max-h-[40%]  max-md:w-full   ">
+          <div className="w-[45vw] max-h-[40%] max-md:w-full">
             <Image
               src={course.thumbnail}
               width={300}
@@ -39,11 +41,16 @@ const page = async ({
             />
           </div>
         </div>
-        <Devider />
-        <div className="max-sm:shadow-md rounded-xl p-5 max-sm:bg-[#2c3342] sm:max-w-[50vw] max-sm:max-w-none">
-          <h2 className="font-extrabold my-6  max-sm:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
+
+        <Devider /> {/*/===============================================/*/}
+        
+        <div className="max-sm:shadow-md rounded-xl p-5 max-sm:bg-[#2c3342] sm:max-w-full max-sm:max-w-none flex flex-col items-center">
+          <h2 className="font-extrabold my-6 max-sm:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
             المحتوى
           </h2>
+
+          <YouTubeEmbed />
+
         </div>
       </section>
     );
