@@ -23,7 +23,8 @@ const NavBar = () => {
           className="fixed flex flex-col bg-[#1b2029] z-20 justify-around  w-full "
         >
           <div className="flex justify-around max-sm:justify-between items-center w-full h-24  drop-shadow-md shadow-lg  py-4">
-            <Link href="/">
+            <Link href="/" className="flex">
+              <h1 className="text-xl my-auto mx-5"><span className="text-[#F9C500]">الصفحة</span> الرئيسية</h1>
               <Image
                 src={logo}
                 alt="origin logo"
@@ -86,7 +87,8 @@ const NavBar = () => {
         className="fixed flex flex-col bg-[#1b2029] z-20 justify-around  w-full "
       >
         <div className="flex justify-around max-sm:justify-between items-center w-full h-24 drop-shadow-md shadow-lg py-4">
-          <Link href="/">
+          <Link href="/" className="flex">
+            <h1 className="text-xl my-auto mx-5"><span className="text-[#F9C500]">الصفحة</span> الرئيسية</h1>
             <Image
               src={logo}
               alt="origin logo"
