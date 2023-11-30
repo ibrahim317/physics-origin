@@ -37,10 +37,7 @@ const Card = (props: any) => {
       >
         <h2 className="text-3xl opacity-80 font-bold">{props.content.name}</h2>
         <p className="font-light opacity-70 text-lg ">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore
-          tenetur similique, hic repellat deleniti, molestiae illo molestias sit
-          culpa inventore possimus error. Nisi repellat dolore, commodi deleniti
-          perferendis excepturi!kkkkkkkkkkkk
+          {props.content.des}
         </p>
       </Link>
     );

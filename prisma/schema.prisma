@@ -34,5 +34,5 @@ model Section{
   des String
   tag String?
   thumbnail String?
-  vidlink String?
+  yourlink String?
 }
