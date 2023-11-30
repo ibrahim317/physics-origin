@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "@/src/styles/globals.css";
-import SessionProvider from "../components/Provider";
+import SessionProvider from "../../components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
