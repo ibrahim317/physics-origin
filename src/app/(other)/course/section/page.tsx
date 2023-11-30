@@ -13,7 +13,6 @@ const page = async (
   },
   props: any
 ) => {
-  console.log(searchParams.id);
   const section = await get_section_by_id(searchParams.id);
 
   if (section.tag == "vid") {
