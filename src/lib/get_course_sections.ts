@@ -4,7 +4,7 @@ const getSection = async (id: number) => {
     baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
   });
   try {
-    const sections = await instance.get("/api/section", {
+    const sections = await instance.get("/api/ccontent", {
       params: { id: id },
     });
     return await sections.data;
