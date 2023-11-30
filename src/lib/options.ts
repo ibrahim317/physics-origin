@@ -51,25 +51,4 @@ export const authOptions: NextAuthOptions = {
     signOut: "/login",
   },
 
-  callbacks: {
-    async session({ token, session }) {
-      if (token) {
-        session.user.isAdmin = token.isAdmin;
-      }
-
-      return session;
-    },
-    async jwt({ token }) {
-      const dbUser = await prisma.user.findUnique({
-        where: {
-          email: token.email!,
-        },
-      });
-
-      token.isAdmin = Boolean(dbUser?.isAdmin);
-
-      return token;
-    },
-  },
-
 };
