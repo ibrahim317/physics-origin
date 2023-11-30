@@ -4,7 +4,7 @@ interface DriveEmbedProps {
   fileUrl: string;
 }
 
-const DriveEmbed = ({ fileUrl }, props: string) => {
+const DriveEmbed = ({ fileUrl }:any, props: string) => {
   const getIdFromUrl = (url: string): string | null => {
     const match = url.match(/[-\w]{25,}/);
     return match ? match[0] : null;

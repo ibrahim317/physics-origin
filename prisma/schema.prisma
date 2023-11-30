@@ -18,6 +18,7 @@ model User {
   parent_phone String
   email        String  @unique 
   pass         String
+  isAdmin      Boolean
 }
 model Course {
   id   Int      @id @default(autoincrement())

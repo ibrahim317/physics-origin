@@ -24,11 +24,13 @@ export default async function RootLayout({
     <html lang="en">
       <body className={classnames}>
         <SessionProvider session={session}>
+          
           {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
           <div className="darkmode loading-bar"></div>
           <NavBar />
           {children}
+
         </SessionProvider>
       </body>
     </html>

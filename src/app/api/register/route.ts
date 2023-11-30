@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
         parent_phone: res.parent_phone,
         phone: res.phone,
         pass: res.password,
+        isAdmin: false,
       },
     });
 

@@ -2,9 +2,16 @@
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@/prisma/generated/client";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+
 const prisma = new PrismaClient();
+const prismaAdapter = PrismaAdapter(prisma);
+
 
 export const authOptions: NextAuthOptions = {
+
+  adapter: prismaAdapter, // inserted prisma client
+
   session: {
     strategy: "jwt",
   },
@@ -22,9 +29,16 @@ export const authOptions: NextAuthOptions = {
           label: "password",
           type: "password",
         },
+
       },
 
+      
       async authorize(credentials) {
+
+        if (!credentials) {
+          throw new Error("Credentials not provided");
+        }
+
         // check to see if user exists
         const user = await prisma.user.findUnique({
           where: {
@@ -42,7 +56,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Incorrect password");
         }
 
-        return user;
+        return user as any;
       },
     }),
   ],
@@ -50,5 +64,6 @@ export const authOptions: NextAuthOptions = {
     signIn: "/login",
     signOut: "/login",
   },
+  
 
 };
