@@ -5,6 +5,7 @@ import SessionProvider from "../../components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import NavBar from "../../components/NavBar";
+import get_user_by_email from "@/src/lib/get_user_by_email";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -19,15 +20,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession();
-  const user = await get_user(searchParams.id);
 
-  // if (session?.isAdmin) {
-  //   return(
-  //     <>
-  //       <h1>gfsssssssssssssssshtr trhrt ht hyt hyt htyhyt htyh t</h1>
-  //     </>
-  //   )
-  // }
+  if (session) {
+
+    const user = await get_user_by_email(session.user?.email);
+
+  }
 
   return (
     <html lang="en">
