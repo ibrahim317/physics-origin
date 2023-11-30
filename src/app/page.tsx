@@ -5,8 +5,8 @@ import asd from "../lib/test";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const re = await asd();
-  redirect(re);
+  // const re = await asd();
+  // redirect(re);
   return (
     <>
       <HeroSection />
