@@ -12,23 +12,13 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession();
-  if (!session) redirect("/login");
 
-  if (session) {
-    const user = get_user_by_email(session.user?.email) 
-    if (!user.isAdmin) redirect("/");
-    else {
+    return (
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    )
 
-      return (
-        <html lang="en">
-          <body>{children}</body>
-        </html>
-      )
 
-    }
   }
-  
 
-
-}
