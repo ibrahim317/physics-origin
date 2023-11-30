@@ -8,9 +8,9 @@ import NavBar from "@/src/components/NavBar";
 import get_user_by_email from "@/src/lib/get_user_by_email";
 import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Physics Origin",
-  description: "I love potatoes (Don't you dare delete that)",
+export const metadata = {
+  title: "منصة احمد يوسف",
+  description: "منصة م/احمد يوسف لتدريس الفيزياء",
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 const classnames = inter.className + "  bg-[#232935] ";
@@ -26,13 +26,11 @@ export default async function RootLayout({
     <html lang="en">
       <body className={classnames}>
         <SessionProvider session={session}>
-          
           {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
           <div className="darkmode loading-bar"></div>
           <NavBar />
           {children}
-
         </SessionProvider>
       </body>
     </html>

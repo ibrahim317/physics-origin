@@ -5,7 +5,7 @@ const get_user_by_email = async (email: null | undefined | string) => {
   });
   try {
     const user = await instance.get("/api/user", {
-      params: {email: email}
+      params: { email: email },
     });
     return await user.data;
   } catch (err) {
