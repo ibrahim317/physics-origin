@@ -10,9 +10,12 @@ const Content = async (props: any) => {
         <div className="flex bg-[#1c232d] max-lg:justify-center "></div>
         <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
           {sections.map((section: any) => (
-            
-            <Card type="section" content={section} key={section.id} /> 
-
+            <Card
+              type="section"
+              locked={props.locked}
+              content={section}
+              key={section.id}
+            />
           ))}
         </div>
       </section>
