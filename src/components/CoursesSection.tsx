@@ -23,7 +23,7 @@ const CourceSection = async () => {
         <div className="flex bg-[#1c232d] max-lg:justify-center "></div>
         <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
           <h2 className="font-extrabold my-6 max-sm:text-center text-3xl  max-[420px]:text-4xl">
-            لا توجد كروسات حالياً....ترقب نزولها قريباً
+            لا توجد كورسات حالياً....ترقب نزولها قريباً
           </h2>
         </div>
       </section>

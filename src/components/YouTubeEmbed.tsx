@@ -36,7 +36,7 @@ const YouTubeEmbed = ({ vidlink }: any) => {
       <div id="youtubePlayer">
         {videoId && (
           <iframe
-            className="min-[1000px]:w-[857px] min-[1000px]:h-[482px]   min-[500px]:w-[600px] min-[500px]:h-[335px] max-[720px]:w-[400]:"
+            className="min-[1000px]:w-[857px] min-[1000px]:h-[482px]   min-[500px]:w-[600px] min-[500px]:h-[335px] max-[720px]:w-[400]  border-2 border-[#F9C500] rounded-[25px]"
             // width="857"
             // height="482"
             src={`https://www.youtube.com/embed/${videoId}`}

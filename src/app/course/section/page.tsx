@@ -1,13 +1,43 @@
 import React from "react";
+import YouTubeEmbed from "@/src/components/YouTubeEmbed";
+import get_section_by_id from "@/src/lib/get_section_by_id";
+import DriveEmbed from "@/src/components/DriveEmbed";
 
-const page = ({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams: { id: string };
-}) => {
-  return <div>page</div>;
+const page = async (
+  {
+    params,
+    searchParams,
+  }: {
+    params: { slug: string };
+    searchParams: { id: number };
+  },
+  props: any
+) => {
+  console.log(searchParams.id);
+  const section = await get_section_by_id(searchParams.id);
+
+  if (section.tag == "vid") {
+    return (
+      <div className="flex flex-col items-center">
+        <YouTubeEmbed vidlink={section.yourlink} />
+        <div className=" text-right w-7/12">
+          <h1 className="text-[#F9C500] text-5xl my-6">{section.name} •</h1>
+          <p className="flex text-xl flex-wrap">{section.des}</p>
+        </div>
+      </div>
+    );
+  } else if (section.tag == "file") {
+    return (
+      <div className="flex flex-col items-center">
+        <DriveEmbed fileUrl={section.yourlink} />
+
+        <div className=" text-right w-7/12">
+          <h1 className="text-[#F9C500] text-5xl my-6">{section.name} •</h1>
+          <p className="flex text-xl flex-wrap">{section.des}</p>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default page;
