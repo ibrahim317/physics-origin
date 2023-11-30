@@ -10,21 +10,15 @@ generator client {
   output   = "./generated/client"
 }
 
-enum UserRole {
-  ADMIN
-  USER
-}
-
 model User {
-  id   Int      @id @default(autoincrement())
-  first_name String
-  last_name String
-  phone String @unique
+  id           Int     @id @default(autoincrement())
+  first_name   String
+  last_name    String
+  phone        String  @unique
   parent_phone String
-  email String  @unique 
-  pass String
-
-  role UserRole @default(USER)
+  email        String  @unique 
+  pass         String
+  isAdmin      Boolean @default(false)
 }
 model Course {
   id   Int      @id @default(autoincrement())
