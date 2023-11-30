@@ -11,29 +11,36 @@ generator client {
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
+  id           Int      @id @default(autoincrement())
   first_name   String
   last_name    String
-  phone        String  @unique
+  phone        String   @unique
   parent_phone String
-  email        String  @unique 
+  email        String   @unique
   pass         String
+<<<<<<< HEAD
   isAdmin      Boolean
+=======
+  isAdmin      Boolean 
+  courses      String[]
+>>>>>>> d4fa593248e87f864ba71900f4e855a669c4fa52
 }
+
 model Course {
-  id   Int      @id @default(autoincrement())
-  name String  
-  des String 
-  price Int
-  sections Int[]
+  id        Int     @id @default(autoincrement())
+  name      String
+  des       String
+  price     Int
+  sections  Int[]
   thumbnail String?
 }
-model Section{
-  id Int @id @default(autoincrement())
-  course String 
-  name String  
-  des String
-  tag String?
+
+model Section {
+  id        Int     @id @default(autoincrement())
+  course    String
+  name      String
+  des       String
+  tag       String?
   thumbnail String?
-  yourlink String?
+  yourlink  String?
 }
