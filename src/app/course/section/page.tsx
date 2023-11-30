@@ -2,6 +2,10 @@ import React from "react";
 import YouTubeEmbed from "@/src/components/YouTubeEmbed";
 import get_section_by_id from "@/src/lib/get_section_by_id";
 import DriveEmbed from "@/src/components/DriveEmbed";
+import get_user_by_email from "@/src/lib/get_user_by_email";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import NotFound from "@/src/app/not-found/not-found";
 
 const page = async (
   {
@@ -13,6 +17,19 @@ const page = async (
   },
   props: any
 ) => {
+  const session = await getServerSession();
+  if (!session) {
+    return <NotFound />;
+  }
+  try {
+    const user = await get_user_by_email(session?.user?.email);
+    const found = user.courses.find((id: any) => id === searchParams.id);
+    if (!found) {
+      throw new Error();
+    }
+  } catch (err) {
+    return <NotFound />;
+  }
   const section = await get_section_by_id(searchParams.id);
 
   if (section.tag == "vid") {

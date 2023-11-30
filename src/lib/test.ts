@@ -70,32 +70,5 @@ const asd = async () => {
     console.log("Error from auth");
     throw err;
   }
-  // const re = await axios.post(
-  //   "https://atfawry.fawrystaging.com/ECommerceWeb/api/payments/charge",
-  //   {
-  //     merchantCode: "1tSa6uxz2nTwlaAmt38enA==",
-  //     merchantRefNum: "2312465464",
-  //     customerProfileId: "777777",
-  //     customerName: "example",
-  //     customerMobile: "01234567891",
-  //     customerEmail: "example@gmail.com",
-  //     amount: 580.55,
-  //     currencyCode: "EGP",
-  //     language: "en-gb",
-  //     chargeItems: [
-  //       {
-  //         itemId: "897fa8e81be26df25db592e81c31c",
-  //         description: "Item Descriptoin",
-  //         price: 580.55,
-  //         quantity: "1",
-  //       },
-  //     ],
-  //     signature:
-  //       "2ca4c078ab0d4c50ba90e31b3b0339d4d4ae5b32f97092dd9e9c07888c7eef36",
-  //     paymentMethod: "MWALLET",
-  //     description: "Example Description",
-  //   }
-  // );
-  // console.log(re);
 };
 export default asd;
