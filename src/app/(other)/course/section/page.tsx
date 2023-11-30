@@ -22,18 +22,18 @@ const page = async (
         <YouTubeEmbed vidlink={section.yourlink} />
         <div className=" text-right w-7/12">
           <h1 className="text-[#F9C500] text-5xl my-6">{section.name} •</h1>
-          <p className="flex text-xl flex-wrap">{section.des}</p>
+          <p className="flex text-xl text-right flex-wrap">{section.des}</p>
         </div>
       </div>
     );
   } else if (section.tag == "file") {
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col  rtl items-center">
         <DriveEmbed fileUrl={section.yourlink} />
 
         <div className=" text-right w-7/12">
           <h1 className="text-[#F9C500] text-5xl my-6">{section.name} •</h1>
-          <p className="flex text-xl flex-wrap">{section.des}</p>
+          <p className="flex text-right text-xl flex-wrap">{section.des}</p>
         </div>
       </div>
     );

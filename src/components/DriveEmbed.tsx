@@ -1,16 +1,14 @@
-import React from 'react';
+import React from "react";
 
-interface DriveEmbedProps {
-  fileUrl: string;
-}
-
-const DriveEmbed = ({ fileUrl }, props: string) => {
+const DriveEmbed = (props: any) => {
   const getIdFromUrl = (url: string): string | null => {
     const match = url.match(/[-\w]{25,}/);
     return match ? match[0] : null;
   };
 
-  const embedUrl = `https://drive.google.com/file/d/${getIdFromUrl(fileUrl)}/preview`;
+  const embedUrl = `https://drive.google.com/file/d/${getIdFromUrl(
+    props.fileUrl
+  )}/preview`;
 
   return (
     <div>

@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Incorrect password");
         }
 
-        return user;
+        return user as any;
       },
     }),
   ],
@@ -50,5 +50,4 @@ export const authOptions: NextAuthOptions = {
     signIn: "/login",
     signOut: "/login",
   },
-
 };
