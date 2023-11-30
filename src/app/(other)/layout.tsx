@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "@/src/styles/globals.css";
-import SessionProvider from "../components/Provider";
+import SessionProvider from "../../components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
+import get_user from "@/src/lib/get_user";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -19,6 +20,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession();
+  const user = await get_user(searchParams.id);
+
+  // if (session?.isAdmin) {
+  //   return(
+  //     <>
+  //       <h1>gfsssssssssssssssshtr trhrt ht hyt hyt htyhyt htyh t</h1>
+  //     </>
+  //   )
+  // }
 
   return (
     <html lang="en">
