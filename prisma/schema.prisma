@@ -18,12 +18,8 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-<<<<<<< HEAD
-  isAdmin      Boolean
-=======
   isAdmin      Boolean 
   courses      String[]
->>>>>>> d4fa593248e87f864ba71900f4e855a669c4fa52
 }
 
 model Course {

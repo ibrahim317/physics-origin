@@ -2,18 +2,12 @@ import React from "react";
 import "@/src/styles/register.css";
 import { Metadata } from "next";
 import CreateForm from "./CreateForm";
-import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
 
 export const metadata: Metadata = {
   title: "تسجيل الدخول",
 };
 
 const page = async () => {
-  const session = await getServerSession();
-  if (session) {
-    redirect("/");
-  }
 
   return (
     <>

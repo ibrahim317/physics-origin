@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import NavBar from "../../components/NavBar";
 import get_user_by_email from "@/src/lib/get_user_by_email";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Physics Origin",
@@ -20,12 +21,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession();
-
-  if (session) {
-
-    const user = await get_user_by_email(session.user?.email);
-
-  }
 
   return (
     <html lang="en">
