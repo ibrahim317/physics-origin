@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import get_all_courses from "@/src/lib/get_all_courses";
 import Devider from "@/src/components/Devider";
-import NotFound from "../../not-found/not-found";
+import NotFound from "../not-found/not-found";
 import Sections from "@/src/components/Content_list";
 import Link from "next/link";
 import { getServerSession } from "next-auth";

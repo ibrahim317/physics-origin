@@ -1,3 +1,4 @@
+'use client';
 import get_user_by_email from '@/src/lib/get_user_by_email';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
@@ -11,8 +12,8 @@ const page = async () => {
   if (!session) redirect("/login");
 
   if (session) {
-    const user = get_user_by_email(session.user?.email) 
-    if (!user.isAdmin) redirect("/");
+    const user = await get_user_by_email(session.user?.email) 
+    if (user.isAdmin===false) redirect("/");
     else {
 
       return (

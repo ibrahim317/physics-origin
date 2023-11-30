@@ -1,6 +1,6 @@
-import HeroSection from "../../components/HeroSection";
-import CoursesSection from "../../components/CoursesSection";
-import Devider from "../../components/Devider";
+import HeroSection from "@/src/components/HeroSection";
+import CoursesSection from "@/src/components/CoursesSection";
+import Devider from "@/src/components/Devider";
 // import asd from "../../lib/test";
 // import { redirect } from "next/navigation";
 

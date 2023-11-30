@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "@/src/styles/globals.css";
-import SessionProvider from "../../components/Provider";
+import SessionProvider from "@/src/components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
-import NavBar from "../../components/NavBar";
+import NavBar from "@/src/components/NavBar";
 import get_user_by_email from "@/src/lib/get_user_by_email";
 import { redirect } from "next/navigation";
 

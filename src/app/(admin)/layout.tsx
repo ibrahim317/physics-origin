@@ -1,6 +1,3 @@
-import { getServerSession } from "next-auth";
-import get_user_by_email from "@/src/lib/get_user_by_email";
-import { redirect } from "next/navigation";
 
 export const metadata = {
   title: 'Next.js',
