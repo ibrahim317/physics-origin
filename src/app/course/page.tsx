@@ -34,14 +34,14 @@ const page = async ({
 
       return (
         <section className="flex flex-col gap-11 p-8  rtl">
-          <div className="my-6 flex gap-6 justify-between max-h-fit max-sm:flex-col-reverse w-full ">
-            <div className="max-sm:shadow-md rounded-xl max-sm:hover:scale-105 duration-200 p-5 max-sm:bg-[#2c3342] sm:max-w-[50vw] max-sm:max-w-none">
-              <div className="flex flex-col h-full justify-between">
+          <div className="my-6 flex gap-6 justify-between max-h-fit max-[660px]:flex-col-reverse w-full ">
+            <div className="max-[660px]:shadow-md rounded-xl  max-[660px]:hover:scale-105 duration-200 p-5 max-[660px]:bg-[#2c3342] [660px]:max-w-[50vw] max-[660px]:max-w-none">
+              <div className="flex flex-col h-full gap-10 justify-between">
                 <div>
                   <h2 className="font-extrabold my-6  max-md:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
                     {course.name}
                   </h2>
-                  <div className="text-xl max-sm:text-center opacity-70">
+                  <div className="text-xl max-[660px]:text-center opacity-70">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Atque, ipsum tenetur. Quam quae beatae aliquam eligendi
                     itaque voluptatibus, sit, hic blanditiis suscipit, quia
@@ -54,7 +54,7 @@ const page = async ({
                       pathname: "/course/pay",
                       query: { id: course.id },
                     }}
-                    className="flex border-[3px] border-[#F9C500] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-xl"
+                    className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
                   >
                     اشترك الان
                   </Link>
@@ -72,8 +72,8 @@ const page = async ({
             </div>
           </div>
           <Devider /> {/*/===============================================/*/}
-          <div className="max-sm:shadow-md rounded-xl p-5 max-sm:bg-[#2c3342] sm:max-w-full max-sm:max-w-none flex flex-col items-center">
-            <h2 className="font-extrabold my-6 max-sm:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
+          <div className="max-[660px]:shadow-md rounded-xl p-5 max-[660px]:bg-[#2c3342] sm:max-w-full max-[660px]:max-w-none flex flex-col items-center">
+            <h2 className="font-extrabold my-6 max-[660px]:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
               المحتوى
             </h2>
           </div>

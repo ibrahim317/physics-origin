@@ -1,5 +1,5 @@
 import axios from "axios";
-const getCourse = async () => {
+const get_all_courses = async () => {
   const instance = axios.create({
     baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
   });
@@ -11,4 +11,4 @@ const getCourse = async () => {
     throw err;
   }
 };
-export default getCourse;
+export default get_all_courses;
