@@ -10,6 +10,11 @@ generator client {
   output   = "./generated/client"
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
 model User {
   id   Int      @id @default(autoincrement())
   first_name String
@@ -18,6 +23,8 @@ model User {
   parent_phone String
   email String  @unique 
   pass String
+
+  role UserRole @default(USER)
 }
 model Course {
   id   Int      @id @default(autoincrement())

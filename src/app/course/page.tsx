@@ -41,7 +41,7 @@ const page = async ({
                     pathname: "/course/pay",
                     query: { id: course.id },
                   }}
-                  className="py-3 px-6 bg-cyan-500 hover:bg-white  transition ease-in-out duration-300  hover:text-black  border-4 border-solid hover:border-cyan-400 rounded-xl"
+                  className="flex border-[3px] border-[#F9C500] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-xl"
                 >
                   اشترك الان
                 </Link>
