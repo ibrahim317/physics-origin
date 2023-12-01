@@ -1,15 +1,26 @@
-import axios from "axios";
-const getSection = async (id: number) => {
-  const instance = axios.create({
-    baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
-  });
+// import axios from "axios";
+import { PrismaClient } from "@/prisma/generated/client";
+const prisma = new PrismaClient();
+
+const get_course_sections = async (id: number) => {
+  // const instance = axios.create({
+  //   baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
+  // });
+  // try {
+  //   const sections = await instance.get("/api/ccontent", {
+  //     params: { id: id },
+  //   });
+  //   return await sections.data;
+  // } catch (err) {
+  //   throw err;
+  // }
   try {
-    const sections = await instance.get("/api/ccontent", {
-      params: { id: id },
+    const sections = await prisma.section.findMany({
+      where: { course: id.toString() },
     });
-    return await sections.data;
+    return sections;
   } catch (err) {
     throw err;
   }
 };
-export default getSection;
+export default get_course_sections;

@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { vaild } from "@/src/lib/vaild";
+import handleRegister from "@/src/lib/register";
 import toast from "react-hot-toast";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const CreateForm = () => {
@@ -10,12 +11,22 @@ const CreateForm = () => {
   const route = useRouter();
   const submit = async (data: any) => {
     try {
-      await vaild(data);
-    } catch {
-      return;
+      const user = await handleRegister(data);
+      try {
+        // our login logic
+        await signIn("credentials", {
+          phone: user.phone,
+          passwod: user.pass,
+          redirect: false, // Set to false to handle redirection manually
+        });
+      } catch (err) {
+        throw err;
+      }
+    } catch (err) {
+      throw err;
     }
-    toast.success("تم انشاء الحساب وسيتم التوجه لتسجيل الدخول");
-    setTimeout(() => route.push("/login"), 2000);
+    toast.success("تم انشاء الحساب وتسجيل الدخول وسيتم التوجه للصفحة الرئيسية");
+    setTimeout(() => route.push("/"), 1200);
   };
   return (
     <form onSubmit={handleSubmit((data: any) => submit(data))}>

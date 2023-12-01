@@ -1,5 +1,7 @@
 // register thing //
 import axios from "axios";
+// import { PrismaClient } from "@/prisma/generated/client";
+// const prisma = new PrismaClient();
 import { z } from "zod";
 import { toast } from "react-hot-toast";
 
@@ -8,12 +10,13 @@ interface user {
   name: string;
   last_name: string;
   phone: string;
+  parent_phone: string;
   email: string;
   password: string;
   repassword: string;
 }
 
-export const vaild = async (data: user) => {
+const handleRegister = async (data: user) => {
   const userSchema = z.object({
     name: z.string(),
     last_name: z.string(),
@@ -34,12 +37,13 @@ export const vaild = async (data: user) => {
   if (data.password === data.repassword) {
     try {
       await axios.post("/api/register", data);
-    } catch (error: any) {
+    } catch (error) {
       toast.error("هذا الحساب مسجل سابقاً");
-      throw new Error(error);
+      throw error;
     }
   } else {
     toast.error("كلمة المرور لا تطابق التأكيد");
     throw new Error();
   }
 };
+export default handleRegister;
