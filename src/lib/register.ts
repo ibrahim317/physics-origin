@@ -36,8 +36,10 @@ const handleRegister = async (data: user) => {
   }
   if (data.password === data.repassword) {
     try {
-      await axios.post("/api/register", data);
+      const user = await axios.post("/api/register", data);
+      return user.data;
     } catch (error) {
+      console.log(error);
       toast.error("هذا الحساب مسجل سابقاً");
       throw error;
     }

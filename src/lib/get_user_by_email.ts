@@ -19,7 +19,6 @@ const get_user_by_email = async (email: null | undefined | string) => {
       where: { email: email?.toString() },
     });
     return user;
-    j;
   } catch (err) {
     throw err;
   }

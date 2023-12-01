@@ -15,6 +15,7 @@ const get_section_by_id = async (id: number) => {
   // }
 
   try {
+    console.log(id);
     const section = await prisma.section.findFirst({
       where: { id: id },
     });

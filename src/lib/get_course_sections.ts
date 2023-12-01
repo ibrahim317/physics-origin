@@ -2,7 +2,7 @@
 import { PrismaClient } from "@/prisma/generated/client";
 const prisma = new PrismaClient();
 
-const get_course_sections = async (id: number) => {
+const get_course_sections = async (id: string) => {
   // const instance = axios.create({
   //   baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
   // });
@@ -16,7 +16,7 @@ const get_course_sections = async (id: number) => {
   // }
   try {
     const sections = await prisma.section.findMany({
-      where: { course: id.toString() },
+      where: { course: id },
     });
     return sections;
   } catch (err) {

@@ -20,7 +20,7 @@ const page = async (
       <div className="max-w-[65vw] min-h-[45vh] bg-slate-400 flex  flex-grow rounded-2xl p-10">
         <div className="flex text-4xl gap-3">
           اسم الكورس :
-          <span className="text-end font-semibold">{needed_course.name}</span>
+          <span className="text-end font-semibold">{needed_course?.name}</span>
         </div>
         <div></div>
       </div>
