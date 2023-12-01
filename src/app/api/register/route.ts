@@ -1,5 +1,4 @@
 import { PrismaClient } from "@/prisma/generated/client";
-import { error } from "console";
 const prisma = new PrismaClient();
 
 import { NextRequest, NextResponse } from "next/server";
@@ -24,6 +23,5 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(newUser, { status: 201 });
   } catch (err) {
     return NextResponse.json(err, { status: 400 });
-    console.log(error);
   }
 }

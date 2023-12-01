@@ -1,5 +1,5 @@
 import axios from "axios";
-const asd = async () => {
+const asd = async (user: any, course: any) => {
   try {
     const auth_token = await axios.post(
       "https://accept.paymob.com/api/auth/tokens",
@@ -13,7 +13,7 @@ const asd = async () => {
         {
           auth_token: auth_token.data.token,
           delivery_needed: "false",
-          amount_cents: "100",
+          amount_cents: course.price.toString(),
           currency: "EGP",
           items: [],
         }

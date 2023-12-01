@@ -7,9 +7,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 const prisma = new PrismaClient();
 const prismaAdapter = PrismaAdapter(prisma);
 
-
 export const authOptions: NextAuthOptions = {
-
   adapter: prismaAdapter, // inserted prisma client
 
   session: {
@@ -29,12 +27,9 @@ export const authOptions: NextAuthOptions = {
           label: "password",
           type: "password",
         },
-
       },
 
-      
       async authorize(credentials) {
-
         if (!credentials) {
           throw new Error("Credentials not provided");
         }
