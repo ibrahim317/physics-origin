@@ -2,6 +2,9 @@ import get_all_courses from "@/src/lib/get_all_courses";
 import React from "react";
 import PayButton from "./PayButton";
 import NotFound from "@/src/app/not-found/not-found";
+import { getServerSession } from "next-auth";
+import get_user_by_email from "@/src/lib/get_user_by_email";
+import { redirect } from "next/navigation";
 
 const page = async (
   {
@@ -14,9 +17,25 @@ const page = async (
   props: any
 ) => {
   const all_course = await get_all_courses();
+  const session = await getServerSession();
   const needed_course = all_course.find(
     (course: any) => course.id == searchParams.id
   );
+  if (session) {
+    const user = await get_user_by_email(session.user?.email);
+    let locked = true ? true : false;
+    const len = user?.courses.length ? user.courses.length : 0;
+    if (len > 0) {
+      user?.courses.forEach((id: any) => {
+        if (id == searchParams.id) {
+          locked = false;
+        }
+      });
+      if (locked == false) {
+        redirect(`/course?id=${searchParams.id}`);
+      }
+    }
+  }
   if (needed_course !== undefined) {
     const price = needed_course?.price ?? 0;
     return (
@@ -31,6 +50,12 @@ const page = async (
                     {needed_course?.name}
                   </span>
                 </div>
+                <div className="flex  gap-1">
+                  محتوى الكورس :
+                  <span className="text-start text-[#F9c500]  font-semibold">
+                    {needed_course?.des}
+                  </span>
+                </div>
                 <div className="flex gap-2">
                   سعر الكورس :
                   <span className="text-start text-[#F9c500]  font-semibold">
@@ -38,12 +63,12 @@ const page = async (
                   </span>
                 </div>
               </div>
-              <PayButton free={false} />
+              <PayButton price={price} />
             </>
           ) : (
             <>
               <span className=" text-[#F9c500]">هذا الكورس مجاني</span>
-              <PayButton free={true} />
+              <PayButton price={price} />
             </>
           )}
         </div>
