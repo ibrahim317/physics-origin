@@ -12,21 +12,13 @@ const CreateForm = () => {
   const submit = async (data: any) => {
     try {
       const user = await handleRegister(data);
-      try {
-        // our login logic
-        await signIn("credentials", {
-          phone: user.phone,
-          passwod: user.pass,
-          redirect: false, // Set to false to handle redirection manually
-        });
-      } catch (err) {
-        throw err;
-      }
+      toast.success(
+        "تم انشاء الحساب وتسجيل الدخول وسيتم التوجه للصفحة الرئيسية"
+      );
+      setTimeout(() => route.push("/login"), 1200);
     } catch (err) {
       throw err;
     }
-    toast.success("تم انشاء الحساب وتسجيل الدخول وسيتم التوجه للصفحة الرئيسية");
-    setTimeout(() => route.push("/"), 1200);
   };
   return (
     <form onSubmit={handleSubmit((data: any) => submit(data))}>
