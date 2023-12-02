@@ -3,7 +3,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import handleRegister from "@/src/lib/register";
 import toast from "react-hot-toast";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const CreateForm = () => {
