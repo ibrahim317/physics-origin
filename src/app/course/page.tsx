@@ -20,8 +20,8 @@ const page = async ({
   const course = courses.filter(
     (course: any) => course.id == searchParams.id
   )[0];
-  const thum = course.thumbnail ? course.thumbnail : "";
   if (course) {
+    const thum = course.thumbnail ? course.thumbnail : "";
     if (session) {
       const user = await get_user_by_email(session.user?.email);
       let locked = true;
