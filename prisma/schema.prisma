@@ -20,6 +20,7 @@ model User {
   pass         String
   isAdmin      Boolean 
   courses      String[]
+  buying       String?
 }
 
 model Course {

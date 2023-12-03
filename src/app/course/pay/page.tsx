@@ -21,19 +21,17 @@ const page = async (
   const needed_course = all_course.find(
     (course: any) => course.id == searchParams.id
   );
-  if (session) {
-    const user = await get_user_by_email(session.user?.email);
-    let locked = true ? true : false;
-    const len = user?.courses.length ? user.courses.length : 0;
-    if (len > 0) {
-      user?.courses.forEach((id: any) => {
-        if (id == searchParams.id) {
-          locked = false;
-        }
-      });
-      if (locked == false) {
-        redirect(`/course?id=${searchParams.id}`);
+  const user = await get_user_by_email(session?.user?.email);
+  let locked = true ? true : false;
+  const len = user?.courses.length ? user.courses.length : 0;
+  if (len > 0) {
+    user?.courses.forEach((id: any) => {
+      if (id == searchParams.id) {
+        locked = false;
       }
+    });
+    if (locked == false) {
+      redirect(`/course?id=${searchParams.id}`);
     }
   }
   if (needed_course !== undefined) {
@@ -63,14 +61,14 @@ const page = async (
                   </div>
                 </div>
               </div>
-              <PayButton price={price} />
+              <PayButton user={user} course={needed_course} price={price} />
             </>
           ) : (
             <>
               <div>
                 <span className=" text-[#F9c500]">هذا الكورس مجاني</span>
               </div>
-              <PayButton price={price} />
+              <PayButton user={user} course={needed_course} price={price} />
             </>
           )}
         </div>

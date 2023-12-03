@@ -7,7 +7,8 @@ const PayButton = (props: any) => {
   return (
     <button
       onClick={async () => {
-        await payment("");
+        console.log(props);
+        await payment(props.course, props.user);
       }}
       className=" text-lg px-4 py-2 self-center mx-4 max-md:self-start min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
     >
