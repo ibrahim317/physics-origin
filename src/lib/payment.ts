@@ -1,5 +1,6 @@
 import axios from "axios";
 import { abusiveexperiencereport_v1 } from "googleapis";
+import { redirect } from "next/navigation";
 
 // const auth = async() =>{}
 
@@ -102,7 +103,8 @@ const invoice = async (auth: any) => {
 const payment = async (price: any) => {
   const auth_token = await auth();
   const a = await invoice(auth_token.data.token);
-  return a.data.url;
+  window.open(a.data.url);
+
   // const order_id_t = order_id(auth_token);
   // const pay_api = payment_token(auth_token, order_id_t);
 };

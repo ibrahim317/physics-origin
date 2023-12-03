@@ -39,35 +39,37 @@ const page = async (
   if (needed_course !== undefined) {
     const price = needed_course?.price ?? 0;
     return (
-      <div className="min-h-[calc(100vh-6rem)] flex flex-col justify-center rtl text-black items-center ">
-        <div className="min-w-[65vw] text-4xl max-md:text-xl max-h-[45vh] justify-between text-white bg-[#2c3342] max-md:min-w-[80vw] flex flex-col m-2 flex-grow rounded-2xl p-10">
+      <div className="min-h-[calc(100vh-6rem)] flex  justify-center rtl text-black items-center ">
+        <div className="max-w-[65vw] text-4xl gap-7 max-md:text-xl max-[400px]:text-base justify-between text-white bg-[#2c3342] max-md:min-w-[80vw] flex flex-col m-2 flex-grow rounded-2xl p-10">
           {price > 0 ? (
             <>
               <div className="flex flex-col gap-10">
-                <div className="flex  gap-1">
-                  اسم الكورس :
-                  <span className="text-start text-[#F9c500]  font-semibold">
+                <div className="grid gap-5 ">
+                  <div> اسم الكورس </div>
+                  <div className="text-start text-2xl max-md:text-lg max-[400px]:text-sm text-[#F9c500]  ">
                     {needed_course?.name}
-                  </span>
+                  </div>
                 </div>
-                <div className="flex  gap-1">
-                  محتوى الكورس :
-                  <span className="text-start text-[#F9c500]  font-semibold">
-                    {needed_course?.des}
-                  </span>
+                <div className="grid gap-5 ">
+                  محتوى الكورس
+                  <div className="text-start text-2xl max-md:text-lg max-[400px]:text-sm text-[#F9c500]  ">
+                    {needed_course?.des[0]}
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  سعر الكورس :
-                  <span className="text-start text-[#F9c500]  font-semibold">
+                <div className="grid  gap-5 ">
+                  سعر الكورس
+                  <div className="text-start md:inline text-2xl max-md:text-lg max-[400px]:text-sm text-[#F9c500]  ">
                     {needed_course?.price} جنية
-                  </span>
+                  </div>
                 </div>
               </div>
               <PayButton price={price} />
             </>
           ) : (
             <>
-              <span className=" text-[#F9c500]">هذا الكورس مجاني</span>
+              <div>
+                <span className=" text-[#F9c500]">هذا الكورس مجاني</span>
+              </div>
               <PayButton price={price} />
             </>
           )}

@@ -42,12 +42,11 @@ const page = async ({
                 <h2 className="font-extrabold my-6  max-md:text-center text-7xl max-[1000px]:text-5xl max-[420px]:text-4xl">
                   {course.name}
                 </h2>
-                <div className="text-xl max-[660px]:text-center opacity-70">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Atque, ipsum tenetur. Quam quae beatae aliquam eligendi itaque
-                  voluptatibus, sit, hic blanditiis suscipit, quia ipsum
-                  pariatur voluptatem alias deserunt ab ut!
-                </div>
+                <ul className="font-light m-3 opacity-70 text-lg ">
+                  {course.des.map((text: any) => (
+                    <li>{text}</li>
+                  ))}
+                </ul>
               </div>
               <div className="flex justify-center gap-7">
                 {locked ? (
