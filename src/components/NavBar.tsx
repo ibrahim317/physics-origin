@@ -139,7 +139,7 @@ const NavBar = () => {
               href="register"
               className="w-[50%] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300"
             >
-              اشترك الان
+              انشئ حسابك
             </Link>
             <Link
               onClick={() => setToggle(!toggled)}
