@@ -18,7 +18,7 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-  isAdmin      Boolean 
+  isAdmin      Boolean  @default(false)
   courses      String[]
 }
 

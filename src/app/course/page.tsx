@@ -42,10 +42,7 @@ const page = async ({
                     {course.name}
                   </h2>
                   <div className="text-xl max-sm:text-center opacity-70">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Atque, ipsum tenetur. Quam quae beatae aliquam eligendi
-                    itaque voluptatibus, sit, hic blanditiis suscipit, quia
-                    ipsum pariatur voluptatem alias deserunt ab ut!
+                    {course.des}
                   </div>
                 </div>
                 <div className="flex justify-center gap-7">

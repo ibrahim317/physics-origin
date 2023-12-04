@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Devider from "./Devider";
-import { LockClosedIcon } from '@radix-ui/react-icons'
+import { LockClosedIcon } from "@radix-ui/react-icons";
 
 const Card = (props: any) => {
   if (props.type == "course") {
@@ -21,12 +21,7 @@ const Card = (props: any) => {
           className="w-full max-h-[70%] rounded-md"
         />
         <h2 className="text-3xl opacity-80 font-bold">{props.content.name}</h2>
-        <p className="font-light opacity-70 text-lg ">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis dolore
-          tenetur similique, hic repellat deleniti, molestiae illo molestias sit
-          culpa inventore possimus error. Nisi repellat dolore, commodi deleniti
-          perferendis excepturi!
-        </p>
+        <p className="font-light opacity-70 text-lg ">{props.content.des}</p>
       </Link>
     );
   } else {
@@ -62,7 +57,7 @@ const Card = (props: any) => {
               <h2 className="text-4xl opacity-80 font-bold p-10">
                 {props.content.name}
               </h2>
-              <LockClosedIcon width={70} height={70} className="opacity-70"/>
+              <LockClosedIcon width={70} height={70} className="opacity-70" />
             </div>
             <div className="-my-5">
               <Devider />
@@ -70,7 +65,6 @@ const Card = (props: any) => {
             <p className="font-light opacity-70 text-lg p-10">
               {props.content.des}
             </p>
-
           </div>
         </div>
       );
