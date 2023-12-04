@@ -28,7 +28,7 @@ model Course {
   name      String
   des       String
   price     Int
-  sections  Int
+  sections  Int[]
   thumbnail String
 }
 
