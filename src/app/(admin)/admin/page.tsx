@@ -17,23 +17,11 @@ const page = async () => {
         <section className="w-full h-screen">
           <div className="w-full h-full flex flex-col justify-center items-center -my-24">
             <Link
-              href={"/admin/add"}
-              className="text-4xl bg-green-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
-            >
-              إضافة كورس
-            </Link>
-            <Link
-              href={""}
-              className="text-4xl bg-orange-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
-            >
-              تعديل كورس
-            </Link>
-            {/* <Link
-              href={""}
+              href={"https://supabase.com/dashboard/projects"}
               className="text-4xl bg-blue-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
             >
-              المستخدمين
-            </Link> */}
+              اضغط هنا للتوجه إلي مركز البيانات
+            </Link>
           </div>
         </section>
       );
@@ -42,3 +30,29 @@ const page = async () => {
 };
 
 export default page;
+
+// old code
+{
+  /* <section className="w-full h-screen">
+<div className="w-full h-full flex flex-col justify-center items-center -my-24">
+  <Link
+    href={"/admin/add"}
+    className="text-4xl bg-green-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
+  >
+    إضافة كورس
+  </Link>
+  <Link
+    href={""}
+    className="text-4xl bg-orange-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
+  >
+    تعديل كورس
+  </Link>
+  <Link
+    href={""}
+    className="text-4xl bg-blue-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
+  >
+    المستخدمين
+  </Link>
+</div>
+</section> */
+}

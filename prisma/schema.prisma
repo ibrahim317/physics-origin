@@ -18,17 +18,17 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-  isAdmin      Boolean 
+  isAdmin      Boolean
   courses      String[]
   buying       String?
 }
 
 model Course {
-  id        Int     @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   name      String
   des       String
   price     Int
-  sections  Int?
+  sections  Int
   thumbnail String
 }
 
