@@ -1,7 +1,6 @@
 import React from "react";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import Devider from "./Devider";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -11,14 +10,14 @@ const Footer = () => {
     >
       <div className="h-4/5">
         <div className="flex justify-center">
-          <a href="https://www.youtube.com/@physicsorigin9192" target="_blank">
-            <YouTubeIcon className="text-[#F9C500] text-[50px] m-5" />
+          <a href="https://www.youtube.com/@physicsorigin9192" target="_blank" className="m-2 p-2">
+            <Image src={"/assets/yt.png"} width={40} height={40} alt="yt" />
           </a>
-          <a href="https://www.facebook.com" target="_blank">
-            <FacebookIcon className="text-[#F9C500] text-[50px] m-5" />
+          <a href="https://www.facebook.com" target="_blank" className="m-2 p-2">
+          <Image src={"/assets/fb.png"} width={40} height={40} alt="yt" />
           </a>
         </div>
-        <Devider />
+        <div className="opacity-50"><Devider /></div>
         <h4 className="p-5 opacity-70">
           جميع حقوق الطبع والنشر محفوظة{" "}
           <span className="text-[#F9C500]">@</span>2024
