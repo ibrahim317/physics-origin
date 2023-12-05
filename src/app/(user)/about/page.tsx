@@ -22,67 +22,71 @@ const page = () => {
           <h1 className="flex items-center">
             <Image
               src={"/assets/user.png"}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt=""
               className="m-3"
             />
-            <span className="text-2xl">مهندس / أحمد يوسف</span>
+            <span className="text-3xl">مهنــدس / أحمــد يوســف</span>
           </h1>
-          <h1 className="flex items-center">
-            <Image
-              src={"/assets/open-book.png"}
-              width={40}
-              height={40}
-              alt=""
-              className="m-3"
-            />
-            <span className="text-2xl">ثانوية عامة 2015</span>
-          </h1>
-          <h1 className="flex items-center">
-            <Image
-              src={"/assets/star.png"}
-              width={40}
-              height={40}
-              alt=""
-              className="m-3"
-            />
-            <span className="text-2xl">المركز ال9 علي مستوي الجمهورية</span>
-          </h1>
-          <h1 className="flex items-center">
-            <Image
-              src={"/assets/graduate.png"}
-              width={40}
-              height={40}
-              alt=""
-              className="m-3"
-            />
-            <span className="text-2xl">
-              {" "}
-              خريج هندسه بترول وتعدين جامعة السويس 2020
-            </span>
-          </h1>
-          <h1 className="flex items-center">
-            <Image
-              src={"/assets/teach.png"}
-              width={40}
-              height={40}
-              alt=""
-              className="m-3"
-            />
-            <span className="text-2xl">
-              خبرة أكثر من 7 سنوات في مجال التدريس - منذ 2017
-            </span>
-          </h1>
+          <div className="m-7">
+            <h1 className="flex items-center">
+              <Image
+                src={"/assets/open-book.png"}
+                width={30}
+                height={30}
+                alt=""
+                className="m-3 opacity-80"
+              />
+              <span className="text-2xl">ثانــــــوية عامــــــة 2015</span>
+            </h1>
+            <h1 className="flex items-center">
+              <Image
+                src={"/assets/star.png"}
+                width={30}
+                height={30}
+                alt=""
+                className="mx-3 opacity-80"
+              />
+              <span className="text-2xl">
+                المــركز ال9 علي مستــــوي الجمهــورية
+              </span>
+            </h1>
+            <h1 className="flex items-center">
+              <Image
+                src={"/assets/graduate.png"}
+                width={30}
+                height={30}
+                alt=""
+                className="mx-3 opacity-80"
+              />
+              <span className="text-2xl">
+                {" "}
+                خريج هنــدسه بترول وتعــدين جامــعة السويــــس 2020
+              </span>
+            </h1>
+            <h1 className="flex items-center">
+              <Image
+                src={"/assets/teach.png"}
+                width={30}
+                height={30}
+                alt=""
+                className="m-3 opacity-80"
+              />
+              <span className="text-2xl">
+                خبرة أكثــــر من 7 سنــوات في مجال التــدريس - منذ 2017
+              </span>
+            </h1>
+          </div>
           <h1 className="flex items-center">
             <Image
               src={"/assets/badge.png"}
               width={60}
               height={60}
               alt=""
-              className="m-3"
+              className="mx-3"
             />
-            <span className="text-4xl">شعارنا : اتشعبط في الحلم.. واصبر</span>
+            <span className="text-4xl">شعارنا : اتشعــبط في الحــلم... واصــبر</span>
             <Image
               src={"/assets/badge.png"}
               width={60}
