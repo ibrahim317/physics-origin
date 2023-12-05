@@ -1,12 +1,9 @@
-import {
-  EnvelopeClosedIcon,
-  CheckIcon,
-  ArrowLeftIcon,
-} from "@radix-ui/react-icons";
+import CallIcon from "@mui/icons-material/Call";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MailIcon from "@mui/icons-material/Mail";
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import get_user_by_email from "@/src/lib/get_user_by_email";
-import Image from "next/image";
 import { getServerSession } from "next-auth";
-import OutButton from "./OutButton";
 
 const profile = async () => {
   const session = await getServerSession();
@@ -20,30 +17,40 @@ const profile = async () => {
         <div className=" w-1/2 h-full hidden md:flex justify-center items-center">
           {" "}
           {/*/ left side /*/}
-          <Image
+          {/* <Image
             className=" rounded-[200px]"
             src={"/assets/person.png"}
             alt="Avatar"
             width={350}
             height={350}
-          />
+          /> */}
+          <SentimentSatisfiedAltIcon className="text-[350px]"/>
         </div>
-        <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-center">
+        <div className="w-full md:w-1/4 h-full flex flex-col justify-center items-end">
           {" "}
           {/*/ right side /*/}
           <h1 className="text-5xl text-right flex">
-            !{user?.first_name} مرحبا{" "}
+            <span className="text-[#F9C500]">!</span>مرحبا {user?.first_name}
             <span className="text-[#F9C500] text-3xl mx-6">
-              <CheckIcon width={60} height={60} />
+              <AccountCircleIcon className="text-5xl" />
             </span>
           </h1>
-          <h2 className="text-3xl flex my-10">
-            {user?.email}
-            <span className="text-[#F9C500] text-3xl mx-6">
-              <EnvelopeClosedIcon width={40} height={40} />
-            </span>
-          </h2>
-          <OutButton />
+          <div className="flex flex-col items-end my-10">
+            {" "}
+            {/*/ user information /*/}
+            <h2 className="text-3xl flex my-2">
+              {user?.email}
+              <span className="text-[#F9C500] text-3xl mx-6">
+                <MailIcon className="text-4xl" />
+              </span>
+            </h2>
+            <h2 className="text-3xl flex my-2">
+              {user?.phone}
+              <span className="text-[#F9C500] text-3xl mx-6">
+                <CallIcon className="text-4xl" />
+              </span>
+            </h2>
+          </div>
         </div>
       </div>
     </>
