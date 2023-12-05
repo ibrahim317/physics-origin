@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 
 const page = async () => {
+  const dblink = "https://supabase.com/dashboard/projects";
   const session = await getServerSession();
   if (!session) redirect("/login");
 
@@ -17,7 +18,7 @@ const page = async () => {
         <section className="w-full h-screen">
           <div className="w-full h-full flex flex-col justify-center items-center -my-24">
             <Link
-              href={"https://supabase.com/dashboard/projects"}
+              href={dblink}
               className="text-4xl bg-blue-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
             >
               اضغط هنا للتوجه إلي مركز البيانات
