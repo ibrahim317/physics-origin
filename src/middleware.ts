@@ -5,7 +5,7 @@ export const config = {
     "/profile/",
     "/profile/me/",
     "/profile/mycourses/",
-    "/profile/myhistory/",
+    "/profile/logout/",
     "/course/pay/",
   ],
 };
