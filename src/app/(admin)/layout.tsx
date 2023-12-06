@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "منصة احمد يوسف",
+  title: "ADMIN",
   description: "منصة م/احمد يوسف لتدريس الفيزياء",
 };
 

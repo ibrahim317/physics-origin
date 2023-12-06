@@ -11,6 +11,7 @@ generator client {
 }
 
 model User {
+  isAdmin      Boolean
   id           Int      @id @default(autoincrement())
   first_name   String
   last_name    String
@@ -18,25 +19,24 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-  isAdmin      Boolean 
   courses      String[]
   buying       String?
 }
 
 model Course {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   name      String
   des       String[]
   price     Int
   sections  Int[]
-  thumbnail String?
+  thumbnail String
 }
 
 model Section {
   id        Int     @id @default(autoincrement())
   course    String
   name      String
-  des       String
+  des       String[]
   tag       String?
   thumbnail String?
   yourlink  String?

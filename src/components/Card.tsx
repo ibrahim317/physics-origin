@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Devider from "./Devider";
+import { LockClosedIcon } from "@radix-ui/react-icons";
 
 const Card = (props: any) => {
   if (props.type == "course") {
@@ -56,9 +57,12 @@ const Card = (props: any) => {
           style={{ backgroundColor: `#111827` }}
         >
           <div className="flex flex-col justify-center">
-            <h2 className="text-4xl opacity-80 font-bold p-10">
-              {props.content.name}
-            </h2>
+            <div className="flex justify-between">
+              <h2 className="text-4xl opacity-80 font-bold p-10">
+                {props.content.name}
+              </h2>
+              <LockClosedIcon width={70} height={70} className="opacity-70" />
+            </div>
             <div className="-my-5">
               <Devider />
             </div>
