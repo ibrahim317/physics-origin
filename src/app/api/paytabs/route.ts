@@ -6,6 +6,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   const data = await request.json();
+  const baseurl = process.env.NEXT_PUBLIC_VERCEL_URL;
+  console.log(baseurl);
   const apiUrl = "https://secure-egypt.paytabs.com/payment/request";
   const profileServerKey = "SWJ99KJ2WH-JHJWG2G6ML-D22HKWG96R";
   const profileId = "134482";
