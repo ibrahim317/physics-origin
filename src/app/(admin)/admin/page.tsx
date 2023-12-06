@@ -19,6 +19,7 @@ const page = async () => {
           <div className="w-full h-full flex flex-col justify-center items-center -my-24">
             <Link
               href={dblink}
+              target="_blank"
               className="text-4xl bg-blue-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
             >
               اضغط هنا للتوجه إلي مركز البيانات

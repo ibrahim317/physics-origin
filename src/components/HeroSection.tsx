@@ -32,7 +32,7 @@ const HeroSection = () => {
             شوف الكورسات
           </Link>
           <Link href={"/about"}>
-            <p className="opacity-70">اعــرف أســتاذك ... ؟</p>
+            <p className="opacity-70 hover:opacity-100">اعــرف أســتاذك ... ؟</p>
           </Link>
         </div>
       </div>
