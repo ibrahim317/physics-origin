@@ -32,8 +32,10 @@ export async function POST(request: NextRequest) {
       country: "EG",
     },
     hide_shipping: true,
-    callback: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/paymentcallback`,
-    return: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/course?id=${data.course.id}`,
+    callback: `https://physics-origin.vercel.app/api/paymentcallback`,
+    return: `https://physics-origin.vercel.app/course?id=${data.course.id}`,
+    //callback: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/paymentcallback`,
+    //return: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/course?id=${data.course.id}`,
   };
 
   try {
