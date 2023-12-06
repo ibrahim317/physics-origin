@@ -17,7 +17,7 @@ const HeroSection = () => {
           height={500}
           className="max-w-[80%] mx-auto mb-8 -my-36"
         />
-        <div className="flex items-center gap-6 flex-col">
+        <div className="flex items-center gap-3 flex-col">
           <Link
             href="/register"
             className="px-10 max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500] rounded-[25px] hover:bg-[#ffffff] transition ease-in-out duration-300 text-xl"
@@ -30,6 +30,9 @@ const HeroSection = () => {
           >
             <DoubleArrowDownIcon width={25} height={25} />
             شوف الكورسات
+          </Link>
+          <Link href={"/about"}>
+            <p className="opacity-70">اعــرف أســتاذك ... ؟</p>
           </Link>
         </div>
       </div>

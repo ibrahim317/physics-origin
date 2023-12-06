@@ -9,8 +9,8 @@ import get_user_by_email from "@/src/lib/get_user_by_email";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "منصة احمد يوسف",
-  description: "منصة م/احمد يوسف لتدريس الفيزياء",
+  title: "Physics Origin",
+  description: "منصة م/أحمد يوسف لتدريس الفيزياء",
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 const classnames = inter.className + "  bg-[#232935] ";
