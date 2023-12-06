@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-
 const YouTubeEmbed = ({ vidlink }: any) => {
-  const [videoId, setVideoId] = useState<string | null>(null);
+  const [videoId, setVideoId] = useState<string | undefined>();
 
   const embedVideo = (youtubeUrl: string) => {
     const extractedVideoId = getParameterByName("v", youtubeUrl);
@@ -10,19 +9,20 @@ const YouTubeEmbed = ({ vidlink }: any) => {
     setVideoId(extractedVideoId);
   };
 
-  const getParameterByName = (name: string, url: string): string | null => {
+  const getParameterByName = (
+    name: string,
+    url: string
+  ): string | undefined => {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
     const results = regex.exec(url);
-    if (!results) return null;
+    if (!results) return undefined;
     if (!results[2]) return "";
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   };
-
   useEffect(() => {
     const YouTubeUrl = vidlink;
-
     embedVideo(YouTubeUrl);
   }, [vidlink]);
 
@@ -31,7 +31,7 @@ const YouTubeEmbed = ({ vidlink }: any) => {
       <div id="youtubePlayer">
         {videoId && (
           <iframe
-            className="min-[1000px]:w-[857px] min-[1000px]:h-[482px]   min-[500px]:w-[600px] min-[500px]:h-[335px] max-[720px]:w-[400]  border-2 border-[#F9C500] rounded-[25px]"
+            className="min-h-[400px] min-w-[calc(330px*0.8)] w-[calc(80vw)] md:min-h-[600px] mb-10 outline-none max-w-[1200px] border-2 border-[#F9C500] rounded-[25px]"
             src={`https://www.youtube.com/embed/${videoId}`}
             allowFullScreen
           ></iframe>
