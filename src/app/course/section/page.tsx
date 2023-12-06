@@ -26,12 +26,12 @@ const page = async (
     }
     if (section?.tag == "vid") {
       return (
-        <div className="flex flex-col rtl items-center">
-          <YouTubeEmbed vidlink={section?.yourlink} />
-          <div className=" text-right w-7/12">
+        <div className="flex flex-col rtl gap-10 items-center">
+          <div className="py-9 text-right w-7/12">
             <h1 className="text-[#F9C500] text-5xl my-6">{section?.name} </h1>
             <p className="flex text-xl text-right flex-wrap">{section?.des}</p>
           </div>
+          <YouTubeEmbed vidlink={section?.yourlink} />
         </div>
       );
     } else if (section?.tag == "file") {
