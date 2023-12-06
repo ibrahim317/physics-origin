@@ -1,6 +1,4 @@
 import axios from "axios";
-import { PrismaClient } from "@/prisma/generated/client";
-const prisma = new PrismaClient();
 
 import { NextRequest, NextResponse } from "next/server";
 

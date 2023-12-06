@@ -86,7 +86,9 @@ const page = () => {
               alt=""
               className="mx-3"
             />
-            <span className="text-4xl">شعارنا : اتشعــبط في الحــلم... واصــبر</span>
+            <span className="text-4xl">
+              شعارنا : اتشعــبط في الحــلم... واصــبر
+            </span>
             <Image
               src={"/assets/badge.png"}
               width={60}
