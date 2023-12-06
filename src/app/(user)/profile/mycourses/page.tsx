@@ -7,13 +7,12 @@ const profile = async () => {
   const session = await getServerSession();
   const courses = await get_all_courses();
   const user = await get_user_by_email(session?.user?.email);
-  
 
   if (courses.length > 0) {
+    const paidCourse = courses.filter((course: any) =>
+      user?.courses.find((paidid: any) => paidid == course.id)
+    );
 
-    const paidCourse = courses.filter((course: any) => user?.courses.find((paidid: any)=> paidid==course.id))
-
-    console.log(paidCourse)
     return (
       <section className=" p-3 flex flex-col rtl ">
         <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
