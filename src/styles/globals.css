@@ -69,3 +69,22 @@ body {
     background-position: 0 100%;
   }
 }
+.yt-cntainer {
+  position: relative;
+}
+
+.yt-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33vw;
+  height: 70px;
+}
+
+.yt-maskt {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+}

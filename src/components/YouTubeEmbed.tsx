@@ -28,7 +28,7 @@ const YouTubeEmbed = ({ vidlink }: any) => {
 
   return (
     <div>
-      <div id="youtubePlayer">
+      <div className="yt-cntainer">
         {videoId && (
           <iframe
             className="min-h-[400px] min-w-[calc(330px*0.8)] w-[calc(80vw)] md:min-h-[600px] mb-10 outline-none max-w-[1200px] border-2 border-[#F9C500] rounded-[25px]"
@@ -36,6 +36,8 @@ const YouTubeEmbed = ({ vidlink }: any) => {
             allowFullScreen
           ></iframe>
         )}
+        <div className="yt-maskt"></div>
+        <div className="yt-mask"></div>
       </div>
     </div>
   );
