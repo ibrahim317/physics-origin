@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import YouTube from "react-youtube";
 const YouTubeEmbed = ({ vidlink }: any) => {
   const [videoId, setVideoId] = useState<string | undefined>();
 
