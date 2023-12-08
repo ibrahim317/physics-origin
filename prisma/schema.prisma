@@ -42,9 +42,16 @@ model Section {
   yourlink  String?
 }
 
+model Quiz {
+  id        Int    @id @default(autoincrement())
+  title     String
+  questions Int[]
+}
+
 model Question {
-  id      Int     @id @default(autoincrement())
+  id      Int      @id @default(autoincrement())
   text    String
   options String[]
   image   String?
+  quiz    String?
 }
