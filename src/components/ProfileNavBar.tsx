@@ -16,7 +16,7 @@ const ProfileNavBar = (props: any) => {
             الخروج
           </a>
           <a
-            href="./mycourses"
+            href="./mylectures"
             className="text-white max-sm:text-md hover:text-black transition ease-in-out duration-700"
           >
             كورساتي

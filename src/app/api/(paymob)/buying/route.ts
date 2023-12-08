@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
         id: res.user.id,
       },
       data: {
-        buying: res.course.id.toString(),
+        buying: res.lecture.id.toString(),
       },
     });
 

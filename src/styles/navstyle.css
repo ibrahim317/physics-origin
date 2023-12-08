@@ -43,7 +43,7 @@ a:nth-child(3):hover ~ .animation {
   width: 30%;
   right: 5%;
 }
-nav .mycourses,
+nav .mylectures,
 a:nth-child(2):hover ~ .animation {
   width: 25%;
   right: 37%;

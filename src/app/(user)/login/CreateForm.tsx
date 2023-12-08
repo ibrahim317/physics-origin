@@ -24,7 +24,7 @@ const CreateForm = () => {
         toast.error("البيانات غير صحيحة");
       } else {
         toast.success("تم تسجيل الدخول بنجاح");
-        setTimeout(() => route.push("/#CoursesSection"), 750);
+        setTimeout(() => route.push("/#LecturesSection"), 750);
       }
     } catch (error) {
       toast.error("حدثت مشكلة أثناء تسجيل الدخول");

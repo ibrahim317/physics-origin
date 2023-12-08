@@ -20,7 +20,7 @@ const page = async (
     const session = await getServerSession();
     const section = await get_section_by_id(Number(searchParams.id));
     const user = await get_user_by_email(session?.user?.email);
-    const found = user?.courses.find((id: any) => id === section?.course);
+    const found = user?.lectures.find((id: any) => id === section?.lecture);
     if (!found || !session) {
       throw new Error();
     }

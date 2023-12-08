@@ -4,8 +4,8 @@ export const config = {
   matcher: [
     "/profile/",
     "/profile/me/",
-    "/profile/mycourses/",
+    "/profile/mylectures/",
     "/profile/logout/",
-    "/course/pay/",
+    "/lecture/pay/",
   ],
 };

@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
         phone: res.phone,
         pass: res.password,
         isAdmin: false,
-        courses: [],
+        lectures: [],
       },
     });
 

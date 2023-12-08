@@ -19,11 +19,11 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-  courses      String[]
+  lectures String[]
   buying       String?
 }
 
-model Course {
+model Lecture{
   id        Int      @id @default(autoincrement())
   name      String
   des       String[]
@@ -34,7 +34,7 @@ model Course {
 
 model Section {
   id        Int     @id @default(autoincrement())
-  course    String
+  lecture String?
   name      String
   des       String[]
   tag       String?

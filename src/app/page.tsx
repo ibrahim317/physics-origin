@@ -1,5 +1,5 @@
 import HeroSection from "@/src/components/HeroSection";
-import CoursesSection from "@/src/components/CoursesSection";
+import LecturesSection from "@/src/components/LecturesSection";
 import Devider from "@/src/components/Devider";
 import Footer from "../components/footer";
 // import asd from "../../lib/test";
@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <HeroSection />
       <Devider />
-      <CoursesSection />
+      <LecturesSection />
       <Footer />
     </>
   );

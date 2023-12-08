@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
-import get_course_sections from "../lib/get_course_sections";
+import get_lecture_sections from "../lib/get_lecture_sections";
 
 const Content = async (props: any) => {
   const id = props.id.toString();
-  const sections = await get_course_sections(id);
+  const sections = await get_lecture_sections(id);
   if (sections.length > 0) {
     return (
       <section className="bg-[#1c232d] p-3 flex flex-col" id="Content">
