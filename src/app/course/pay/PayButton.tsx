@@ -1,19 +1,9 @@
 "use client";
 import React from "react";
 import axios from "axios";
+import payment from "@/src/lib/paymob";
 
 const PayButton = (props: any) => {
-  const payment = async (course: any, user: any) => {
-    const data = { course, user };
-    try {
-      const res = await axios.post("/api/paytabs", data);
-      console.log(res);
-      window.open(res.data, "_self");
-    } catch (err) {
-      console.error("Error :", err);
-    }
-  };
-
   return (
     <button
       onClick={async () => {
