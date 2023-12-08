@@ -11,6 +11,7 @@ import { redirect } from "next/navigation";
 export const metadata = {
   title: "Physics Origin",
   description: "منصة م/أحمد يوسف لتدريس الفيزياء",
+  
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 const classnames = inter.className + "  bg-[#232935] ";
