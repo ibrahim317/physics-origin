@@ -6,6 +6,7 @@ const questions = [
     id: "1",
     text: "ما هو اسرع حيوان في المريخ؟",
     options: ["الاسد", "الزرافة", "الفهد", "الموز"],
+    image: '/assets/Avatar-03.jpg',
   },
   {
     id: "2",
