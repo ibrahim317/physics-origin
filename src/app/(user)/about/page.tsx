@@ -4,8 +4,8 @@ import Image from "next/image";
 const page = () => {
   return (
     <div className="flex justify-center gap-8 items-center h-4/5 w-full">
-      <div className="w-11/12 flex justify-center items-center">
-        <div className="w-4/5 h-full">
+      <div className="w-full lg:w-11/12 flex lg:flex-row flex-col justify-center items-center">
+        <div className="w-4/5 h-full py-3 flex justify-center items-center">
           {" "}
           {/*/ left side /*/}
           <Image
@@ -27,9 +27,9 @@ const page = () => {
               alt=""
               className="m-3"
             />
-            <span className="text-3xl">مهنــدس / أحمــد يوســف</span>
+            <span className="text-xl md:text-3xl">مهنــدس / أحمــد يوســف</span>
           </h1>
-          <div className="m-7">
+          <div className="m-7 flex flex-col gap-3">
             <h1 className="flex items-center">
               <Image
                 src={"/assets/open-book.png"}
@@ -38,7 +38,7 @@ const page = () => {
                 alt=""
                 className="m-3 opacity-80"
               />
-              <span className="text-2xl">ثانــــــوية عامــــــة 2015</span>
+              <span className="text-xl md:text-2xl">ثانــــــوية عامــــــة 2015</span>
             </h1>
             <h1 className="flex items-center">
               <Image
@@ -48,7 +48,7 @@ const page = () => {
                 alt=""
                 className="mx-3 opacity-80"
               />
-              <span className="text-2xl">
+              <span className="md:text-2xl">
                 المــركز ال9 علي مستــــوي الجمهــورية
               </span>
             </h1>
@@ -60,7 +60,7 @@ const page = () => {
                 alt=""
                 className="mx-3 opacity-80"
               />
-              <span className="text-2xl">
+              <span className="md:text-2xl">
                 {" "}
                 خريج هنــدسه بترول وتعــدين جامــعة السويــــس 2020
               </span>
@@ -73,7 +73,7 @@ const page = () => {
                 alt=""
                 className="m-3 opacity-80"
               />
-              <span className="text-2xl">
+              <span className="md:text-2xl">
                 خبرة أكثــــر من 7 سنــوات في مجال التــدريس - منذ 2017
               </span>
             </h1>
@@ -86,7 +86,7 @@ const page = () => {
               alt=""
               className="mx-3"
             />
-            <span className="text-4xl">
+            <span className="md:text-3xl">
               شعارنا : اتشعــبط في الحــلم... واصــبر
             </span>
             <Image
