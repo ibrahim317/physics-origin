@@ -4,13 +4,18 @@ import Quiz from "@/src/components/Quiz";
 const questions = [
   {
     id: "1",
-    text: "what is?",
-    options: ["answer1", "answer2", "answer3", "answer4"],
+    text: "ما هو اسرع حيوان في المريخ؟",
+    options: ["الاسد", "الزرافة", "الفهد", "الموز"],
   },
   {
     id: "2",
-    text: "what is two?",
-    options: ["answer01", "answer02", "answer03", "answer04"],
+    text: "ما هو الشيء؟",
+    options: ["الشيء", "الانسان", "البطيخ", "الموز بردو"],
+  },
+  {
+    id: "3",
+    text: "ما هو الشيء؟",
+    options: ["الشيء", "الانسان", "البطيخ", "الموز بردو"],
   },
 ];
 
