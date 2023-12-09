@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import get_all_courses from "@/src/lib/get_all_courses";
+import get_course_by_id from "@/src/lib/get_course_by_id";
 import Devider from "@/src/components/Devider";
 import NotFound from "../not-found/not-found";
 import Sections from "@/src/components/Content_list";
@@ -8,6 +8,50 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import get_user_by_email from "@/src/lib/get_user_by_email";
 
+const is_user_have_course = async (course: any) => {
+  const session = await getServerSession();
+  const user = await get_user_by_email(session?.user?.email);
+  let locked = true;
+  const len = user?.courses.length ? user.courses.length : 0;
+  if (len > 0) {
+    user?.courses.forEach((id: any) => {
+      if (id == course.id) {
+        locked = false;
+      }
+    });
+  }
+  return locked;
+};
+// اشترك الان button
+const mybtn = (course: any, locked: any) => {
+  let mybutton;
+  if (course.price == 0) {
+    mybutton = (
+      <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
+        هذا الكورس مجاني
+      </div>
+    );
+  } else if (locked) {
+    mybutton = (
+      <Link
+        href={{
+          pathname: "/course/pay",
+          query: { id: course.id },
+        }}
+        className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
+      >
+        اشترك الان
+      </Link>
+    );
+  } else {
+    mybutton = (
+      <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
+        انت مشترك
+      </div>
+    );
+  }
+  return mybutton;
+};
 const page = async ({
   params,
   searchParams,
@@ -15,49 +59,11 @@ const page = async ({
   params: { slug: string };
   searchParams: { id: string };
 }) => {
-  const session = await getServerSession();
-  const courses = await get_all_courses();
-  const course = courses.filter(
-    (course: any) => course.id == searchParams.id
-  )[0];
+  const course = await get_course_by_id(Number(searchParams.id));
   if (course) {
+    const locked = await is_user_have_course(course);
     const thum = course.thumbnail ? course.thumbnail : "";
-    const user = await get_user_by_email(session?.user?.email);
-    let locked = true;
-    const len = user?.courses.length ? user.courses.length : 0;
-    if (len > 0) {
-      user?.courses.forEach((id: any) => {
-        if (id == course.id) {
-          locked = false;
-        }
-      });
-    }
-    let mybutton;
-    if (course.price == 0) {
-      mybutton = (
-        <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
-          هذا الكورس مجاني
-        </div>
-      );
-    } else if (locked) {
-      mybutton = (
-        <Link
-          href={{
-            pathname: "/course/pay",
-            query: { id: course.id },
-          }}
-          className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
-        >
-          اشترك الان
-        </Link>
-      );
-    } else {
-      mybutton = (
-        <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
-          انت مشترك
-        </div>
-      );
-    }
+    const mybutton = mybtn(course, locked);
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
         <div className="my-6 flex gap-6 justify-between max-h-fit max-[660px]:flex-col-reverse w-full ">
@@ -92,7 +98,7 @@ const page = async ({
             المحتوى
           </h2>
         </div>
-        <Sections sections={course.sections} locked={locked} />
+        <Sections sections={course.section} locked={locked} />
       </section>
     );
   } else {

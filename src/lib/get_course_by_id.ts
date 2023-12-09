@@ -1,8 +1,10 @@
-// import axios from "axios";
 import { PrismaClient } from "@/prisma/generated/client";
 const prisma = new PrismaClient();
-const get_all_courses = async () => {
-  const courses = await prisma.course.findMany({
+const get_all_courses = async (id: any) => {
+  const courses = await prisma.course.findFirst({
+    where: {
+      id: id,
+    },
     include: { section: true },
   });
   return courses;

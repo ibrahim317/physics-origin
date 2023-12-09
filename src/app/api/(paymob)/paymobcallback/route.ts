@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
         data: {
           buying: "",
           courses: {
-            push: buying,
+            push: Number(buying),
           },
         },
       });
