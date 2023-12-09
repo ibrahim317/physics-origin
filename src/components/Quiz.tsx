@@ -3,6 +3,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import get_quiz from "@/src/lib/get_quiz";
 
 interface Question {
   id: string;
@@ -20,7 +21,8 @@ interface QuizProps {
 }
 
 const quizTitle = "عنوان الكويييز";
-const Quiz: React.FC<QuizProps> = ({ questions }) => {
+const Quiz: React.FC<QuizProps> = async ({ questions }) => {
+  const quiz = await get_quiz();
   const route = useRouter();
   const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
 
