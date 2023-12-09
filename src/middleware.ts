@@ -7,5 +7,6 @@ export const config = {
     "/profile/mycourses/",
     "/profile/logout/",
     "/course/pay/",
+    "/course/quiz",
   ],
 };

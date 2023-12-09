@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface Question {
   id: string;
   text: string;
+  image?: string;
   options: string[];
 }
 
@@ -19,6 +21,7 @@ interface QuizProps {
 
 const quizTitle = "عنوان الكويييز";
 const Quiz: React.FC<QuizProps> = ({ questions }) => {
+  const route = useRouter();
   const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
 
   const handleAnswerSelect = (questionId: string, answer: string) => {
@@ -53,47 +56,65 @@ const Quiz: React.FC<QuizProps> = ({ questions }) => {
       });
 
       console.log("Selected Answers:", lastSelectedAnswers);
+      route.push("/lecture?id=0"); // Navigate to the lecture if (query) <<<<<<<<<<<<<<<<<<<<<<<< HEMA
     }
   };
 
   return (
     <div className="w-4/5 h-screen flex flex-col items-center">
-      <h2 className="text-2xl md:text-3xl text-black bg-white py-10 px-24 m-2 rounded-full">
+      <h2 className="text-xl md:text-3xl text-black bg-white py-5 px-24 m-2 rounded-full my-9">
         {quizTitle}
       </h2>
       {questions.map((question) => (
-        <div key={question.id} className="w-full h-screen flex flex-col rtl">
-          <p className="text-2xl md:text-4xl py-5">{question.text}</p>
-          <form className="rtl">
-            {question.options.map((option) => (
-              <div key={option} className="py-2">
-                <label
-                  key={option}
-                  htmlFor={`${question.id}_${option}`}
-                  className="text-2xl md:text-3xl px-2"
-                  style={{
-                    cursor: "pointer",
-                    display: "block",
-                  }}
-                >
-                  <input
-                    required
-                    type="radio"
-                    id={`${question.id}_${option}`}
-                    name={question.id}
-                    value={option}
-                    onChange={() => handleAnswerSelect(question.id, option)}
-                    style={
-                      {
-                        //   display: "none",
-                      }
-                    }
-                  />
-                  {option}
-                </label>
-              </div>
-            ))}
-          </form>
+        <div className="w-full h-screen flex md:flex-row flex-col justify-between my-36 md:my-10">
+          <div
+            key={question.id}
+            className="w-full h-full flex md:flex-row flex-col justify-between"
+          >
+            <div>
+              {" "}
+              {/**left side */}
+              {question.image && (
+                <img
+                  className="w-96 rounded-[10px]"
+                  src={question.image}
+                  alt={`Question Image`}
+                />
+              )}
+            </div>
+            <div>
+              {" "}
+              {/**right side */}
+              <p className="text-2xl md:text-4xl py-5 bg-[#F9C500] text-black px-6 rounded-[25px] rtl">
+                {question.text}
+              </p>
+              <form className="rtl">
+                {question.options.map((option) => (
+                  <div key={option} className="py-2">
+                    <label
+                      key={option}
+                      htmlFor={`${question.id}_${option}`}
+                      className="text-2xl md:text-3xl px-2"
+                      style={{
+                        cursor: "pointer",
+                      }}
+                    >
+                      <input
+                        required
+                        type="radio"
+                        id={`${question.id}_${option}`}
+                        name={question.id}
+                        value={option}
+                        onChange={() => handleAnswerSelect(question.id, option)}
+                        className="mx-5 my-4"
+                      />
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </form>
+            </div>
+          </div>
         </div>
       ))}
       <button
