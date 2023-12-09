@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import get_all_lectures from "@/src/lib/get_all_lectures";
+import get_all_courses from "@/src/lib/get_all_courses";
 import Devider from "@/src/components/Devider";
 import NotFound from "../not-found/not-found";
 import Sections from "@/src/components/Content_list";
@@ -16,18 +16,18 @@ const page = async ({
   searchParams: { id: string };
 }) => {
   const session = await getServerSession();
-  const lectures = await get_all_lectures();
-  const lecture = lectures.filter(
-    (lecture: any) => lecture.id == searchParams.id
+  const courses = await get_all_courses();
+  const course = courses.filter(
+    (course: any) => course.id == searchParams.id
   )[0];
-  if (lecture) {
-    const thum = lecture.thumbnail ? lecture.thumbnail : "";
+  if (course) {
+    const thum = course.thumbnail ? course.thumbnail : "";
     const user = await get_user_by_email(session?.user?.email);
     let locked = true;
-    const len = user?.lectures.length ? user.lectures.length : 0;
+    const len = user?.courses.length ? user.courses.length : 0;
     if (len > 0) {
-      user?.lectures.forEach((id: any) => {
-        if (id == lecture.id) {
+      user?.courses.forEach((id: any) => {
+        if (id == course.id) {
           locked = false;
         }
       });
@@ -40,10 +40,10 @@ const page = async ({
             <div className="flex flex-col h-full gap-10 justify-between">
               <div>
                 <h2 className="font-extrabold my-6  max-md:text-center text-7xl max-[1000px]:text-5xl max-[760px]:text-4xl">
-                  {lecture.name}
+                  {course.name}
                 </h2>
                 <ul className="font-light m-3 opacity-70 text-lg ">
-                  {lecture.des.map((text: any) => (
+                  {course.des.map((text: any) => (
                     <li>{text}</li>
                   ))}
                 </ul>
@@ -53,8 +53,8 @@ const page = async ({
                   <>
                     <Link
                       href={{
-                        pathname: "/lecture/pay",
-                        query: { id: lecture.id },
+                        pathname: "/course/pay",
+                        query: { id: course.id },
                       }}
                       className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
                     >
@@ -76,7 +76,7 @@ const page = async ({
               src={thum}
               width={300}
               height={100}
-              alt="lectureImage"
+              alt="courseImage"
               className="w-full min-h-[200px]  max-w-[900px] border-8 border-white border-solid border-opacity-5 rounded-[14px]"
             />
           </div>
@@ -87,7 +87,7 @@ const page = async ({
             المحتوى
           </h2>
         </div>
-        <Sections id={lecture.id} locked={locked} />
+        <Sections id={course.id} locked={locked} />
       </section>
     );
   } else {

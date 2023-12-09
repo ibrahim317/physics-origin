@@ -25,7 +25,7 @@ const HeroSection = () => {
             !!ابدأ طريق التفوق في الفيزياء
           </Link>
           <Link
-            href="#lecturesSection"
+            href="#coursesSection"
             className="flex border-[3px] border-[#F9C500] px-10 max-sm:px-5 py-4 mx-4 min-w-max text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-xl"
           >
             <DoubleArrowDownIcon width={25} height={25} />

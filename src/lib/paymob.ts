@@ -14,13 +14,13 @@ const auth = async () => {
     throw err;
   }
 };
-const invoice = async (auth: any, lecture: any) => {
+const invoice = async (auth: any, course: any) => {
   const re = await axios.post(
     "https://accept.paymobsolutions.com/api/ecommerce/orders",
     {
       auth_token: auth,
       api_source: "INVOICE",
-      amount_cents: lecture.price * 100,
+      amount_cents: course.price * 100,
       currency: "EGP",
       shipping_data: {
         first_name: "Test",
@@ -32,8 +32,8 @@ const invoice = async (auth: any, lecture: any) => {
 
       items: [
         {
-          name: lecture.name,
-          amount_cents: lecture.price,
+          name: course.name,
+          amount_cents: course.price,
           quantity: "1",
           description: "",
         },
@@ -44,10 +44,10 @@ const invoice = async (auth: any, lecture: any) => {
   );
   return re;
 };
-const payment = async (lecture: any, user: any) => {
+const payment = async (course: any, user: any) => {
   const auth_token = await auth();
-  const a = await invoice(auth_token.data.token, lecture);
-  await axios.post("/api/buying", { lecture, user });
+  const a = await invoice(auth_token.data.token, course);
+  await axios.post("/api/buying", { course, user });
   window.open(a.data.url);
 };
 export default payment;

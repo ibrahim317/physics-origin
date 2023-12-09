@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
           id: Number(user?.id),
         },
         data: {
-          lectures: {
+          courses: {
             push: res.cart_id,
           },
         },

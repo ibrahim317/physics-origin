@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
         },
         data: {
           buying: "",
-          lectures: {
+          courses: {
             push: buying,
           },
         },
@@ -29,5 +29,5 @@ export async function GET(request: NextRequest) {
   } else {
   }
 
-  redirect(`/lecture?id=${buying}`);
+  redirect(`/course?id=${buying}`);
 }

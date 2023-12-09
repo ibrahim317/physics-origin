@@ -2,14 +2,14 @@
 import { PrismaClient } from "@/prisma/generated/client";
 const prisma = new PrismaClient();
 
-const get_lecture_sections = async (id: string) => {
+const get_course_sections = async (id: string) => {
   try {
     const sections = await prisma.section.findMany({
-      where: { lecture: id },
+      where: { course: id },
     });
     return sections;
   } catch (err) {
     throw err;
   }
 };
-export default get_lecture_sections;
+export default get_course_sections;

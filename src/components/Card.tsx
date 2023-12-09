@@ -5,11 +5,11 @@ import Devider from "./Devider";
 import { LockClosedIcon } from "@radix-ui/react-icons";
 
 const Card = (props: any) => {
-  if (props.type == "lecture") {
-    const lectureLink = `/lecture`;
+  if (props.type == "course") {
+    const courseLink = `/course`;
     return (
       <Link
-        href={{ pathname: lectureLink, query: { id: props.content.id } }}
+        href={{ pathname: courseLink, query: { id: props.content.id } }}
         className={`min-h-[500px] max-sm:min-h-[350px] rtl hover:border-solid hover:border-y-2 hover:border-white  hover:-translate-y-4 transition-transform duration-500 ease-in-out flex flex-col p-3 gap-5 rounded-lg`}
         style={{ backgroundColor: `#111827` }}
       >
@@ -17,7 +17,7 @@ const Card = (props: any) => {
           src={props.content.thumbnail}
           width={300}
           height={300}
-          alt="lectureImage"
+          alt="courseImage"
           className="w-full max-h-[70%] rounded-md"
         />
         <h2 className="text-3xl font-bold">{props.content.name}</h2>
@@ -29,7 +29,7 @@ const Card = (props: any) => {
       </Link>
     );
   } else {
-    const sectionLink = `/lecture/section/`;
+    const sectionLink = `/course/section/`;
     if (props.locked === false) {
       return (
         <Link

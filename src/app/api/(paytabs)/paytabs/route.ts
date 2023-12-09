@@ -14,10 +14,10 @@ export async function POST(request: NextRequest) {
     profile_id: profileId,
     tran_type: "sale",
     tran_class: "ecom",
-    cart_id: data.lecture.id.toString(),
+    cart_id: data.course.id.toString(),
     cart_currency: "EGP",
-    cart_amount: data.lecture.price,
-    cart_description: data.lecture.name,
+    cart_amount: data.course.price,
+    cart_description: data.course.name,
     paypage_lang: "en",
     customer_details: {
       id: data.user.id.toString(),
@@ -31,9 +31,9 @@ export async function POST(request: NextRequest) {
     },
     hide_shipping: true,
     callback: `https://physics-origin.vercel.app/api/paytabscallback`,
-    return: `https://physics-origin.vercel.app/lecture?id=${data.lecture.id}`,
+    return: `https://physics-origin.vercel.app/course?id=${data.course.id}`,
     // callback: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/paymentcallback`,
-    // return: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/lecture?id=${data.lecture.id}`,
+    // return: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/course?id=${data.course.id}`,
   };
 
   try {
