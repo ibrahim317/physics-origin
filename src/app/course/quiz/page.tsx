@@ -1,29 +1,17 @@
+'use client';
+
 import React from "react";
 import Quiz from "@/src/components/Quiz";
 
-const questions = [
-  {
-    id: "1",
-    text: "ما هو اسرع حيوان في المريخ؟",
-    options: ["الاسد", "الزرافة", "الفهد", "الموز"],
-    image: '/assets/Avatar-03.jpg',
-  },
-  {
-    id: "2",
-    text: "ما هو الشيء؟",
-    options: ["الشيء", "الانسان", "البطيخ", "الموز بردو"],
-  },
-  {
-    id: "3",
-    text: "ما هو الشيء؟",
-    options: ["الشيء", "الانسان", "البطيخ", "الموز بردو"],
-  },
-];
 
-const page = () => {
+
+
+const page = async () => {
+
+
   return (
     <div className="flex justify-center items-center w-full h-screen">
-      <Quiz questions={questions}/>
+      {/* <Quiz questions={questions}/> */}
     </div>
   );
 };

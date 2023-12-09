@@ -1,8 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-prisma.quiz.findMany({
-    include: {
-        questions: true
-    }
-}) // {id: , title: , question{id: , text ...}}
+const get_quiz = async () => {
+  
+    const quiz = await prisma.quiz.findMany({
+        include: {
+            questions: true
+        }
+    })
+    return quiz;
+};
+export default get_quiz;
