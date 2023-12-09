@@ -33,8 +33,7 @@ model Course {
 }
 
 model Section {
-  id        Int      @id @default(autoincrement())
-  course    String?
+  id        Int     @id @default(autoincrement())
   name      String
   des       String[]
   tag       String?

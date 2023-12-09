@@ -3,8 +3,8 @@ import Card from "./Card";
 import get_course_sections from "../lib/get_course_sections";
 
 const Content = async (props: any) => {
-  const id = props.id.toString();
-  const sections = await get_course_sections(id);
+  const sections_ids = props.sections;
+  const sections = await get_course_sections(sections_ids);
   if (sections.length > 0) {
     return (
       <section className="bg-[#1c232d] p-3 flex flex-col" id="Content">
