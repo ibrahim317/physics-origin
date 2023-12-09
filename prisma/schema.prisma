@@ -34,7 +34,6 @@ model Course{
 
 model Section {
   id        Int     @id @default(autoincrement())
-  course String?
   name      String
   des       String[]
   tag       String?

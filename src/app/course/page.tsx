@@ -32,7 +32,32 @@ const page = async ({
         }
       });
     }
-
+    let mybutton;
+    if (course.price == 0) {
+      mybutton = (
+        <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
+          هذا الكورس مجاني
+        </div>
+      );
+    } else if (locked) {
+      mybutton = (
+        <Link
+          href={{
+            pathname: "/course/pay",
+            query: { id: course.id },
+          }}
+          className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
+        >
+          اشترك الان
+        </Link>
+      );
+    } else {
+      mybutton = (
+        <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
+          انت مشترك
+        </div>
+      );
+    }
     return (
       <section className="flex flex-col gap-11 p-8  rtl">
         <div className="my-6 flex gap-6 justify-between max-h-fit max-[660px]:flex-col-reverse w-full ">
@@ -48,27 +73,7 @@ const page = async ({
                   ))}
                 </ul>
               </div>
-              <div className="flex justify-center gap-7">
-                {locked ? (
-                  <>
-                    <Link
-                      href={{
-                        pathname: "/course/pay",
-                        query: { id: course.id },
-                      }}
-                      className="flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg"
-                    >
-                      اشترك الان
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg">
-                      انت مشترك
-                    </div>
-                  </>
-                )}
-              </div>
+              <div className="flex justify-center gap-7">{mybutton}</div>
             </div>
           </div>
           <div className="min-w-[50%] max-sm:min-w-[calc(330px*0.8)]   ">
@@ -87,7 +92,7 @@ const page = async ({
             المحتوى
           </h2>
         </div>
-        <Sections id={course.id} locked={locked} />
+        <Sections sections={course.sections} locked={locked} />
       </section>
     );
   } else {

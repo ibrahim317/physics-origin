@@ -2,10 +2,10 @@
 import { PrismaClient } from "@/prisma/generated/client";
 const prisma = new PrismaClient();
 
-const get_course_sections = async (id: string) => {
+const get_course_sections = async (ids: any) => {
   try {
     const sections = await prisma.section.findMany({
-      where: { course: id },
+      where: { id: { in: ids } },
     });
     return sections;
   } catch (err) {
