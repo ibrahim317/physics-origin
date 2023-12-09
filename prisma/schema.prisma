@@ -19,11 +19,11 @@ model User {
   parent_phone String
   email        String   @unique
   pass         String
-  courses String[]
+  courses      String[]
   buying       String?
 }
 
-model Course{
+model Course {
   id        Int      @id @default(autoincrement())
   name      String
   des       String[]
@@ -33,8 +33,8 @@ model Course{
 }
 
 model Section {
-  id        Int     @id @default(autoincrement())
-  course String?
+  id        Int      @id @default(autoincrement())
+  course    String?
   name      String
   des       String[]
   tag       String?
@@ -43,15 +43,18 @@ model Section {
 }
 
 model Quiz {
-  id        Int    @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   title     String
-  questions Int[]
+  questions Question[]
 }
+
+// this one is totally fine, easy
 
 model Question {
   id      Int      @id @default(autoincrement())
   text    String
   options String[]
   image   String?
-  quiz    String?
+  quizId  Int
+  quiz    Quiz     @relation(fields: [quizId], references: [id])
 }
