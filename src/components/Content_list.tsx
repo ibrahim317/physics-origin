@@ -5,9 +5,11 @@ const Content = async (props: any) => {
   const sections = props.sections;
   if (sections.length > 0) {
     return (
-      <section className="bg-[#1c232d] p-3 flex flex-col" id="Content">
-        <div className="flex bg-[#1c232d] max-lg:justify-center "></div>
-        <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
+      <section
+        className="bg-[#1c232d] max-md:bg-[#2c3342] p-3 flex flex-col  "
+        id="Content"
+      >
+        <div className="grid gap-6  p-6 grid-cols-3 max-xl:flex ">
           {sections.map((section: any) => (
             <Card
               type="section"

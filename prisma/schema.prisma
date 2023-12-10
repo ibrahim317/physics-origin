@@ -37,17 +37,18 @@ model Section {
   id        Int      @id @default(autoincrement())
   name      String
   des       String[]
-  tag       String?
+  tag       String
   thumbnail String?
   yourlink  String?
   course    Course[] 
-}
-
-model Quiz {
-  id        Int        @id @default(autoincrement())
-  title     String
   questions Question[]
 }
+
+// model Quiz {
+//   id        Int        @id @default(autoincrement())
+//   title     String
+//   questions Question[]
+// }
 
 // this one is totally fine, easy
 
@@ -56,6 +57,5 @@ model Question {
   text    String
   options String[]
   image   String?
-  quizId  Int
-  quiz    Quiz     @relation(fields: [quizId], references: [id])
+  quiz    Section[]
 }

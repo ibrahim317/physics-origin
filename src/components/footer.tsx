@@ -5,7 +5,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div
-      className="h-60 w-full flex justify-center items-center"
+      className="h-60 w-full mt-auto flex justify-center items-center"
       style={{ backgroundColor: `#081022` }}
     >
       <div className="h-4/5">
@@ -35,12 +35,20 @@ const Footer = () => {
         <h4 className="opacity-60 flex justify-center">
           Developed by <span className="text-[#F9C500]">&nbsp;&nbsp;{">"}</span>
           &nbsp;&nbsp;
-          <a href="https://omarmhasan.bio.link/" target="_blank" className="underline">
+          <a
+            href="https://omarmhasan.bio.link/"
+            target="_blank"
+            className="underline"
+          >
             Omar
           </a>
           <span className="text-[#F9C500]">&nbsp;&nbsp;&</span>
           &nbsp;&nbsp;
-          <a href="https://github.com/ibrahim317" target="_blank" className="underline">
+          <a
+            href="https://github.com/ibrahim317"
+            target="_blank"
+            className="underline"
+          >
             Ibrahim
           </a>
         </h4>

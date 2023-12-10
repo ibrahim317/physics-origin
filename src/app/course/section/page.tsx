@@ -1,10 +1,13 @@
 import React from "react";
+import File from "./File";
 import YouTubeEmbed from "@/src/components/YouTubeEmbed";
 import get_section_by_id from "@/src/lib/get_section_by_id";
 import DriveEmbed from "@/src/components/DriveEmbed";
 import get_user_by_email from "@/src/lib/get_user_by_email";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found/not-found";
+import Video from "./Video";
+import Quiz from "./Quiz";
 
 const page = async (
   {
@@ -24,27 +27,16 @@ const page = async (
     if (!found || !session) {
       throw new Error();
     }
-    if (section?.tag == "vid") {
-      return (
-        <div className="flex flex-col rtl gap-10 items-center">
-          <div className="py-9 text-right w-7/12">
-            <h1 className="text-[#F9C500] text-5xl my-6">{section?.name} </h1>
-            <p className="flex text-xl text-right flex-wrap">{section?.des}</p>
-          </div>
-          <YouTubeEmbed vidlink={section?.yourlink} />
-        </div>
-      );
-    } else if (section?.tag == "file") {
-      return (
-        <div className="flex flex-col  rtl items-center">
-          <DriveEmbed fileUrl={section?.yourlink} />
+    switch (section?.tag) {
+      case "video":
+        return <Video section={section} />;
 
-          <div className=" text-right w-7/12">
-            <h1 className="text-[#F9C500] text-5xl my-6">{section?.name} </h1>
-            <p className="flex text-right text-xl flex-wrap">{section?.des}</p>
-          </div>
-        </div>
-      );
+      case "file":
+        return <File section={section} />;
+      case "quiz":
+        return <Quiz section={section} />;
+      default:
+        break;
     }
   } catch (err) {
     return <NotFound />;

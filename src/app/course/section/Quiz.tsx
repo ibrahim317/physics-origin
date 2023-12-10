@@ -3,26 +3,14 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import get_quiz from "@/src/lib/get_quiz";
-
-interface Question {
-  id: string;
-  text: string;
-  image?: string;
-  options: string[];
-}
-
 interface SelectedAnswers {
   [questionId: string]: string[];
 }
 
-interface QuizProps {
-  questions: Question[];
-}
-
 const quizTitle = "عنوان الكويييز";
-const Quiz: React.FC<QuizProps> = async ({ questions }) => {
-  const quiz = await get_quiz();
+const Quiz = (props: any) => {
+  console.log(props);
+  const questions = props.section.questions;
   const route = useRouter();
   const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
 
@@ -41,7 +29,7 @@ const Quiz: React.FC<QuizProps> = async ({ questions }) => {
 
   const handleSubmit = () => {
     const unansweredQuestions = questions.filter(
-      (question) => !selectedAnswers[question.id]
+      (question: any) => !selectedAnswers[question.id]
     );
 
     if (unansweredQuestions.length > 0) {
@@ -67,7 +55,7 @@ const Quiz: React.FC<QuizProps> = async ({ questions }) => {
       <h2 className="text-xl md:text-3xl text-black bg-white py-5 px-24 m-2 rounded-full my-9">
         {quizTitle}
       </h2>
-      {questions.map((question) => (
+      {questions.map((question: any) => (
         <div className="w-full h-screen flex md:flex-row flex-col justify-between my-36 md:my-10">
           <div
             key={question.id}
@@ -91,7 +79,7 @@ const Quiz: React.FC<QuizProps> = async ({ questions }) => {
                 {question.text}
               </p>
               <form className="rtl">
-                {question.options.map((option) => (
+                {question.options.map((option: any) => (
                   <div key={option} className="py-2">
                     <label
                       key={option}

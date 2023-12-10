@@ -5,13 +5,11 @@ import SessionProvider from "@/src/components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import NavBar from "@/src/components/NavBar";
-import get_user_by_email from "@/src/lib/get_user_by_email";
-import { redirect } from "next/navigation";
+import Footer from "../components/footer";
 
 export const metadata = {
   title: "Physics Origin",
   description: "منصة م/أحمد يوسف لتدريس الفيزياء",
-  
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 const classnames = inter.className + "  bg-[#232935] ";
@@ -29,9 +27,11 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
-          <div className="darkmode loading-bar"></div>
-          <NavBar />
-          {children}
+          <div className="relative min-h-screen">
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
         </SessionProvider>
       </body>
     </html>

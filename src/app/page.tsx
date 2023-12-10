@@ -11,7 +11,6 @@ export default async function Home() {
       <Devider />
       <CoursesSection />
       <LecturesSection />
-      <Footer />
     </>
   );
 }
