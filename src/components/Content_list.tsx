@@ -9,7 +9,7 @@ const Content = async (props: any) => {
         className="bg-[#1c232d] max-md:bg-[#2c3342] p-3 flex flex-col  "
         id="Content"
       >
-        <div className="grid gap-6  p-6 grid-cols-3 max-xl:flex ">
+        <div className="grid gap-6  p-6 grid-cols-3 max-xl:flex max-xl:flex-col ">
           {sections.map((section: any) => (
             <Card
               type="section"

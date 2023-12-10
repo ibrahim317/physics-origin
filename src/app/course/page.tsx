@@ -10,15 +10,17 @@ import get_user_by_email from "@/src/lib/get_user_by_email";
 
 const is_user_have_course = async (course: any) => {
   const session = await getServerSession();
-  const user = await get_user_by_email(session?.user?.email);
   let locked = true;
-  const len = user?.courses.length ? user.courses.length : 0;
-  if (len > 0) {
-    user?.courses.forEach((id: any) => {
-      if (id == course.id) {
-        locked = false;
-      }
-    });
+  if (session) {
+    const user = await get_user_by_email(session?.user?.email);
+    const len = user?.courses.length ? user.courses.length : 0;
+    if (len > 0) {
+      user?.courses.forEach((id: any) => {
+        if (id == course.id) {
+          locked = false;
+        }
+      });
+    }
   }
   return locked;
 };
