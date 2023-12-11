@@ -1,8 +1,7 @@
-import HeroSection from "@/src/components/HeroSection";
-import CoursesSection from "@/src/components/CoursesSection";
+import HeroSection from "@/src/components/rootPage/HeroSection";
+import CoursesSection from "@/src/components/rootPage/CoursesSection";
 import Devider from "@/src/components/Devider";
-import Footer from "../components/footer";
-import LecturesSection from "../components/LecturesSection";
+import LecturesSection from "../components/rootPage/LecturesSection";
 
 export default async function Home() {
   return (

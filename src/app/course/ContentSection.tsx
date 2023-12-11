@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "@/src/components/Card";
 
 const Content = async (props: any) => {
   const sections = props.sections;
@@ -13,7 +13,7 @@ const Content = async (props: any) => {
           {sections.map((section: any) => (
             <Card
               type="section"
-              locked={props.locked}
+              opened={props.opened}
               content={section}
               key={section.id}
             />

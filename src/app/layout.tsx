@@ -12,7 +12,8 @@ export const metadata = {
   description: "منصة م/أحمد يوسف لتدريس الفيزياء",
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
-const classnames = inter.className + "  bg-[#232935] ";
+const classnames =
+  inter.className + "  bg-[#232935] flex flex-col min-h-screen ";
 
 export default async function RootLayout({
   children,
@@ -27,11 +28,9 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           {/*///// This is what keeps the session /////*/}
           <Toaster position="top-right" reverseOrder />
-          <div className="relative min-h-screen">
-            <NavBar />
-            {children}
-            <Footer />
-          </div>
+          <NavBar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
         </SessionProvider>
       </body>
     </html>
