@@ -3,14 +3,20 @@ import CourseCard from "./cards/CourseCard";
 import LectureCard from "./cards/LectureCard";
 import SectionCard from "./cards/SectionCard";
 
-const Card = (props: any) => {
-  switch (props.type) {
+interface props {
+  content: any;
+  type: string;
+  opened?: boolean;
+}
+
+const Card: React.FC<props> = ({ content, type, opened }) => {
+  switch (type) {
     case "course":
-      return <CourseCard props={props} />;
+      return <CourseCard course={content} />;
     case "section":
-      return <SectionCard props={props} />;
+      return <SectionCard opened={opened} section={content} />;
     case "lecture":
-      return <LectureCard props={props} />;
+      return <LectureCard opened={opened} lecture={content} />;
     default:
       break;
   }
