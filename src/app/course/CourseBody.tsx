@@ -21,7 +21,7 @@ const CourseBody = ({
                 {course.name}
               </h2>
               <ul className="font-light m-3 opacity-70 text-lg ">
-                {course.des.map((text: any, index: any) => (
+                {course.des.map((text: any, index: number) => (
                   <li key={index}>{text}</li>
                 ))}
               </ul>
@@ -47,7 +47,7 @@ const CourseBody = ({
           المحتوى
         </h2>
       </div>
-      <Content sections={course.section} opended={opened_course} />
+      <Content sections={course.section} opened={opened_course} />
     </section>
   );
 };

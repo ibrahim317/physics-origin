@@ -23,17 +23,19 @@ const page = async (
     const session = await getServerSession();
     const section = await get_section_by_id(Number(searchParams.id));
     const user = await get_user_by_email(session?.user?.email);
-    const found = user?.courses.find((id: any) => id === section?.course[0].id);
-    if (!found || !session) {
-      throw new Error();
+    const userHaveAccess = user?.courses.find(
+      (id: any) => id === section?.course[0].id
+    );
+    if (!userHaveAccess || !session) {
+      return <NotFound />;
     }
     switch (section?.tag) {
-      case "video":
+      case "VIDEO":
         return <Video section={section} />;
 
-      case "file":
+      case "FILE":
         return <File section={section} />;
-      case "quiz":
+      case "QUIZ":
         return <Quiz section={section} />;
       default:
         break;

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "@/src/components/Card";
 
-const Content = async (props: any) => {
+const Content = (props: any) => {
   const sections = props.sections;
   if (sections.length > 0) {
     return (

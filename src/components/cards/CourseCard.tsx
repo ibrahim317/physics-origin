@@ -23,8 +23,8 @@ const CourseCard = ({ props }: { props: any }) => {
         <Devider />
       </div>
       <ul className="font-light opacity-70 text-lg ">
-        {props.content.des.map((text: any) => (
-          <li>{text}</li>
+        {props.content.des.map((text: any, index: number) => (
+          <li key={index}>{text}</li>
         ))}
       </ul>
     </Link>

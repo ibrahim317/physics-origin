@@ -7,11 +7,11 @@ const LectureCard = ({ props }: { props: any }) => {
   let lectureColor = "yellow-500";
   const tag = props.content.tag;
   // Card button color
-  if (tag == "video") {
+  if (tag == "VIDEO") {
     lectureColor = "bg-yellow-400";
-  } else if (tag == "file") {
+  } else if (tag == "FILE") {
     lectureColor = "bg-green-400";
-  } else if (tag == "quiz") {
+  } else if (tag == "QUIZ") {
     lectureColor = "bg-blue-400";
   }
   const lectureLink = `/course/lecture/`;

@@ -37,20 +37,14 @@ model Section {
   id        Int      @id @default(autoincrement())
   name      String
   des       String[]
-  tag       String
+  tag      Tag 
   thumbnail String?
   yourlink  String?
   course    Course[] 
   questions Question[]
 }
 
-// model Quiz {
-//   id        Int        @id @default(autoincrement())
-//   title     String
-//   questions Question[]
-// }
 
-// this one is totally fine, easy
 
 model Question {
   id      Int      @id @default(autoincrement())
@@ -58,4 +52,10 @@ model Question {
   options String[]
   image   String?
   quiz    Section[]
+}
+
+enum Tag {
+  QUIZ
+  VIDEO
+  FILE
 }

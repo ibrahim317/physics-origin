@@ -7,15 +7,15 @@ const SectionCard = ({ props }: { props: any }) => {
   let sectionColor = "yellow-500";
   const tag = props.content.tag;
   // Card button color
-  if (tag == "video") {
+  if (tag == "VIDEO") {
     sectionColor = "bg-yellow-400";
-  } else if (tag == "file") {
+  } else if (tag == "FILE") {
     sectionColor = "bg-green-400";
-  } else if (tag == "quiz") {
+  } else if (tag == "QUIZ") {
     sectionColor = "bg-blue-400";
   }
   const sectionLink = `/course/section/`;
-  if (props.opened === true) {
+  if (props.opened == true) {
     return (
       <Link
         href={{ pathname: sectionLink, query: { id: props.content.id } }}
