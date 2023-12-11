@@ -3,14 +3,12 @@ import Content from "./ContentSection";
 import PayButton from "./PayButton";
 import Image from "next/image";
 import Devider from "@/src/components/Devider";
-
-const CourseBody = ({
-  course,
-  opened_course,
-}: {
-  course: any;
+import { CourseType } from "@/src/types/global";
+interface props {
+  course: CourseType;
   opened_course: boolean;
-}) => {
+}
+const CourseBody: React.FC<props> = ({ course, opened_course }) => {
   return (
     <section className="flex flex-col gap-11 p-8  rtl">
       <div className="my-6 flex gap-6 justify-between max-h-fit max-[660px]:flex-col-reverse w-full ">

@@ -1,8 +1,11 @@
 import React from "react";
 import Card from "@/src/components/Card";
-
-const Content = (props: any) => {
-  const sections = props.sections;
+import { SectionType } from "@/src/types/global";
+interface props {
+  sections: SectionType[];
+  opened: boolean;
+}
+const Content: React.FC<props> = ({ sections, opened }) => {
   if (sections.length > 0) {
     return (
       <section
@@ -13,7 +16,7 @@ const Content = (props: any) => {
           {sections.map((section: any) => (
             <Card
               type="section"
-              opened={props.opened}
+              opened={opened}
               content={section}
               key={section.id}
             />

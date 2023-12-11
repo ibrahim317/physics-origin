@@ -3,14 +3,17 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { SectionType } from "@/src/types/global";
 interface SelectedAnswers {
   [questionId: string]: string[];
 }
 
 const quizTitle = "عنوان الكويييز";
-const Quiz = (props: any) => {
-  console.log(props);
-  const questions = props.section.questions;
+interface props {
+  section: SectionType;
+}
+const Quiz: React.FC<props> = ({ section }) => {
+  const questions = section.questions;
   const route = useRouter();
   const [selectedAnswers, setSelectedAnswers] = useState<SelectedAnswers>({});
 

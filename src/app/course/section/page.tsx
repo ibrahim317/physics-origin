@@ -1,24 +1,18 @@
 import React from "react";
 import File from "./File";
-import YouTubeEmbed from "@/src/components/YouTubeEmbed";
 import get_section_by_id from "@/src/lib/get_section_by_id";
-import DriveEmbed from "@/src/components/DriveEmbed";
 import get_user_by_email from "@/src/lib/get_user_by_email";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found/not-found";
 import Video from "./Video";
 import Quiz from "./Quiz";
 
-const page = async (
-  {
-    params,
-    searchParams,
-  }: {
-    params: { slug: string };
-    searchParams: { id: number };
-  },
-  props: any
-) => {
+interface params {
+  params: { slug: string };
+  searchParams: { id: string };
+}
+
+const page: React.FC<params> = async ({ params, searchParams }) => {
   try {
     const session = await getServerSession();
     const section = await get_section_by_id(Number(searchParams.id));

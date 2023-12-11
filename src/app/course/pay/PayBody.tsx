@@ -1,14 +1,14 @@
 import React from "react";
 import PayButton from "./PayButton";
-const PayBody = ({
-  price,
-  needed_course,
-  user,
-}: {
+import { CourseType, UserType } from "@/src/types/global";
+
+interface props {
+  needed_course: CourseType;
   price: number;
-  needed_course: any;
-  user: any;
-}) => {
+  user: UserType | null;
+}
+
+const PayBody: React.FC<props> = ({ price, needed_course, user }) => {
   return (
     <div className="min-h-[calc(100vh-6rem)] flex  justify-center rtl text-black items-center ">
       <div className="max-w-[65vw] text-4xl gap-7 max-md:text-xl max-[400px]:text-base justify-between text-white bg-[#2c3342] max-md:min-w-[80vw] flex flex-col m-2 flex-grow rounded-2xl p-10">
@@ -34,14 +34,14 @@ const PayBody = ({
                 </div>
               </div>
             </div>
-            <PayButton user={user} course={needed_course} price={price} />
+            <PayButton user={user} course={needed_course} />
           </>
         ) : (
           <>
             <div>
               <span className=" text-[#F9c500]">هذا الكورس مجاني</span>
             </div>
-            <PayButton user={user} course={needed_course} price={price} />
+            <PayButton user={user} course={needed_course} />
           </>
         )}
       </div>

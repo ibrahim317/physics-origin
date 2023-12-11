@@ -4,13 +4,12 @@ import NotFound from "../not-found/not-found";
 import dose_user_have_course from "@/src/lib/dose_user_have_course";
 import CourseBody from "./CourseBody";
 
-const page = async ({
-  params,
-  searchParams,
-}: {
+interface params {
   params: { slug: string };
   searchParams: { id: string };
-}) => {
+}
+
+const page: React.FC<params> = async ({ params, searchParams }) => {
   const course = await get_course_by_id(Number(searchParams.id));
   if (!course) return <NotFound />;
   const opened_course = await dose_user_have_course(course);

@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { CourseType } from "@/src/types/global";
+interface props {
+  course: CourseType;
+  opened: boolean;
+}
 
-const PayButton = ({ course, opened }: { course: any; opened: any }) => {
+const PayButton: React.FC<props> = ({ course, opened }) => {
   let mybutton;
   if (course.price == 0) {
     mybutton = (

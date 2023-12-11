@@ -6,16 +6,12 @@ import get_user_by_email from "@/src/lib/get_user_by_email";
 import { redirect } from "next/navigation";
 import PayBody from "./PayBody";
 
-const page = async (
-  {
-    params,
-    searchParams,
-  }: {
-    params: { slug: string };
-    searchParams: { id: number };
-  },
-  props: any
-) => {
+interface props {
+  params: { slug: string };
+  searchParams: { id: number };
+}
+
+const page: React.FC<props> = async ({ params, searchParams }) => {
   const all_course = await get_all_courses();
   const needed_course = all_course.find(
     (course: any) => course.id == searchParams.id
