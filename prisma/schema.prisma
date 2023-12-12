@@ -42,6 +42,7 @@ model Section {
   yourlink  String?
   course    Course[] 
   questions Question[]
+  price Int? @default(50)
 }
 
 

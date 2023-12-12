@@ -32,6 +32,7 @@ export interface SectionType {
   yourlink?: string | null;
   course: Course[];
   questions: Question[];
+  price?: number | null;
 }
 
 export interface QuestionType {
