@@ -1,5 +1,4 @@
 import React from "react";
-
 import Card from "../Card";
 import get_all_lectures from "../../lib/get_all_lectures";
 import get_user_by_email from "../../lib/get_user_by_email";
@@ -12,32 +11,32 @@ const LecturesSection = async () => {
   if (lectures.length > 0) {
     const session = await getServerSession();
     if (session) {
-      const user = await get_user_by_email(session.user?.email);
+      const user = await get_user_by_email(session?.user?.email);
       paid_lectures = user?.lectures ?? [];
-      return (
-        <section
-          className=" bg-[#1c232d] p-3 flex flex-col rtl "
-          id="lecturesSection"
-        >
-          <div className="flex bg-[#1c232d] max-lg:justify-center ">
-            <h2 className="text-7xl text-white p-10  ">المحاضرات</h2>
-          </div>
-          <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
-            {lectures.map((lecture: any) => {
-              const opened = paid_lectures.includes(lecture.id);
-              return (
-                <Card
-                  type="lecture"
-                  content={lecture}
-                  opened={opened}
-                  key={lecture.id}
-                />
-              );
-            })}
-          </div>
-        </section>
-      );
     }
+    return (
+      <section
+        className=" bg-[#1c232d] p-3 flex flex-col rtl "
+        id="lecturesSection"
+      >
+        <div className="flex bg-[#1c232d] max-lg:justify-center ">
+          <h2 className="text-7xl text-white p-10  ">المحاضرات</h2>
+        </div>
+        <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
+          {lectures.map((lecture: any) => {
+            const opened = paid_lectures.includes(lecture.id);
+            return (
+              <Card
+                type="lecture"
+                content={lecture}
+                opened={opened}
+                key={lecture.id}
+              />
+            );
+          })}
+        </div>
+      </section>
+    );
   } else {
     return (
       <section className="bg-[#1c232d] p-3 rtl flex flex-col" id="Content">

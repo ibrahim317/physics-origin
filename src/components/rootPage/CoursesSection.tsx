@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card";
 import get_all_courses from "@/src/lib/get_all_courses";
-
+import { CourseType } from "@/src/types/global";
 const CoursesSection = async () => {
   const courses = await get_all_courses();
   return (
@@ -15,7 +15,7 @@ const CoursesSection = async () => {
             <h2 className="text-7xl text-white p-10  ">الكورسات</h2>
           </div>
           <div className=" grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
-            {courses.map((course: any) => (
+            {courses.map((course: CourseType) => (
               <Card type="course" content={course} key={course.id} />
             ))}
           </div>
