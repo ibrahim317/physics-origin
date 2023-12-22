@@ -3,17 +3,6 @@ import { PrismaClient } from "@/prisma/generated/client";
 const prisma = new PrismaClient();
 
 const get_user_by_email = async (email: null | undefined | string) => {
-  // const instance = axios.create({
-  //   baseURL: "http://" + process.env.NEXT_PUBLIC_VERCEL_URL,
-  // });
-  // try {
-  //   const user = await instance.get("/api/user", {
-  //     params: { email: email },
-  //   });
-  //   return await user.data;
-  // } catch (err) {
-  //   throw err;
-  // }
   try {
     const user = await prisma.user.findFirst({
       where: { email: email?.toString() },
@@ -23,4 +12,16 @@ const get_user_by_email = async (email: null | undefined | string) => {
     throw err;
   }
 };
-export default get_user_by_email;
+const get_user_with_progress = async (email: null | undefined | string) => {
+  try {
+    return await prisma.user.findUnique({
+      where: {
+        email: email?.toString(),
+      },
+      include: { progress: true },
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+export { get_user_by_email, get_user_with_progress };
