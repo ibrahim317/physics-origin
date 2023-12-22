@@ -1,16 +1,15 @@
 import React from "react";
-import { LockClosedIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
 import Devider from "../Devider";
 import { SectionType } from "@/src/types/global";
 import Container from "./Container";
 
 interface props {
   section: SectionType;
-  opened?: boolean;
+  paid?: boolean;
+  failed_last_test?: boolean;
 }
 
-const SectionCard: React.FC<props> = ({ section, opened }) => {
+const SectionCard: React.FC<props> = ({ failed_last_test, section, paid }) => {
   let sectionColor = "yellow-500";
   const tag = section.tag;
   // Card button color
@@ -24,7 +23,12 @@ const SectionCard: React.FC<props> = ({ section, opened }) => {
   const sectionLink = `/course/section/`;
 
   return (
-    <Container content={section} opened={opened} link={sectionLink}>
+    <Container
+      content={section}
+      failed_last_test={failed_last_test}
+      paid={paid}
+      link={sectionLink}
+    >
       <div className="flex flex-col justify-center">
         <h2 className="text-4xl max-[790px]:text-2xl opacity-80 font-bold p-10">
           {section.name}
