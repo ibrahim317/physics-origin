@@ -12,7 +12,7 @@ interface params {
 const page: React.FC<params> = async ({ params, searchParams }) => {
   const course = await get_course_by_id(Number(searchParams.id));
   if (!course) return <NotFound />;
-  const opened_course = await dose_user_have_course(course);
-  return <CourseBody course={course} opened_course={opened_course} />;
+  const paid_course = await dose_user_have_course(course);
+  return <CourseBody course={course} paid_course={paid_course} />;
 };
 export default page;

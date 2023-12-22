@@ -7,17 +7,30 @@ import { CourseType, SectionType } from "../types/global";
 interface props {
   content: CourseType | SectionType;
   type: string;
-  opened?: boolean;
+  paid?: boolean;
+  failed_last_test?: boolean;
 }
 
-const Card = ({ content, type, opened }: props) => {
+const Card = ({ content, type, failed_last_test, paid }: props) => {
   switch (type) {
     case "course":
       return <CourseCard course={content as CourseType} />;
     case "section":
-      return <SectionCard opened={opened} section={content as SectionType} />;
+      return (
+        <SectionCard
+          paid={paid}
+          failed_last_test={failed_last_test}
+          section={content as SectionType}
+        />
+      );
     case "lecture":
-      return <LectureCard opened={opened} lecture={content as SectionType} />;
+      return (
+        <LectureCard
+          paid={paid}
+          failed_last_test={failed_last_test}
+          lecture={content as SectionType}
+        />
+      );
     default:
       break;
   }

@@ -2,11 +2,11 @@ import Link from "next/link";
 import { SectionType } from "@/src/types/global";
 interface props {
   lecture: SectionType;
-  opened: boolean;
+  paid: boolean;
   className?: string;
 }
 
-const PayButton: React.FC<props> = ({ lecture, opened, className }) => {
+const PayButton: React.FC<props> = ({ lecture, paid, className }) => {
   let mybutton;
   if (lecture.price == 0) {
     mybutton = (
@@ -19,7 +19,7 @@ const PayButton: React.FC<props> = ({ lecture, opened, className }) => {
         هذا الكورس مجاني
       </div>
     );
-  } else if (!opened) {
+  } else if (!paid) {
     mybutton = (
       <Link
         href={{

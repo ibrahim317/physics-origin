@@ -2,7 +2,7 @@ import get_all_courses from "@/src/lib/get_all_courses";
 import React from "react";
 import NotFound from "@/src/app/not-found/not-found";
 import { getServerSession } from "next-auth";
-import get_user_by_email from "@/src/lib/get_user_by_email";
+import { get_user_by_email } from "@/src/lib/get_user";
 import { redirect } from "next/navigation";
 import PayBody from "./PayBody";
 

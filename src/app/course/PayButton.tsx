@@ -2,10 +2,10 @@ import Link from "next/link";
 import { CourseType } from "@/src/types/global";
 interface props {
   course: CourseType;
-  opened: boolean;
+  paid: boolean;
 }
 
-const PayButton: React.FC<props> = ({ course, opened }) => {
+const PayButton: React.FC<props> = ({ course, paid }) => {
   let mybutton;
   if (course.price == 0) {
     mybutton = (
@@ -13,7 +13,7 @@ const PayButton: React.FC<props> = ({ course, opened }) => {
         هذا الكورس مجاني
       </div>
     );
-  } else if (!opened) {
+  } else if (!paid) {
     mybutton = (
       <Link
         href={{

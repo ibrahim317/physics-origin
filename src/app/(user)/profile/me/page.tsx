@@ -2,7 +2,7 @@ import CallIcon from "@mui/icons-material/Call";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import Image from "next/image";
-import get_user_by_email from "@/src/lib/get_user_by_email";
+import { get_user_by_email } from "@/src/lib/get_user";
 import { getServerSession } from "next-auth";
 
 const profile = async () => {
@@ -31,7 +31,7 @@ const profile = async () => {
           <h1 className="text-5xl text-right flex">
             <span className="text-[#F9C500]">!</span>مرحبا {user?.first_name}
             <span className="text-[#F9C500] mx-6">
-              <AccountCircleIcon fontSize="large"/>
+              <AccountCircleIcon fontSize="large" />
             </span>
           </h1>
           <div className="flex flex-col items-end my-10">

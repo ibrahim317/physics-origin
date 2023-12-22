@@ -1,11 +1,19 @@
 import React from "react";
 import Card from "@/src/components/Card";
-import { SectionType } from "@/src/types/global";
+import { SectionType, UserType } from "@/src/types/global";
+import { getServerSession } from "next-auth";
+import { get_user_with_progress } from "@/src/lib/get_user";
 interface props {
   sections: SectionType[];
-  opened: boolean;
+  paid: boolean;
 }
-const Content: React.FC<props> = ({ sections, opened }) => {
+const Content: React.FC<props> = async ({ sections, paid }) => {
+  let failed_last_test = true;
+  let user: UserType | null;
+  const session = await getServerSession();
+  if (session) {
+    user = await get_user_with_progress(session.user?.email);
+  }
   if (sections.length > 0) {
     return (
       <section
@@ -13,14 +21,20 @@ const Content: React.FC<props> = ({ sections, opened }) => {
         id="Content"
       >
         <div className="grid gap-6  p-6 grid-cols-3 max-xl:flex max-xl:flex-col ">
-          {sections.map((section: any) => (
-            <Card
-              type="section"
-              opened={opened}
-              content={section}
-              key={section.id}
-            />
-          ))}
+          {sections.map((section: SectionType) => {
+            if (user && user.progress?.passed_tests.includes(section.id)) {
+              failed_last_test = false;
+            }
+            return (
+              <Card
+                type="section"
+                paid={paid}
+                content={section}
+                key={section.id}
+                failed_last_test={failed_last_test}
+              />
+            );
+          })}
         </div>
       </section>
     );

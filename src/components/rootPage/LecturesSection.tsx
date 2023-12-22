@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card";
 import get_all_lectures from "../../lib/get_all_lectures";
-import get_user_by_email from "../../lib/get_user_by_email";
+import { get_user_by_email } from "../../lib/get_user";
 import { getServerSession } from "next-auth";
 
 const LecturesSection = async () => {
@@ -24,12 +24,12 @@ const LecturesSection = async () => {
         </div>
         <div className="min-h-[50%] grid gap-6  p-6 grid-cols-3 max-[500px]:grid-cols-1 max-lg:grid-cols-2">
           {lectures.map((lecture: any) => {
-            const opened = paid_lectures.includes(lecture.id);
+            const paid = paid_lectures.includes(lecture.id);
             return (
               <Card
                 type="lecture"
                 content={lecture}
-                opened={opened}
+                paid={paid}
                 key={lecture.id}
               />
             );

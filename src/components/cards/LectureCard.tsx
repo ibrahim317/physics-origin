@@ -6,14 +6,14 @@ import PayButton from "./PayButton";
 
 interface props {
   lecture: SectionType;
-  opened?: boolean;
+  paid?: boolean;
 }
 
-const LectureCard = ({ lecture, opened }: props) => {
+const LectureCard = ({ lecture, paid }: props) => {
   let lectureColor = "bg-yellow-500";
   const lectureLink = `/lecture`;
   return (
-    <Container content={lecture} opened={opened} link={lectureLink}>
+    <Container content={lecture} paid={paid} link={lectureLink}>
       <div className="flex flex-col justify-center">
         <h2 className="text-4xl max-[790px]:text-2xl opacity-80 font-bold p-10">
           {lecture.name}
@@ -36,7 +36,7 @@ const LectureCard = ({ lecture, opened }: props) => {
       <PayButton
         className=" self-start "
         lecture={lecture}
-        opened={opened ?? false}
+        paid={paid ?? false}
       />
     </Container>
   );

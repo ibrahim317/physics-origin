@@ -1,6 +1,6 @@
 import Card from "@/src/components/Card";
 import get_all_courses from "@/src/lib/get_all_courses";
-import get_user_by_email from "@/src/lib/get_user_by_email";
+import { get_user_by_email } from "@/src/lib/get_user";
 import { getServerSession } from "next-auth";
 
 const profile = async () => {

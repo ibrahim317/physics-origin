@@ -1,5 +1,5 @@
 import { PrismaClient } from "@/prisma/generated/client";
-import get_user_by_email from "@/src/lib/get_user_by_email";
+import { get_user_by_email } from "@/src/lib/get_user";
 import { NextRequest, NextResponse } from "next/server";
 const prisma = new PrismaClient();
 

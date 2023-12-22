@@ -1,6 +1,6 @@
 import React from "react";
 import get_section_by_id from "@/src/lib/get_section_by_id";
-import get_user_by_email from "@/src/lib/get_user_by_email";
+import { get_user_by_email } from "@/src/lib/get_user";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found/not-found";
 import Video from "../course/section/Video";

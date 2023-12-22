@@ -6,9 +6,9 @@ import Devider from "@/src/components/Devider";
 import { CourseType } from "@/src/types/global";
 interface props {
   course: CourseType;
-  opened_course: boolean;
+  paid_course: boolean;
 }
-const CourseBody: React.FC<props> = ({ course, opened_course }) => {
+const CourseBody: React.FC<props> = ({ course, paid_course }) => {
   return (
     <section className="flex flex-col gap-11 p-8  rtl">
       <div className="my-6 flex gap-6 justify-between max-h-fit max-[660px]:flex-col-reverse w-full ">
@@ -25,7 +25,7 @@ const CourseBody: React.FC<props> = ({ course, opened_course }) => {
               </ul>
             </div>
             <div className="flex justify-center gap-7">
-              <PayButton course={course} opened={opened_course} />
+              <PayButton course={course} paid={paid_course} />
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ const CourseBody: React.FC<props> = ({ course, opened_course }) => {
           المحتوى
         </h2>
       </div>
-      <Content sections={course.section} opened={opened_course} />
+      <Content sections={course.section} paid={paid_course} />
     </section>
   );
 };

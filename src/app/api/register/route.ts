@@ -18,6 +18,13 @@ export async function POST(request: NextRequest) {
         courses: [],
       },
     });
+    const progress = await prisma.progress.create({
+      data: {
+        userId: newUser.id,
+        passed_tests: [],
+        tests_grades: [],
+      },
+    });
 
     return NextResponse.json(newUser, { status: 201 });
   } catch (err) {
