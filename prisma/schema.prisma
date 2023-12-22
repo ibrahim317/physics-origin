@@ -21,7 +21,14 @@ model User {
   pass         String
   courses      Int[]
   lectures     Int[]
-  buying       String?
+  buying       String?  
+  progress     Progress?
+}
+model Progress{
+  user User @relation(fields: [userId], references: [id])
+  userId Int @unique
+  passed_tests Int[]
+  tests_grades Int[]
 }
 
 model Course {

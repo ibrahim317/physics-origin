@@ -12,6 +12,12 @@ export interface UserType {
   courses: number[];
   lectures: number[];
   buying?: string | null;
+  progress?: Progress | null;
+}
+export interface Progress {
+  userId: number;
+  passed_tests: number[];
+  tests_grades: number[];
 }
 
 export interface CourseType {
