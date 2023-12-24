@@ -8,7 +8,7 @@ interface props {
   paid: boolean;
 }
 const Content: React.FC<props> = async ({ sections, paid }) => {
-  let failed_last_test = true;
+  let passed_last_test = true;
   let user: UserType | null;
   const session = await getServerSession();
   if (session) {
@@ -22,18 +22,23 @@ const Content: React.FC<props> = async ({ sections, paid }) => {
       >
         <div className="grid gap-6  p-6 grid-cols-3 max-xl:flex max-xl:flex-col ">
           {sections.map((section: SectionType) => {
-            if (user && user.progress?.passed_tests.includes(section.id)) {
-              failed_last_test = false;
-            }
-            return (
+            let return_value = (
               <Card
                 type="section"
                 paid={paid}
                 content={section}
                 key={section.id}
-                failed_last_test={failed_last_test}
+                passed_last_test={passed_last_test}
               />
             );
+            if (
+              section.tag == "QUIZ" &&
+              user &&
+              !user.progress?.passed_tests.includes(section.id)
+            ) {
+              passed_last_test = false;
+            }
+            return return_value;
           })}
         </div>
       </section>

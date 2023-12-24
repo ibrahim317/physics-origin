@@ -5,9 +5,9 @@ const Container: React.FC<any> = ({
   paid,
   link,
   content,
-  failed_last_test,
+  passed_last_test,
 }) => {
-  if (paid && failed_last_test == false) {
+  if (paid && (passed_last_test == null || passed_last_test == true)) {
     return (
       <Link
         href={{ pathname: link, query: { id: content.id } }}
@@ -18,13 +18,14 @@ const Container: React.FC<any> = ({
       </Link>
     );
   } else {
-    const failed_text = failed_last_test ? (
-      <div className="absolute top-4 left-36">
-        مغلق حتى النجاح في الامتحان السابق
-      </div>
-    ) : (
-      <></>
-    );
+    const failed_text =
+      passed_last_test == false ? (
+        <div className="absolute top-4 left-36">
+          مغلق حتى النجاح في الامتحان السابق
+        </div>
+      ) : (
+        <></>
+      );
     return (
       <div
         className={`min-h-[500px] max-xl:min-h-[250px] w-full bg-[#111827] relative hover:border-solid hover:border-y-2 hover:border-white  hover:-translate-y-4 transition-transform duration-500 ease-in-out flex flex-col justify-around p-3 gap-5 rounded-lg`}

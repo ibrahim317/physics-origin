@@ -8,10 +8,10 @@ interface props {
   content: CourseType | SectionType;
   type: string;
   paid?: boolean;
-  failed_last_test?: boolean;
+  passed_last_test?: boolean;
 }
 
-const Card = ({ content, type, failed_last_test, paid }: props) => {
+const Card = ({ content, type, passed_last_test, paid }: props) => {
   switch (type) {
     case "course":
       return <CourseCard course={content as CourseType} />;
@@ -19,18 +19,12 @@ const Card = ({ content, type, failed_last_test, paid }: props) => {
       return (
         <SectionCard
           paid={paid}
-          failed_last_test={failed_last_test}
+          passed_last_test={passed_last_test}
           section={content as SectionType}
         />
       );
     case "lecture":
-      return (
-        <LectureCard
-          paid={paid}
-          failed_last_test={failed_last_test}
-          lecture={content as SectionType}
-        />
-      );
+      return <LectureCard paid={paid} lecture={content as SectionType} />;
     default:
       break;
   }
