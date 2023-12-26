@@ -16,13 +16,17 @@ const Quiz: React.FC<props> = ({ section }) => {
 		setQuizStarted(true);
 	};
 	return (
-		<div className="rtl m-11">
+		<section className="rtl my-20 min-h-[calc(100vh-13rem)] flex flex-col gap-10">
 			<div id="quizHeadings" className="flex flex-col items-center">
-				<h2 className="text-4xl ">{section.name}</h2>
-				<Timer deadline={12} StartedState={QuizStarted} />
-				<QuizContent handleStart={handleStart} QuizStarted={QuizStarted} />
+				<h2 className="text-4xl  max-md:text-2xl">{section.name}</h2>
+				<Timer deadline={120} StartedState={QuizStarted} />
 			</div>
-		</div>
+			<QuizContent
+				handleStart={handleStart}
+				Questions={section.questions}
+				QuizStarted={QuizStarted}
+			/>
+		</section>
 	);
 };
 

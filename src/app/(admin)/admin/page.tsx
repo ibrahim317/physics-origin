@@ -1,4 +1,3 @@
-"use client";
 import { get_user_by_email } from "@/src/lib/get_user";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

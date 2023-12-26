@@ -6,10 +6,10 @@ import Container from "./Container";
 interface props {
   section: SectionType;
   paid?: boolean;
-  passed_last_test?: boolean;
+  passed_last_quiz?: boolean;
 }
 
-const SectionCard: React.FC<props> = ({ passed_last_test, section, paid }) => {
+const SectionCard: React.FC<props> = ({ passed_last_quiz, section, paid }) => {
   let sectionColor = "yellow-500";
   const tag = section.tag;
   // Card button color
@@ -25,7 +25,7 @@ const SectionCard: React.FC<props> = ({ passed_last_test, section, paid }) => {
   return (
     <Container
       content={section}
-      passed_last_test={passed_last_test}
+      passed_last_quiz={passed_last_quiz}
       paid={paid}
       link={sectionLink}
     >

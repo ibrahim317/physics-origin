@@ -8,7 +8,7 @@ interface props {
   paid: boolean;
 }
 const Content: React.FC<props> = async ({ sections, paid }) => {
-  let passed_last_test = true;
+  let passed_last_quiz = true;
   let user: UserType | null;
   const session = await getServerSession();
   if (session) {
@@ -28,15 +28,15 @@ const Content: React.FC<props> = async ({ sections, paid }) => {
                 paid={paid}
                 content={section}
                 key={section.id}
-                passed_last_test={passed_last_test}
+                passed_last_quiz={passed_last_quiz}
               />
             );
             if (
               section.tag == "QUIZ" &&
               user &&
-              !user.progress?.passed_tests.includes(section.id)
+              !user.progress?.passed_quizzes.includes(section.id)
             ) {
-              passed_last_test = false;
+              passed_last_quiz = false;
             }
             return return_value;
           })}
