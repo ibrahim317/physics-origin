@@ -36,7 +36,7 @@ model Course {
   id        Int       @id @default(autoincrement())
   name      String
   des       String[]
-  price     Int
+  price     Int   @default(150)
   thumbnail String
   section   Section[]
 }
@@ -45,17 +45,18 @@ model Section {
   id        Int        @id @default(autoincrement())
   name      String
   des       String[]
-  tag       Tag
   yourlink  String?
+  price     Int?       @default(50)
+  tag       Tag
   course    Course[]
   questions Question[]
-  price     Int?       @default(50)
 }
 
 model Question {
   id            Int       @id @default(autoincrement())
   question_head String
   options       String[]
+  right_answer  String
   image         String?
   quiz          Section[]
 }

@@ -5,23 +5,27 @@ import { useTimer } from "react-timer-hook";
 
 interface props {
 	deadline: number;
-	StartedState: boolean;
+	handleSubmit: any;
+	QuizPage: boolean;
+	Submitted: boolean;
 }
-const Timer = ({ deadline, StartedState }: props) => {
+const Timer = ({ deadline, QuizPage, Submitted, handleSubmit }: props) => {
 	const expiryTimestamp = new Date();
 	expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + deadline);
 
 	const timer = useTimer({
 		autoStart: false,
 		expiryTimestamp,
-		onExpire: () => console.warn("onExpire called"),
+		onExpire: () => {
+			handleSubmit();
+			console.warn("onExpire called");
+		},
 	});
 
 	useEffect(() => {
-		if (StartedState == true) {
-			timer.start();
-		}
-	}, [StartedState]);
+		if (QuizPage) timer.start();
+		if (Submitted) timer.pause();
+	}, [QuizPage, Submitted]);
 
 	return (
 		<div className="bg-white p-8 bg-opacity-5 rounded-md my-4">
