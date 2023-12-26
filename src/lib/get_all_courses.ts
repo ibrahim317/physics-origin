@@ -1,10 +1,10 @@
 // import axios from "axios";
-import { PrismaClient } from "@/prisma/generated/client";
-const prisma = new PrismaClient();
+import prisma from "@/src/lib/PrismaClient";
 const get_all_courses = async () => {
-  const courses = await prisma.course.findMany({
-    include: { section: true },
-  });
-  return courses;
+	const courses = await prisma.course.findMany({
+		include: { section: true },
+	});
+	return courses;
 };
+prisma.$disconnect();
 export default get_all_courses;
