@@ -12,23 +12,24 @@ generator client {
 
 model User {
   isAdmin      Boolean
-  id           Int      @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   first_name   String
   last_name    String
-  phone        String   @unique
+  phone        String    @unique
   parent_phone String
-  email        String   @unique
+  email        String    @unique
   pass         String
   courses      Int[]
   lectures     Int[]
-  buying       String?  
+  buying       String?
   progress     Progress?
 }
-model Progress{
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
-  passed_tests Int[]
-  tests_grades Int[]
+
+model Progress {
+  user           User  @relation(fields: [userId], references: [id])
+  userId         Int   @unique
+  passed_quizzes Int[]
+  quizzes_grades Json?
 }
 
 model Course {
@@ -37,29 +38,26 @@ model Course {
   des       String[]
   price     Int
   thumbnail String
-  section  Section[]
+  section   Section[]
 }
 
 model Section {
-  id        Int      @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   name      String
   des       String[]
-  tag      Tag 
-  thumbnail String?
+  tag       Tag
   yourlink  String?
-  course    Course[] 
+  course    Course[]
   questions Question[]
-  price Int? @default(50)
+  price     Int?       @default(50)
 }
 
-
-
 model Question {
-  id      Int      @id @default(autoincrement())
-  text    String
-  options String[]
-  image   String?
-  quiz    Section[]
+  id            Int       @id @default(autoincrement())
+  question_head String
+  options       String[]
+  image         String?
+  quiz          Section[]
 }
 
 enum Tag {
