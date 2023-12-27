@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: RootProps) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + " dark"}>
         <SessionProvider session={session}>
           <Toaster position="top-right" reverseOrder />
           {children}

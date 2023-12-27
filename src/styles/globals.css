@@ -5,34 +5,46 @@
 @import "https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;900&family=Comfortaa:wght@400;600;700&family=Comforter&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Kufam:wght@400;600;700;900&family=Rubik:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&family=Vibes&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap";
 :root {
-	--font-family: "Almarai";
+  --font-family: "Almarai";
 }
 
 :root {
-	--foreground-rgb: 255, 255, 255;
-	--background-start-rgb: 0, 0, 0;
-	--background-end-rgb: 0, 0, 0;
-	--font-family: "Almarai";
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --font-family: "Almarai";
 }
 
 html {
-	-webkit-text-size-adjust: 100%;
-	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-		Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-	line-height: 1.5;
-	tab-size: 4;
-	scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
+  line-height: 1.5;
+  tab-size: 4;
+  scroll-behavior: smooth;
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
-	font-family: var(--font-family);
-	font-size: 0.938rem;
-	font-size: var(--font-size-normal);
-	font-weight: 400;
-	font-weight: var(--font-w-normal);
+  color: rgb(var(--foreground-rgb));
+  font-family: var(--font-family);
+  font-size: 0.938rem;
+  font-size: var(--font-size-normal);
+  font-weight: 400;
+  font-weight: var(--font-w-normal);
 }
 .rtl {
-	direction: rtl;
+  direction: rtl;
 }
