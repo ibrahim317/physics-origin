@@ -5,7 +5,7 @@ import SessionProvider from "@/src/components/Provider";
 import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 import NavBar from "@/src/components/NavBar";
-import Footer from "../../components/footer";
+import Footer from "../components/footer";
 
 export const metadata = {
 	title: "Physics Origin",
