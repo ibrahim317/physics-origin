@@ -1,11 +1,13 @@
 export const metadata = {
-	title: "Physics Origin",
-	description: "منصة م/أحمد يوسف لتدريس الفيزياء",
+  title: "Physics Origin",
+  description: "منصة م/أحمد يوسف لتدريس الفيزياء",
 };
 
 interface RootProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 export default async function RootLayout({ children }: RootProps) {
-	return <main className="flex-grow bg-black">{children}</main>;
+  return (
+    <main className="relative flex min-h-screen bg-black ">{children} </main>
+  );
 }

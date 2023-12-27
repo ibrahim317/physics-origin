@@ -4,10 +4,10 @@ const Devider = () => {
   return (
     <div
       id="#DIV"
-      className="inset-x-0 -bottom-1 bg-[#F9C500] dark:bg-cyan-900 smooth h-1 transform  translate-y-0"
+      className="smooth inset-x-0 -bottom-1 h-1 translate-y-0 transform bg-[#F9C500]  dark:bg-cyan-900"
     >
       <div
-        className=" bg-[#F9C500] h-full left-0 absolute transition-colors duration-300"
+        className=" absolute left-0 h-full bg-[#F9C500] transition-colors duration-300"
         style={{ width: "100%" }}
       />
     </div>

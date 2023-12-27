@@ -5,25 +5,25 @@ import { getServerSession } from "next-auth";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
-	title: "Physics Origin",
-	description: "منصة م/أحمد يوسف لتدريس الفيزياء",
+  title: "Physics Origin",
+  description: "منصة م/أحمد يوسف لتدريس الفيزياء",
 };
 const inter = Almarai({ subsets: ["arabic"], weight: "400" });
 
 interface RootProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 export default async function RootLayout({ children }: RootProps) {
-	const session = await getServerSession();
+  const session = await getServerSession();
 
-	return (
-		<html lang="en">
-			<body className={inter.className + " min-h-screen"}>
-				<SessionProvider session={session}>
-					<Toaster position="top-right" reverseOrder />
-					{children}
-				</SessionProvider>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <SessionProvider session={session}>
+          <Toaster position="top-right" reverseOrder />
+          {children}
+        </SessionProvider>
+      </body>
+    </html>
+  );
 }
