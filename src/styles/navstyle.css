@@ -1,60 +1,60 @@
 @import "https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;900&family=Comfortaa:wght@400;600;700&family=Comforter&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Kufam:wght@400;600;700;900&family=Rubik:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&family=Vibes&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap";
 :root {
-  --font-family: "Almarai";
+	--font-family: "Almarai";
 }
 .snav {
-  position: relative;
-  width: 490px;
+	position: relative;
+	width: 490px;
 }
 .snav a {
-  cursor: pointer;
-  color: #fff;
-  z-index: 1;
-  text-align: center;
-  display: inline-block;
-  line-height: 48px;
-  z-index: 1;
-  position: relative;
+	cursor: pointer;
+	color: #fff;
+	z-index: 1;
+	text-align: center;
+	display: inline-block;
+	line-height: 48px;
+	z-index: 1;
+	position: relative;
 }
 
 .snav :nth-child(1) {
-  width: 150px;
+	width: 150px;
 }
 .snav a:nth-child(2) {
-  width: 150px;
+	width: 150px;
 }
 .snav a:nth-child(3) {
-  width: 150px;
+	width: 150px;
 }
 
 nav .animation {
-  position: absolute;
-  padding-top: 55px; /*max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500]*/
-  top: 50%;
-  transform: translate(0, -50%);
-  z-index: 0;
-  background: #f9c500;
-  border-radius: 25px;
-  transition: all 0.5s ease 0s;
+	position: absolute;
+	padding-top: 55px; /*max-sm:px-5 py-4 mx-4 min-w-max text-black bg-[#F9C500]*/
+	top: 50%;
+	transform: translate(0, -50%);
+	z-index: 0;
+	background: #f9c500;
+	border-radius: 25px;
+	transition: all 0.5s ease 0s;
 }
-nav .me,
+nav .profile,
 a:nth-child(3):hover ~ .animation {
-  width: 30%;
-  right: 5%;
+	width: 30%;
+	right: 5%;
 }
 nav .mycourses,
 a:nth-child(2):hover ~ .animation {
-  width: 25%;
-  right: 37%;
+	width: 25%;
+	right: 37%;
 }
-nav .myhistory,
+nav .logout,
 a:nth-child(1):hover ~ .animation {
-  width: 24%;
-  right: 71%;
+	width: 24%;
+	right: 71%;
 }
 @media only screen and (max-width: 500px) {
-  nav .animation {
-    padding-top: 40px;
-  }
+	nav .animation {
+		padding-top: 40px;
+	}
 }
