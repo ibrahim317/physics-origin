@@ -3,7 +3,7 @@ import get_section_by_id from "@/src/lib/db/get_section_by_id";
 import { get_user_by_email } from "@/src/lib/db/get_user";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found";
-import Video from "@/src/app/(root)/lecture/components/Video";
+import Video from "./components/Video";
 import { SectionType } from "@/src/types/global";
 
 interface params {

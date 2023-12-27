@@ -5,86 +5,34 @@
 @import "https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;900&family=Comfortaa:wght@400;600;700&family=Comforter&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Kufam:wght@400;600;700;900&family=Rubik:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&family=Vibes&display=swap";
 @import "https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap";
 :root {
-  --font-family: "Almarai";
+	--font-family: "Almarai";
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-  --font-family: "Almarai";
+	--foreground-rgb: 255, 255, 255;
+	--background-start-rgb: 0, 0, 0;
+	--background-end-rgb: 0, 0, 0;
+	--font-family: "Almarai";
 }
 
 html {
-  -webkit-text-size-adjust: 100%;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  line-height: 1.5;
-  tab-size: 4;
-  scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	line-height: 1.5;
+	tab-size: 4;
+	scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  font-family: var(--font-family);
-  font-size: 0.938rem;
-  font-size: var(--font-size-normal);
-  font-weight: 400;
-  font-weight: var(--font-w-normal);
+	color: rgb(var(--foreground-rgb));
+	font-family: var(--font-family);
+	font-size: 0.938rem;
+	font-size: var(--font-size-normal);
+	font-weight: 400;
+	font-weight: var(--font-w-normal);
 }
 .rtl {
-  direction: rtl;
-}
-
-.loading-hidden {
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
-.loading-bar {
-  animation: loading-bar 1s cubic-bezier(0.43, 0.28, 0.96, 0.98) infinite;
-  -webkit-animation: loading-bar 1s cubic-bezier(0.43, 0.28, 0.96, 0.98)
-    infinite;
-  background: linear-gradient(124deg, #f43f5e, #f43f5e 50%, #ffe4e6 0, #ffe4e6);
-  background-size: 300% 50%;
-  z-index: 1000;
-}
-.darkmode .loading-bar {
-  background: linear-gradient(124deg, #f43f5e, #f43f5e 50%, #881337 0, #881337);
-  background-size: 300% 50%;
-}
-@-webkit-keyframes loading-bar {
-  0% {
-    background-position: 300% 100%;
-  }
-  to {
-    background-position: 0 100%;
-  }
-}
-@keyframes loading-bar {
-  0% {
-    background-position: 300% 100%;
-  }
-  to {
-    background-position: 0 100%;
-  }
-}
-.yt-cntainer {
-  position: relative;
-}
-
-.yt-mask {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 33vw;
-  height: 70px;
-}
-
-.yt-maskt {
-  position: absolute;
-  bottom: 0;
-  right: 50px;
-  width: 80px;
-  height: 80px;
+	direction: rtl;
 }
