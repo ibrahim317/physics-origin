@@ -1,5 +1,10 @@
 "use client";
-import { courseColumns, lectureColumns, userColumns } from "../lib/columns";
+import {
+  courseColumns,
+  sectionColumns,
+  lectureColumns,
+  userColumns,
+} from "../lib/columns";
 import { DataTable } from "@/src/components/data-table";
 
 export function CoursesTable({ data }: { data: any }) {
@@ -20,6 +25,13 @@ export function UserTable({ data }: { data: any }) {
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={userColumns} data={data as any} />
+    </div>
+  );
+}
+export function SectionTable({ data }: { data: any }) {
+  return (
+    <div className="container mx-auto py-10">
+      <DataTable columns={sectionColumns} data={data as any} />
     </div>
   );
 }

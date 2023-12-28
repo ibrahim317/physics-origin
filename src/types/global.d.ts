@@ -45,8 +45,6 @@ export interface LectureType {
   id: number;
   name: string;
   des: string[];
-  tag: Tag;
-  thumbnail?: string | null;
   yourlink?: string | null;
   price?: number | null;
 }

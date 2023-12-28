@@ -1,4 +1,4 @@
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 import React from "react";
 import NotFound from "@/src/app/not-found";
@@ -13,10 +13,6 @@ const page = async () => {
 
   return (
     <div className="flex w-[99vw] items-center justify-center gap-28">
-      <h1 className="rounded-md border-2 border-gray-300 p-10 text-center text-3xl font-medium">
-        Admin
-      </h1>
-
       <h1 className="rounded-md border-2 border-gray-300 p-10 text-center text-3xl font-medium">
         Admin
       </h1>

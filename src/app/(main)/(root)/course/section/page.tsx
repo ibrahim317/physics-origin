@@ -1,10 +1,10 @@
 import React from "react";
 import File from "./components/File";
-import get_section_by_id from "@/src/lib/db/get/get_section_by_id";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import get_section_by_id from "@/src/lib/db/get/get_by/get_section_by_id";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found";
-import Video from "../../lecture/components/Video";
+import Video from "./components/Video";
 import Quiz from "./components/Quiz";
 
 interface params {

@@ -1,7 +1,7 @@
 import Card from "@/src/components/Card";
 import ProfileNavBar from "@/src/components/ProfileNavBar";
-import get_all_courses from "@/src/lib/db/get/get_all_courses";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import { get_all_courses } from "@/src/lib/db/get/get_all";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 
 const MyCourses = async () => {

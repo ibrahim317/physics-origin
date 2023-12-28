@@ -39,6 +39,7 @@ model Course {
   price     Int   @default(150)
   thumbnail String
   section   Section[]
+  published Boolean?
 }
 
 model Section {
@@ -46,10 +47,17 @@ model Section {
   name      String
   des       String[]
   yourlink  String?
-  price     Int?       @default(50)
   tag       Tag
   course    Course[]
   questions Question[]
+}
+model Lecture {
+  id        Int        @id @default(autoincrement())
+  name      String
+  des       String[]
+  yourlink  String?
+  price     Int?       @default(50)
+
 }
 
 model Question {

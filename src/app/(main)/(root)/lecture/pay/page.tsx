@@ -1,18 +1,17 @@
 import React from "react";
-import NotFound from "@/src/app/not-found";
+import get_lecture_by_id from "@/src/lib/db/get/get_by/get_lecture_by_id";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import NotFound from "@/src/app/not-found";
 import { redirect } from "next/navigation";
-import PayBody from "./PayBody";
-import get_section_by_id from "@/src/lib/db/get/get_section_by_id";
+import PayBody from "./components/PayBody";
 
 interface props {
-  params: { slug: string };
   searchParams: { id: number };
 }
 
-const page: React.FC<props> = async ({ params, searchParams }) => {
-  const lecture = await get_section_by_id(Number(searchParams.id));
+const page: React.FC<props> = async ({ searchParams }) => {
+  const lecture = await get_lecture_by_id(Number(searchParams.id));
   if (!lecture) return <NotFound />;
   const session = await getServerSession();
   const user = await get_user_by_email(session?.user?.email);
@@ -20,7 +19,7 @@ const page: React.FC<props> = async ({ params, searchParams }) => {
   if (user?.lectures.includes(searchParams.id)) {
     redirect(`/`);
   }
-  const price = lecture?.price ?? 0;
+  const price = lecture.price ?? 0;
   return <PayBody price={price} user={user} lecture={lecture} />;
 };
 

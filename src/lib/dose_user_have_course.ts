@@ -1,4 +1,4 @@
-import { get_user_by_email } from "./db/get/get_user";
+import { get_user_by_email } from "./db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 
 const dose_user_have_course = async (course: any): Promise<boolean> => {

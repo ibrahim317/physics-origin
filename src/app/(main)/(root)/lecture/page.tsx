@@ -1,10 +1,10 @@
 import React from "react";
-import get_section_by_id from "@/src/lib/db/get/get_section_by_id";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 import NotFound from "@/src/app/not-found";
 import Video from "./components/Video";
-import { SectionType } from "@/src/types/global";
+import { LectureType } from "@/src/types/global";
+import get_lecture_by_id from "@/src/lib/db/get/get_by/get_lecture_by_id";
 
 interface params {
   searchParams: { id: string };
@@ -12,15 +12,13 @@ interface params {
 const page = async ({ searchParams }: params) => {
   try {
     const session = await getServerSession();
-    const section = await get_section_by_id(Number(searchParams.id));
+    const lecture = await get_lecture_by_id(Number(searchParams.id));
     const user = await get_user_by_email(session?.user?.email);
-    const userHaveAccess = user?.courses.find(
-      (id: any) => id === section?.course[0].id,
-    );
+    const userHaveAccess = user?.lectures.find((id: any) => id === lecture?.id);
     if (!userHaveAccess || !session) {
       return <NotFound />;
     }
-    return <Video section={section as SectionType} />;
+    return <Video lecture={lecture as LectureType} />;
   } catch (err) {
     return <NotFound />;
   }

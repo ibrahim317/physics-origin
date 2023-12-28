@@ -2,7 +2,7 @@ import React from "react";
 import Card from "@/src/components/Card";
 import { SectionType, UserType } from "@/src/types/global";
 import { getServerSession } from "next-auth";
-import { get_user_with_progress } from "@/src/lib/db/get/get_user";
+import { get_user_with_progress } from "@/src/lib/db/get/get_by/get_user";
 interface props {
   sections: SectionType[];
   paid: boolean;

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card";
-import get_all_lectures from "../../lib/db/get/get_all_lectures";
-import { get_user_by_email } from "../../lib/db/get/get_user";
+import { get_all_lectures } from "../../lib/db/get/get_all";
+import { get_user_by_email } from "../../lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 
 const LecturesSection = async () => {

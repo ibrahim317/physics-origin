@@ -15,23 +15,27 @@ export type UserTable = {
   phone: string;
   parent_phone: string;
 };
+export type SectionTable = {
+  id: number;
+  name: string;
+};
 
 export type LectureTable = {
   id: number;
   name: string;
-  tag: string;
   price: number;
 };
 
 const UserColumns = [
   {
-    accessorKey: "name",
-    header: "Name",
-  },
-  {
     accessorKey: "id",
     header: "ID",
   },
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+
   {
     accessorKey: "email",
     header: "Email",
@@ -63,10 +67,24 @@ const LectureColumns = [
     header: "Tag",
   },
 ];
+const SectionColumns = [
+  {
+    accessorKey: "id",
+    header: "ID",
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
+  },
+];
 const CourseColumns = [
   {
     accessorKey: "id",
     header: "ID",
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
   },
   {
     accessorKey: "price",
@@ -81,3 +99,4 @@ const CourseColumns = [
 export const courseColumns: ColumnDef<CourseTable>[] = CourseColumns;
 export const lectureColumns: ColumnDef<LectureTable>[] = LectureColumns;
 export const userColumns: ColumnDef<UserTable>[] = UserColumns;
+export const sectionColumns: ColumnDef<SectionTable>[] = SectionColumns;

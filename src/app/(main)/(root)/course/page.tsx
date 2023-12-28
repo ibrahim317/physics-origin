@@ -1,7 +1,7 @@
 import React from "react";
-import get_course_by_id from "@/src/lib/db/get/get_course_by_id";
+import get_course_by_id from "@/src/lib/db/get/get_by/get_course_by_id";
 import NotFound from "@/src/app/not-found";
-import dose_user_have_course from "@/src/lib/db/dose_user_have_course";
+import dose_user_have_course from "@/src/lib/dose_user_have_course";
 import CourseBody from "./components/CourseBody";
 
 interface params {

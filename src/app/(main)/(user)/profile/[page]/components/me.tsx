@@ -2,7 +2,7 @@ import CallIcon from "@mui/icons-material/Call";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import Image from "next/image";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import ProfileNavBar from "@/src/components/ProfileNavBar";

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Card";
-import get_all_courses from "@/src/lib/db/get/get_all_courses";
+import { get_all_courses } from "@/src/lib/db/get/get_all";
 import { CourseType } from "@/src/types/global";
 const CoursesSection = async () => {
   const courses = await get_all_courses();

@@ -1,13 +1,25 @@
-import get_all_courses from "@/src/lib/db/get/get_all_courses";
-import get_all_lectures from "@/src/lib/db/get/get_all_lectures";
-import get_all_users from "@/src/lib/db/get/get_all_users";
-import { CourseTable, LectureTable, UserTable } from "./columns";
-import { CourseType, LectureType, UserType } from "@/src/types/global";
+import {
+  get_all_courses,
+  get_all_sections,
+  get_all_lectures,
+  get_all_users,
+} from "@/src/lib/db/get/get_all";
+
+import { CourseTable, SectionTable, LectureTable, UserTable } from "./columns";
+
+import {
+  CourseType,
+  SectionType,
+  LectureType,
+  UserType,
+} from "@/src/types/global";
+import { Section } from "@/prisma/generated/client";
 
 enum dataEnum {
   courses = "courses",
   lectures = "lectures",
   users = "users",
+  sections = "sections",
 }
 
 const coursesList = (AllCourses: CourseType[]): CourseTable[] => {
@@ -26,7 +38,6 @@ const lecturesList = (AllLecture: LectureType[]): LectureTable[] => {
       id: lecture.id,
       name: lecture.name,
       price: lecture.price ?? 0,
-      tag: lecture.tag,
     };
   });
 };
@@ -41,6 +52,14 @@ const usersList = (User: UserType[]): UserTable[] => {
     };
   });
 };
+const sectionsList = (Section: SectionType[]): SectionTable[] => {
+  return Section.map((section: SectionType) => {
+    return {
+      id: section.id,
+      name: section.name,
+    };
+  });
+};
 
 export const fetch_data = async (data_type: string) => {
   switch (data_type) {
@@ -50,6 +69,8 @@ export const fetch_data = async (data_type: string) => {
       return lecturesList(await get_all_lectures());
     case dataEnum.users:
       return usersList(await get_all_users());
+    case dataEnum.sections:
+      return sectionsList((await get_all_sections()) as SectionType[]);
     default:
       return null;
   }

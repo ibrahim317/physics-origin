@@ -1,8 +1,8 @@
-import get_all_courses from "@/src/lib/db/get/get_all_courses";
+import { get_all_courses } from "@/src/lib/db/get/get_all";
 import React from "react";
 import NotFound from "@/src/app/not-found";
 import { getServerSession } from "next-auth";
-import { get_user_by_email } from "@/src/lib/db/get/get_user";
+import { get_user_by_email } from "@/src/lib/db/get/get_by/get_user";
 import { redirect } from "next/navigation";
 import PayBody from "./PayBody";
 

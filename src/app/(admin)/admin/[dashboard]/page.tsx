@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/src/components/ui/button";
 import { fetch_data } from "./lib/data";
 import { UserTable, CoursesTable, LectureTable } from "./components/Tables";
+import Link from "next/link";
 
 const TableTamplate = ({ data, url }: { data: any; url: string }) => {
   switch (url) {
@@ -19,6 +20,7 @@ const TableTamplate = ({ data, url }: { data: any; url: string }) => {
 
 const page = async ({ params }: { params: { dashboard: string } }) => {
   const data = await fetch_data(params.dashboard);
+  const entity = params.dashboard.slice(0, -1);
   return (
     <div className="container mx-auto h-full w-full">
       <h2 className="mt-4 w-full text-center text-2xl font-medium lg:text-4xl">
@@ -26,9 +28,11 @@ const page = async ({ params }: { params: { dashboard: string } }) => {
       </h2>
       <TableTamplate url={params.dashboard} data={data} />
       <div className=" flex flex-row-reverse p-4">
-        <Button variant={"green"} className="self-end" size={"lg"}>
-          Create {params.dashboard}
-        </Button>
+        <Link href={`/admin/create/${entity}`}>
+          <Button variant={"green"} className="self-end" size={"lg"}>
+            Create {params.dashboard}
+          </Button>
+        </Link>
       </div>
       <div className="flex justify-center">
         <Alert
