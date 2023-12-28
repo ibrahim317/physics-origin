@@ -28,6 +28,7 @@ export interface CourseType {
   price: number;
   thumbnail: string;
   section: Section[];
+  published: boolean | null;
 }
 
 export interface SectionType {
@@ -40,6 +41,7 @@ export interface SectionType {
   course: Course[];
   questions: Question[];
   price?: number | null;
+  published: boolean | null;
 }
 export interface LectureType {
   id: number;
@@ -47,6 +49,7 @@ export interface LectureType {
   des: string[];
   yourlink?: string | null;
   price?: number | null;
+  published: boolean | null;
 }
 
 export interface QuestionType {

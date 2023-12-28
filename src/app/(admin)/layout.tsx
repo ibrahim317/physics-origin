@@ -10,7 +10,7 @@ interface RootProps {
 }
 export default async function RootLayout({ children }: RootProps) {
   return (
-    <main className="flex">
+    <main className="flex max-md:flex-col">
       <SideNav />
       {children}
     </main>

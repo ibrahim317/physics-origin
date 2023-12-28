@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { SectionType } from "@/src/types/global";
+import { LectureType } from "@/src/types/global";
 interface props {
-  lecture: SectionType;
+  lecture: LectureType;
   paid: boolean;
   className?: string;
 }
@@ -12,7 +12,7 @@ const PayButton: React.FC<props> = ({ lecture, paid, className }) => {
     mybutton = (
       <div
         className={
-          "flex border-[3px] border-green-400 px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg" +
+          "mx-4 flex rounded-[25px] border-[3px] border-green-400 px-6 py-3  text-lg text-white hover:scale-[102%] max-[660px]:px-3" +
           className
         }
       >
@@ -27,7 +27,7 @@ const PayButton: React.FC<props> = ({ lecture, paid, className }) => {
           query: { id: lecture.id },
         }}
         className={
-          "flex border-[3px] border-[#F9C500] px-6 max-[660px]:px-3 py-3 mx-4  text-white hover:text-[#F9C500] transition ease-in-out duration-300 rounded-[25px] text-lg" +
+          "mx-4 flex rounded-[25px] border-[3px] border-[#F9C500] px-6 py-3  text-lg text-white transition duration-300 ease-in-out hover:text-[#F9C500] max-[660px]:px-3" +
           className
         }
       >
@@ -38,7 +38,7 @@ const PayButton: React.FC<props> = ({ lecture, paid, className }) => {
     mybutton = (
       <div
         className={
-          "flex border-[3px] border-green-400 px-6 max-[660px]:px-2 py-3 mx-4  text-white hover:scale-[102%] rounded-[25px] text-lg" +
+          "mx-4 flex rounded-[25px] border-[3px] border-green-400 px-6 py-3  text-lg text-white hover:scale-[102%] max-[660px]:px-2" +
           className
         }
       >

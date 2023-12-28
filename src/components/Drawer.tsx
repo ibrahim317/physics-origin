@@ -31,6 +31,9 @@ export function MyDrawer() {
             <div className="flex flex-col gap-5">
               <Link href={"/admin/courses"}>
                 <Button className="w-full">Courses</Button>
+              </Link>{" "}
+              <Link href={"/admin/sections"}>
+                <Button className="w-full">Sections</Button>
               </Link>
               <Link href={"/admin/lectures"}>
                 <Button className="w-full">Letures</Button>

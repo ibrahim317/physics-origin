@@ -38,8 +38,8 @@ model Course {
   des       String[]
   price     Int   @default(150)
   thumbnail String
-  section   Section[]
   published Boolean?
+  section   Section[]
 }
 
 model Section {
@@ -47,6 +47,7 @@ model Section {
   name      String
   des       String[]
   yourlink  String?
+  published Boolean?
   tag       Tag
   course    Course[]
   questions Question[]
@@ -57,6 +58,7 @@ model Lecture {
   des       String[]
   yourlink  String?
   price     Int?       @default(50)
+  published Boolean?
 
 }
 

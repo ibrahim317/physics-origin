@@ -2,10 +2,10 @@ import React from "react";
 import CourseCard from "./cards/CourseCard";
 import LectureCard from "./cards/LectureCard";
 import SectionCard from "./cards/SectionCard";
-import { CourseType, SectionType } from "../types/global";
+import { CourseType, LectureType, SectionType } from "../types/global";
 
 interface props {
-  content: CourseType | SectionType;
+  content: CourseType | SectionType | LectureType;
   type: string;
   paid?: boolean;
   passed_last_quiz?: boolean;
@@ -24,7 +24,7 @@ const Card = ({ content, type, passed_last_quiz, paid }: props) => {
         />
       );
     case "lecture":
-      return <LectureCard paid={paid} lecture={content as SectionType} />;
+      return <LectureCard paid={paid} lecture={content as LectureType} />;
     default:
       break;
   }
