@@ -1,31 +1,20 @@
 import { ColumnDef } from "@tanstack/react-table";
+import MyDropDown from "../components/TableDropDown";
+import {
+  UserTable,
+  CourseTable,
+  SectionTable,
+  LectureTable,
+} from "./types/Tables";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type CourseTable = {
-  id: number;
-  name: string;
-  price: number;
-  NumberOfSections: number;
+const Action = (entity: string) => {
+  return {
+    id: "actions",
+    cell: ({ row }: { row: any }) => {
+      return <MyDropDown entity={`edit/${entity}`} id={row.original.id} />;
+    },
+  };
 };
-export type UserTable = {
-  id: number;
-  email: string;
-  name: string;
-  phone: string;
-  parent_phone: string;
-};
-export type SectionTable = {
-  id: number;
-  name: string;
-};
-
-export type LectureTable = {
-  id: number;
-  name: string;
-  price: number;
-};
-
 const UserColumns = [
   {
     accessorKey: "id",
@@ -48,6 +37,7 @@ const UserColumns = [
     accessorKey: "parent_phone",
     header: "Parent Phone",
   },
+  Action("user"),
 ];
 const LectureColumns = [
   {
@@ -62,10 +52,12 @@ const LectureColumns = [
     accessorKey: "price",
     header: "Price",
   },
+
   {
-    accessorKey: "tag",
-    header: "Tag",
+    accessorKey: "published",
+    header: "Published",
   },
+  Action("lecture"),
 ];
 const SectionColumns = [
   {
@@ -76,7 +68,17 @@ const SectionColumns = [
     accessorKey: "name",
     header: "Name",
   },
+  {
+    accessorKey: "tag",
+    header: "Tag",
+  },
+  {
+    accessorKey: "published",
+    header: "Published",
+  },
+  Action("section"),
 ];
+
 const CourseColumns = [
   {
     accessorKey: "id",
@@ -94,6 +96,11 @@ const CourseColumns = [
     accessorKey: "NumberOfSections",
     header: "Number of sections",
   },
+  {
+    accessorKey: "published",
+    header: "Published",
+  },
+  Action("course"),
 ];
 
 export const courseColumns: ColumnDef<CourseTable>[] = CourseColumns;

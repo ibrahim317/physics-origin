@@ -2,23 +2,16 @@ import Alert from "@/src/components/Alert";
 import React from "react";
 import { Button } from "@/src/components/ui/button";
 import { fetch_data } from "./lib/data";
-import { UserTable, CoursesTable, LectureTable } from "./components/Tables";
 import Link from "next/link";
+import NotFound from "@/src/app/not-found";
+import TableTamplate from "./components/TableTamplate";
 
-const TableTamplate = ({ data, url }: { data: any; url: string }) => {
-  switch (url) {
-    case "courses":
-      return <CoursesTable data={data} />;
-    case "users":
-      return <UserTable data={data} />;
-    case "lectures":
-      return <LectureTable data={data} />;
-    default:
-      break;
-  }
-};
+const avaiableDashboards = ["courses", "users", "lectures", "sections"];
 
 const page = async ({ params }: { params: { dashboard: string } }) => {
+  if (!avaiableDashboards.includes(params.dashboard)) {
+    return <NotFound />;
+  }
   const data = await fetch_data(params.dashboard);
   const entity = params.dashboard.slice(0, -1);
   return (

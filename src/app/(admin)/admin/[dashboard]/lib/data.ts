@@ -5,7 +5,12 @@ import {
   get_all_users,
 } from "@/src/lib/db/get/get_all";
 
-import { CourseTable, SectionTable, LectureTable, UserTable } from "./columns";
+import {
+  CourseTable,
+  SectionTable,
+  LectureTable,
+  UserTable,
+} from "./types/Tables";
 
 import {
   CourseType,
@@ -13,7 +18,6 @@ import {
   LectureType,
   UserType,
 } from "@/src/types/global";
-import { Section } from "@/prisma/generated/client";
 
 enum dataEnum {
   courses = "courses",
@@ -29,6 +33,7 @@ const coursesList = (AllCourses: CourseType[]): CourseTable[] => {
       name: course.name,
       price: course.price,
       NumberOfSections: course.section.length,
+      published: course.published,
     };
   });
 };
@@ -38,6 +43,7 @@ const lecturesList = (AllLecture: LectureType[]): LectureTable[] => {
       id: lecture.id,
       name: lecture.name,
       price: lecture.price ?? 0,
+      published: lecture.published,
     };
   });
 };
@@ -57,6 +63,8 @@ const sectionsList = (Section: SectionType[]): SectionTable[] => {
     return {
       id: section.id,
       name: section.name,
+      tag: section.tag,
+      published: section.published,
     };
   });
 };
