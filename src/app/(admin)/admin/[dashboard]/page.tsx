@@ -1,92 +1,30 @@
 import Alert from "@/src/components/Alert";
 import React from "react";
-import { Course, columns } from "./columns";
-import { DataTable } from "@/src/components/data-table";
 import { Button } from "@/src/components/ui/button";
+import { fetch_data } from "./data";
+import { UserTable, CoursesTable, LectureTable } from "./Table";
 
-function DemoPage() {
-  const data = [
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-    {
-      id: "728ed52f",
-      price: 100,
-      NumberOfSections: 3,
-    },
-  ];
+const TableTamplate = ({ data, url }: { data: any; url: string }) => {
+  switch (url) {
+    case "courses":
+      return <CoursesTable data={data} />;
+    case "users":
+      return <UserTable data={data} />;
+    case "lectures":
+      return <LectureTable data={data} />;
+    default:
+      break;
+  }
+};
 
-  return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
-  );
-}
-
-const page = ({ params }: { params: { dashboard: string } }) => {
+const page = async ({ params }: { params: { dashboard: string } }) => {
+  const data = await fetch_data(params.dashboard);
   return (
     <div className="container mx-auto h-full w-full">
       <h2 className="mt-4 w-full text-center text-2xl font-medium lg:text-4xl">
         {params.dashboard}
       </h2>
-      <DemoPage />
+      <TableTamplate url={params.dashboard} data={data} />
       <div className=" flex flex-row-reverse p-4">
         <Button variant={"green"} className="self-end" size={"lg"}>
           Create {params.dashboard}

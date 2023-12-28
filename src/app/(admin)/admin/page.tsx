@@ -1,4 +1,4 @@
-import { get_user_by_email } from "@/src/lib/db/get_user";
+import { get_user_by_email } from "@/src/lib/db/get/get_user";
 import { getServerSession } from "next-auth";
 import React from "react";
 import NotFound from "@/src/app/not-found";
