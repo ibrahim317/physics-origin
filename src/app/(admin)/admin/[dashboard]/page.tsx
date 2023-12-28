@@ -1,8 +1,8 @@
 import Alert from "@/src/components/Alert";
 import React from "react";
 import { Button } from "@/src/components/ui/button";
-import { fetch_data } from "./data";
-import { UserTable, CoursesTable, LectureTable } from "./Table";
+import { fetch_data } from "./lib/data";
+import { UserTable, CoursesTable, LectureTable } from "./components/Tables";
 
 const TableTamplate = ({ data, url }: { data: any; url: string }) => {
   switch (url) {

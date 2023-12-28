@@ -1,5 +1,5 @@
 "use client";
-import { courseColumns, lectureColumns, userColumns } from "./columns";
+import { courseColumns, lectureColumns, userColumns } from "../lib/columns";
 import { DataTable } from "@/src/components/data-table";
 
 export function CoursesTable({ data }: { data: any }) {
