@@ -2,21 +2,27 @@ import React from "react";
 import Card from "../Card";
 import { get_all_courses } from "@/src/lib/db/get/get_all";
 import { CourseType } from "@/src/types/global";
-const CoursesSection = async () => {
+interface CourseSectionProps {
+  disabled?: boolean;
+}
+const CoursesSection = async ({ disabled }: CourseSectionProps) => {
   const courses = await get_all_courses();
+  const type = disabled ? "section" : "course";
+  const bgColor = disabled ? "#020817" : "#1c232d";
+
   return (
     <section
-      className=" rtl flex flex-col bg-[#1c232d] p-3 "
+      className={`rtl flex flex-col bg-[${bgColor}] p-3 `}
       id="coursesSection"
     >
       {courses.length > 0 ? (
         <>
-          <div className="flex bg-[#1c232d] max-lg:justify-center ">
+          <div className={`flex bg-[${bgColor}] max-lg:justify-center `}>
             <h2 className="p-10 text-7xl text-white  ">الكورسات</h2>
           </div>
           <div className="grid min-h-[50%] grid-cols-3  gap-6 p-6 max-lg:grid-cols-2 max-md:grid-cols-1">
             {courses.map((course: CourseType) => (
-              <Card type="course" content={course} key={course.id} />
+              <Card type={type} content={course} key={course.id} />
             ))}
           </div>
         </>

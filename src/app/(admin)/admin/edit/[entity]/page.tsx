@@ -1,7 +1,7 @@
 import NotFound from "@/src/app/not-found";
 import React from "react";
-import { getEntity } from "./lib/get-entity";
-import FormTamplate from "./components/FormTamplate";
+import { getEntity } from "../../lib/get-entity";
+import FormTamplate from "../../components/FormTamplate";
 
 const avaiableEnities = ["course", "user", "lecture", "section"];
 
@@ -16,11 +16,15 @@ const page: React.FC<pageProps> = async ({ params, searchParams }) => {
   }
   const entity = await getEntity(params.entity, Number(searchParams.id));
   return (
-    <div className=" flex h-full w-full  py-10">
+    <div className=" rtl flex h-full w-full flex-col gap-10  py-10">
       <h1 className="w-full text-center text-2xl font-medium lg:text-4xl">
-        Edit {params.entity}
+        {entity?.name} Edit {params.entity}
       </h1>
-      <FormTamplate entityType={params.entity} entity={entity} />
+      <div className="container relative">
+        <div>
+          <FormTamplate entityType={params.entity} entity={entity} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ const CourseCard = ({ course }: { course: CourseType }) => {
   return (
     <Link
       href={{ pathname: courseLink, query: { id: course.id } }}
-      className={`min-h-[500px] max-sm:min-h-[350px] rtl hover:border-solid hover:border-y-2 hover:border-white  hover:-translate-y-4 transition-transform duration-500 ease-in-out flex flex-col p-3 gap-10 rounded-lg`}
+      className={`rtl flex min-h-[500px] flex-col gap-10 rounded-lg  p-3 transition-transform duration-500 ease-in-out hover:-translate-y-4 hover:border-y-2 hover:border-solid hover:border-white max-sm:min-h-[350px]`}
       style={{ backgroundColor: `#111827` }}
     >
       <Image
@@ -22,7 +22,7 @@ const CourseCard = ({ course }: { course: CourseType }) => {
       <div className="-my-5">
         <Devider />
       </div>
-      <ul className="font-light opacity-70 text-lg ">
+      <ul className="text-lg font-light opacity-70 ">
         {course.des.map((text: any, index: number) => (
           <li key={index}>{text}</li>
         ))}

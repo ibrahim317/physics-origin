@@ -10,7 +10,7 @@ const SideNav = () => {
       <div className="md:hidden">
         <MyDrawer></MyDrawer>
       </div>
-      <div className="min-h-screen min-w-max bg-black p-4 max-md:hidden">
+      <div className="fixed min-h-screen min-w-max bg-black p-4 max-md:hidden">
         <div className="flex h-full flex-col gap-24 ">
           <h2 className="text-xl">Side Nav</h2>
           <div className="flex flex-col gap-12">
@@ -37,6 +37,7 @@ const SideNav = () => {
           </div>
         </div>
       </div>
+      <div className="min-h-full min-w-[120px] "></div>
     </div>
   );
 };

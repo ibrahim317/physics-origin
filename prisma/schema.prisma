@@ -13,7 +13,7 @@ generator client {
 model User {
   isAdmin      Boolean
   id           Int       @id @default(autoincrement())
-  first_name   String
+  name String
   last_name    String
   phone        String    @unique
   parent_phone String
@@ -57,7 +57,7 @@ model Lecture {
   name      String
   des       String[]
   yourlink  String?
-  price     Int?       @default(50)
+  price     Int       @default(50)
   published Boolean?
 
 }

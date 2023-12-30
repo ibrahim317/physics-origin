@@ -26,7 +26,7 @@ const profile = async () => {
         </div>
         <div className="flex h-full w-full flex-col items-end justify-center md:w-1/4">
           <h1 className="flex text-right text-5xl">
-            <span className="text-[#F9C500]">!</span>مرحبا {user?.first_name}
+            <span className="text-[#F9C500]">!</span>مرحبا {user?.name}
             <span className="mx-6 text-[#F9C500]">
               <AccountCircleIcon fontSize="large" />
             </span>

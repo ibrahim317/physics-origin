@@ -1,7 +1,7 @@
 import Alert from "@/src/components/Alert";
 import React from "react";
 import { Button } from "@/src/components/ui/button";
-import { fetch_data } from "./lib/data";
+import { fetch_data } from "./lib/get-entities";
 import Link from "next/link";
 import NotFound from "@/src/app/not-found";
 import TableTamplate from "./components/TableTamplate";

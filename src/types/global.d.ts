@@ -1,10 +1,13 @@
 import { $Enums } from "@/prisma/generated/client";
 import { JsonValue } from "next-auth/adapters";
 
-export interface UserType {
-  isAdmin: boolean;
+interface Entity {
   id: number;
-  first_name: string;
+}
+
+export interface UserType extends Entity {
+  isAdmin: boolean;
+  name: string;
   last_name: string;
   phone: string;
   parent_phone: string;
@@ -21,39 +24,28 @@ export interface Progress {
   quizzes_grades: JsonValue;
 }
 
-export interface CourseType {
-  id: number;
+interface ContentType extends Entity {
   name: string;
   des: string[];
+  published: boolean | null;
+  yourlink?: string | null;
+}
+interface PaidContentType extends ContentType {
   price: number;
+}
+export interface CourseType extends PaidContentType {
   thumbnail: string;
   section: Section[];
-  published: boolean | null;
 }
+export interface LectureType extends PaidContentType {}
 
-export interface SectionType {
-  id: number;
-  name: string;
-  des: string[];
+export interface SectionType extends ContentType {
   tag: Tag;
-  thumbnail?: string | null;
-  yourlink?: string | null;
   course: Course[];
   questions: Question[];
-  price?: number | null;
-  published: boolean | null;
-}
-export interface LectureType {
-  id: number;
-  name: string;
-  des: string[];
-  yourlink?: string | null;
-  price?: number | null;
-  published: boolean | null;
 }
 
-export interface QuestionType {
-  id: number;
+export interface QuestionType extends Entity {
   question_head: string;
   options: string[];
   image?: string | null;
