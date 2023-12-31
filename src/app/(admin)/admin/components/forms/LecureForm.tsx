@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
-import { FormProps } from "./Exports";
-import { LectureFormSchemaType } from "./types/formsTypes";
+import { LectureType } from "@/src/types/global";
 
-const LecureForm = ({ Schema }: FormProps<LectureFormSchemaType>) => {
+interface LectureFormProps {
+  entity: LectureType;
+}
+
+const LectureForm = ({ entity }: LectureFormProps) => {
   return <div>LecureForm</div>;
 };
 
-export default LecureForm;
+export default LectureForm;
