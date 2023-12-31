@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import { UserFormSchemaType } from "./types/formsTypes";
-import { FormProps } from "./Exports";
 import { UserType } from "@/src/types/global";
 
 interface UserFormProps {
