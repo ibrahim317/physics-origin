@@ -1,5 +1,6 @@
+"use client";
 import { MoreHorizontal } from "lucide-react";
-
+import axios from "axios";
 import { Button } from "@/src/components/ui/button";
 import {
   DropdownMenu,
@@ -10,8 +11,22 @@ import {
   DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const MyDropDown = ({ entity, id }: { entity: string; id: number }) => {
+  const router = useRouter();
+  const handleDelete = async () => {
+    try {
+      console.log(entity);
+      const deleteItem = await axios.post("/api/admin/delete/", { id, entity });
+      console.log(deleteItem);
+      toast.success("تم حذف العنصر");
+      router.refresh();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,9 +40,22 @@ const MyDropDown = ({ entity, id }: { entity: string; id: number }) => {
           <p className="text-[#F9C500]">Actions</p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <Link href={{ pathname: entity, query: { id } }}>
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-        </Link>
+        <DropdownMenuItem>
+          <Link
+            className="w-full text-center"
+            href={{ pathname: `edit/${entity}`, query: { id } }}
+          >
+            Edit
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <Button
+          variant={"destructive"}
+          className="w-full"
+          onClick={handleDelete}
+        >
+          Delete
+        </Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );

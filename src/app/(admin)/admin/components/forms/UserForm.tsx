@@ -3,7 +3,8 @@ import React from "react";
 import { UserType } from "@/src/types/global";
 
 interface UserFormProps {
-  entity: UserType;
+  entity?: UserType;
+  create?: boolean;
 }
 
 const UserForm = ({ entity }: UserFormProps) => {

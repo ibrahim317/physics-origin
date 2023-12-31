@@ -49,7 +49,8 @@ model Section {
   yourlink  String?
   published Boolean?
   tag       Tag
-  course    Course[]
+  couese    Course @relation(fields: [courseID], references: [id])
+  courseID  Int
   questions Question[]
 }
 model Lecture {

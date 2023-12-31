@@ -11,7 +11,7 @@ const Action = (entity: string) => {
   return {
     id: "actions",
     cell: ({ row }: { row: any }) => {
-      return <MyDropDown entity={`edit/${entity}`} id={row.original.id} />;
+      return <MyDropDown entity={`${entity}`} id={row.original.id} />;
     },
   };
 };

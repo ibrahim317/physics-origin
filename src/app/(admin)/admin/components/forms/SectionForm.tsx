@@ -6,18 +6,18 @@ import { Tag } from "@/prisma/generated/client";
 import toast from "react-hot-toast";
 
 interface SectionFormProps {
-  entity: SectionType;
+  entity?: SectionType;
 }
 
 const SectionForm = ({ entity }: SectionFormProps) => {
-  const [formData, setFormData] = useState(entity);
+  const [formData, setFormData] = useState(entity ?? {});
 
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
       const UpdatedSection = await axios.post(
-        `/api/admin/update_section/`,
+        `/api/admin/update/section`,
         formData,
       );
       setFormData(UpdatedSection.data);
@@ -50,7 +50,7 @@ const SectionForm = ({ entity }: SectionFormProps) => {
             required
             type="text"
             name="name"
-            defaultValue={entity.name}
+            defaultValue={entity?.name}
             onChange={handleInputChange}
           />
         </label>
@@ -63,7 +63,7 @@ const SectionForm = ({ entity }: SectionFormProps) => {
             required
             type="text"
             name="yourlink"
-            defaultValue={entity.yourlink ?? ""}
+            defaultValue={entity?.yourlink ?? ""}
             onChange={handleInputChange}
           />
         </label>
@@ -74,7 +74,7 @@ const SectionForm = ({ entity }: SectionFormProps) => {
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
             name="tag"
-            value={formData.tag}
+            defaultValue={entity?.tag}
             onChange={handleInputChange}
           >
             {Object.values(Tag).map((tag) => (

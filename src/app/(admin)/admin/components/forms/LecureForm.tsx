@@ -3,29 +3,47 @@ import axios from "axios";
 import React, { useState } from "react";
 import { LectureType } from "@/src/types/global";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface LectureFormProps {
-  entity: LectureType;
+  entity?: LectureType;
 }
 
 const LectureForm = ({ entity }: LectureFormProps) => {
-  const [formData, setFormData] = useState(entity);
+  const router = useRouter();
+  const [formData, setFormData] = useState(entity ?? {});
 
-  const handleFormSubmit = async (e: any) => {
+  const CreateCourse = async (e: any) => {
+    e.preventDefault();
+    try {
+      const CreatedLecture = await axios.post(
+        "/api/admin/create/lecture",
+        formData,
+      );
+      toast.success(`تم التعديل بنجاح`);
+      setTimeout(() => {
+        router.back();
+      }, 1000);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const UpdateLecture = async (e: any) => {
     e.preventDefault();
 
     try {
-      const UpdatedLecture = await axios.post(
-        `/api/admin/update_lecture/`,
+      const UpdatedLecutre = await axios.post(
+        `/api/admin/update/lecture`,
         formData,
       );
-      setFormData(UpdatedLecture.data);
-      console.log("Lecture updated successfully!");
+      setFormData(UpdatedLecutre.data);
       toast.success(`تم التعديل بنجاح`);
     } catch (error) {
-      console.error("Error updating lecture:", error);
+      console.error("Error updating course:", error);
     }
   };
+
+  const handleFormSubmit = entity ? CreateCourse : UpdateLecture;
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -49,7 +67,7 @@ const LectureForm = ({ entity }: LectureFormProps) => {
             required
             type="text"
             name="name"
-            defaultValue={entity.name}
+            defaultValue={entity?.name}
             onChange={handleInputChange}
           />
         </label>
@@ -61,7 +79,7 @@ const LectureForm = ({ entity }: LectureFormProps) => {
             required
             type="text"
             name="des"
-            defaultValue={entity.des}
+            defaultValue={entity?.des}
             onChange={handleInputChange}
           />
         </label>

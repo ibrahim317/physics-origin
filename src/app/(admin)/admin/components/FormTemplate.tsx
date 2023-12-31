@@ -1,16 +1,10 @@
 "use client";
 import React from "react";
-import {
-  CourseFormSchema,
-  LectureFormSchema,
-  SectionFormSchema,
-  UserFormSchema,
-} from "../lib/FormSchemas";
 import { CourseForm, UserForm, LecureForm, SectionForm } from "./forms/Exports";
 
 type ComponentProps = {
   entityType: string;
-  entity: any;
+  entity?: any;
 };
 
 const FormTemplate = ({ entityType, entity }: ComponentProps) => {
