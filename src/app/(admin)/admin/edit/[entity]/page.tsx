@@ -1,7 +1,7 @@
 import NotFound from "@/src/app/not-found";
 import React from "react";
 import { getEntity } from "../../lib/get-entity";
-import FormTamplate from "../../components/FormTamplate";
+import FormTemplate from "../../components/FormTemplate";
 
 const avaiableEnities = ["course", "user", "lecture", "section"];
 
@@ -22,7 +22,7 @@ const page: React.FC<pageProps> = async ({ params, searchParams }) => {
       </h1>
       <div className="container relative">
         <div>
-          <FormTamplate entityType={params.entity} entity={entity}/>
+          <FormTemplate entityType={params.entity} entity={entity} />
         </div>
       </div>
     </div>

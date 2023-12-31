@@ -21,7 +21,9 @@ const MyDropDown = ({ entity, id }: { entity: string; id: number }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel><p className="text-[#F9C500]">Actions</p></DropdownMenuLabel>
+        <DropdownMenuLabel>
+          <p className="text-[#F9C500]">Actions</p>
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <Link href={{ pathname: entity, query: { id } }}>
           <DropdownMenuItem>Edit</DropdownMenuItem>

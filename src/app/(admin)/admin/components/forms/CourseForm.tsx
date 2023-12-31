@@ -6,12 +6,12 @@ import { CourseType } from "@/src/types/global";
 import toast from "react-hot-toast";
 
 interface CourseFormProps {
-  entity: CourseType;
-  Schema: CourseFormSchemaType;
+  entity?: CourseType;
+  // Schema: CourseFormSchemaType;
 }
 
-const CourseForm = ({ entity, Schema }: CourseFormProps) => {
-  const [formData, setFormData] = useState(entity);
+const CourseForm = ({ entity }: CourseFormProps) => {
+  const [formData, setFormData] = useState(entity ?? {});
 
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ const CourseForm = ({ entity, Schema }: CourseFormProps) => {
             required
             type="text"
             name="name"
-            defaultValue={entity.name}
+            defaultValue={entity?.name}
             onChange={handleInputChange}
           />
         </label>
@@ -56,7 +56,7 @@ const CourseForm = ({ entity, Schema }: CourseFormProps) => {
             required
             type="text"
             name="des"
-            defaultValue={entity.des}
+            defaultValue={entity?.des}
             onChange={handleInputChange}
           />
         </label>
@@ -68,7 +68,7 @@ const CourseForm = ({ entity, Schema }: CourseFormProps) => {
             type="text"
             required
             name="price"
-            defaultValue={entity.price}
+            defaultValue={entity?.price}
             onChange={handleInputChange}
           />
         </label>
@@ -79,7 +79,7 @@ const CourseForm = ({ entity, Schema }: CourseFormProps) => {
             className="text-black"
             type="text"
             name="thumbnail"
-            defaultValue={entity.thumbnail}
+            defaultValue={entity?.thumbnail}
             onChange={handleInputChange}
           />
         </label>
