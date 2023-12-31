@@ -12,6 +12,14 @@ const page = ({ params }: { params: { entity: string } }) => {
         Create {params.entity}
       </h1>
     </div>
+    // Course Form
+    // Name , Description , Price ,Image, Published , ??Sections??
+    // Section Form
+    // VIDEO Form -> Course , Name , Description , Published , Video Link
+    // QUIZ Form  -> Course , Name , Description , Published , ??Questions??
+    // FILE Form  -> Course , Name , Description , Published , FILE Link
+    // Lecure Form
+    // Name, Description , Price, Image, Published
   );
 };
 
