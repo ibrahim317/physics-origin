@@ -29,7 +29,7 @@ const page = async ({ params }: { params: { dashboard: string } }) => {
       </div>
       <div className="flex justify-center">
         <Alert
-          heading="Is Ibrahim is the Worest?"
+          heading="Is Ibrahim is the Worest? No.. I think"
           description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
           Button="Go to Main"
           GoTo="/"

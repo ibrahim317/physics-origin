@@ -13,10 +13,10 @@ type ComponentProps = {
   entity: any;
 };
 
-const FormTamplate = ({ entityType, entity }: ComponentProps) => {
+const FormTamplate = ({ entityType, entity}: ComponentProps) => {
   switch (entityType) {
     case "course":
-      return <CourseForm Schema={CourseFormSchema} />;
+      return <CourseForm Schema={CourseFormSchema} entity={entity}/>;
     case "user":
       return <UserForm Schema={UserFormSchema} />;
     case "lecture":

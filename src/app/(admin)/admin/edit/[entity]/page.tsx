@@ -22,7 +22,7 @@ const page: React.FC<pageProps> = async ({ params, searchParams }) => {
       </h1>
       <div className="container relative">
         <div>
-          <FormTamplate entityType={params.entity} entity={entity} />
+          <FormTamplate entityType={params.entity} entity={entity}/>
         </div>
       </div>
     </div>
