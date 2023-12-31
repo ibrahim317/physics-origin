@@ -35,7 +35,7 @@ model Progress {
 model Course {
   id        Int       @id @default(autoincrement())
   name      String
-  des       String[]
+  des       String?
   price     Int   @default(150)
   thumbnail String
   published Boolean?
@@ -45,7 +45,7 @@ model Course {
 model Section {
   id        Int        @id @default(autoincrement())
   name      String
-  des       String[]
+  des       String?
   yourlink  String?
   published Boolean?
   tag       Tag
@@ -55,7 +55,7 @@ model Section {
 model Lecture {
   id        Int        @id @default(autoincrement())
   name      String
-  des       String[]
+  des       String?
   yourlink  String?
   price     Int       @default(50)
   published Boolean?
