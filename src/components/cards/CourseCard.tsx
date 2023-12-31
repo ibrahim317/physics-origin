@@ -23,9 +23,7 @@ const CourseCard = ({ course }: { course: CourseType }) => {
         <Devider />
       </div>
       <ul className="text-lg font-light opacity-70 ">
-        {course.des.map((text: any, index: number) => (
-          <li key={index}>{text}</li>
-        ))}
+        <li>{course.des}</li>
       </ul>
     </Link>
   );

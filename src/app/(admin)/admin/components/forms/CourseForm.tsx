@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { CourseFormSchemaType } from "./types/formsTypes";
 import { CourseType } from "@/src/types/global";
+import toast from "react-hot-toast";
 
 interface CourseFormProps {
   entity: CourseType;
@@ -14,12 +15,11 @@ const CourseForm = ({ entity, Schema }: CourseFormProps) => {
 
   const handleFormSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(process.env.NEXT_PUBLIC_VERCEL_URL);
 
     try {
-      const UpdatedCourse = await axios.post(`/api/admin/update/`, entity);
+      const UpdatedCourse = await axios.post(`/api/admin/update/`, formData);
       setFormData(UpdatedCourse.data);
-      console.log("Course updated successfully!");
+      toast.success(`Course updated successfully `);
     } catch (error) {
       console.error("Error updating course:", error);
     }

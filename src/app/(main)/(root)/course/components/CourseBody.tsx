@@ -19,9 +19,7 @@ const CourseBody: React.FC<props> = ({ course, paid_course }) => {
                 {course.name}
               </h2>
               <ul className="m-3 text-lg font-light opacity-70 ">
-                {course.des.map((text: any, index: number) => (
-                  <li key={index}>{text}</li>
-                ))}
+                <li>{course.des}</li>
               </ul>
             </div>
             <div className="flex justify-center gap-7">
