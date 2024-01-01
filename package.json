@@ -31,7 +31,6 @@
     "clsx": "^2.0.0",
     "html-react-parser": "^5.0.11",
     "lucide-react": "^0.302.0",
-    "mongodb": "^6.3.0",
     "next": "14.0.1",
     "next-auth": "^4.24.5",
     "next-themes": "^0.2.1",
