@@ -6,7 +6,7 @@ const outButton = () => {
   return (
     <button
       onClick={() => signOut()}
-      className="text-3xl bg-red-500 px-10 py-7 rounded-[25px] m-5 hover:opacity-70 transition ease-in-out"
+      className="m-5 rounded-[25px] bg-red-500 px-10 py-7 text-3xl transition ease-in-out hover:opacity-70"
     >
       تسجيل خروج
     </button>

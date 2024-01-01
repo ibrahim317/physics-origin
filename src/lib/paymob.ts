@@ -6,7 +6,7 @@ const auth = async () => {
       "https://accept.paymob.com/api/auth/tokens",
       {
         api_key: process.env.NEXT_PUBLIC_PAYMOB_API,
-      }
+      },
     );
     return auth_token;
   } catch (err) {
@@ -40,7 +40,7 @@ const invoice = async (auth: any, course: any) => {
       ],
 
       delivery_needed: "false",
-    }
+    },
   );
   return re;
 };

@@ -30,19 +30,19 @@ const SectionCard: React.FC<props> = ({ passed_last_quiz, section, paid }) => {
       link={sectionLink}
     >
       <div className="flex flex-col justify-center">
-        <h2 className="text-4xl max-[790px]:text-2xl opacity-80 font-bold p-10">
+        <h2 className="p-10 text-4xl font-bold opacity-80 max-[790px]:text-2xl">
           {section.name}
         </h2>
         <div className="-my-5">
           <Devider />
         </div>
-        <p className="font-light opacity-70 text-lg max-sm:text-sm p-10">
+        <p className="p-10 text-lg font-light opacity-70 max-sm:text-sm">
           {section.des}
         </p>
       </div>
       <div
         className={
-          ` rounded-xl p-3 text-sm absolute bottom-5 left-6 text-black ` +
+          ` absolute bottom-5 left-6 rounded-xl p-3 text-sm text-black ` +
           sectionColor
         }
       >

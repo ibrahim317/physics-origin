@@ -5,16 +5,16 @@ import Me from "./components/me";
 import NotFound from "@/src/app/not-found";
 
 const page = ({ params }: { params: { page: string } }) => {
-	switch (params.page) {
-		case "logout":
-			return <Logout />;
-		case "mycourses":
-			return <MyCourses />;
-		case "me":
-			return <Me />;
-		default:
-			return <NotFound />;
-	}
+  switch (params.page) {
+    case "logout":
+      return <Logout />;
+    case "mycourses":
+      return <MyCourses />;
+    case "me":
+      return <Me />;
+    default:
+      return <NotFound />;
+  }
 };
 
 export default page;

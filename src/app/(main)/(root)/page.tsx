@@ -4,12 +4,12 @@ import Devider from "@/src/components/Devider";
 import LecturesSection from "@/src/components/root-sections/LecturesSection";
 
 export default async function Home() {
-	return (
-		<>
-			<HeroSection />
-			<Devider />
-			<CoursesSection />
-			<LecturesSection />
-		</>
-	);
+  return (
+    <>
+      <HeroSection />
+      <Devider />
+      <CoursesSection />
+      <LecturesSection />
+    </>
+  );
 }

@@ -7,7 +7,7 @@ const DriveEmbed = (props: any) => {
   };
 
   const embedUrl = `https://drive.google.com/file/d/${getIdFromUrl(
-    props.fileUrl
+    props.fileUrl,
   )}/preview`;
 
   return (

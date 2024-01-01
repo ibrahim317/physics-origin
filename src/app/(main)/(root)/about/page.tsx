@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div className="flex justify-center gap-8 items-center h-4/5 w-full">
-      <div className="w-full lg:w-11/12 flex lg:flex-row flex-col justify-center items-center">
-        <div className="w-4/5 h-full py-3 flex justify-center items-center">
+    <div className="flex h-4/5 w-full items-center justify-center gap-8">
+      <div className="flex w-full flex-col items-center justify-center lg:w-11/12 lg:flex-row">
+        <div className="flex h-full w-4/5 items-center justify-center py-3">
           {" "}
           {/*/ left side /*/}
           <Image
@@ -16,7 +16,7 @@ const page = () => {
             className="border-b-2"
           />
         </div>
-        <div className="w-4/5 h-full rtl">
+        <div className="rtl h-full w-4/5">
           {" "}
           {/*/ right side /*/}
           <h1 className="flex items-center">
@@ -38,7 +38,9 @@ const page = () => {
                 alt=""
                 className="m-3 opacity-80"
               />
-              <span className="text-xl md:text-2xl">ثانــــــوية عامــــــة 2015</span>
+              <span className="text-xl md:text-2xl">
+                ثانــــــوية عامــــــة 2015
+              </span>
             </h1>
             <h1 className="flex items-center">
               <Image
@@ -97,7 +99,7 @@ const page = () => {
               className="m-3"
             />
           </h1>
-          <h1 className="flex justify-center items-center opacity-60">
+          <h1 className="flex items-center justify-center opacity-60">
             <p className="mx-5 text-xl">للتـــــواصـــــــل</p>
             <a
               href="https://wa.me/201011090037"

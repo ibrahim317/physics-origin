@@ -50,8 +50,8 @@ const CreateForm = () => {
                 <span className="highlight" />
                 <span className="bar" />
                 <label>
-                  <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse space-x-2">
-                    <span className="flex-center-both trasnform text-[#F9C500] -translate-y-px">
+                  <div className="flex flex-row flex-wrap space-x-2 space-x-reverse sm:space-x-reverse md:space-x-reverse lg:space-x-reverse">
+                    <span className="flex-center-both trasnform -translate-y-px text-[#F9C500]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -88,8 +88,8 @@ const CreateForm = () => {
                 <span className="highlight" />
                 <span className="bar" />
                 <label>
-                  <div className="flex flex-wrap flex-row lg:space-x-reverse md:space-x-reverse sm:space-x-reverse space-x-reverse space-x-2">
-                    <span className="flex-center-both trasnform text-[#F9C500]  -translate-y-px">
+                  <div className="flex flex-row flex-wrap space-x-2 space-x-reverse sm:space-x-reverse md:space-x-reverse lg:space-x-reverse">
+                    <span className="flex-center-both trasnform -translate-y-px  text-[#F9C500]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -116,7 +116,7 @@ const CreateForm = () => {
         </div>
         <div className="flex">
           <button
-            className="text-[#000] bg-color px-10 max-sm:px-5 py-4 mx-4 min-w-max bg-[#F9C500] hover:bg-[#FFF] transition ease-in-out duration-300 rounded-[25px]"
+            className="bg-color mx-4 min-w-max rounded-[25px] bg-[#F9C500] px-10 py-4 text-[#000] transition duration-300 ease-in-out hover:bg-[#FFF] max-sm:px-5"
             type="submit"
           >
             تسجيل الدخول
