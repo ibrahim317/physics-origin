@@ -9,9 +9,11 @@ interface props {
   type: string;
   paid?: boolean;
   passed_last_quiz?: boolean;
+  //admin
+  link?: string | null;
 }
 
-const Card = ({ content, type, passed_last_quiz, paid }: props) => {
+const Card = ({ content, type, link, passed_last_quiz, paid }: props) => {
   switch (type) {
     case "course":
       return <CourseCard course={content as CourseType} />;
@@ -19,6 +21,7 @@ const Card = ({ content, type, passed_last_quiz, paid }: props) => {
       return (
         <SectionCard
           paid={paid}
+          link={link}
           passed_last_quiz={passed_last_quiz}
           section={content as SectionType}
         />

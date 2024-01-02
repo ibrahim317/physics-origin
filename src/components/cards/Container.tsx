@@ -1,5 +1,6 @@
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+
 const Container: React.FC<any> = ({
   children,
   paid,
@@ -10,7 +11,10 @@ const Container: React.FC<any> = ({
   if (paid && (passed_last_quiz == null || passed_last_quiz == true)) {
     return (
       <Link
-        href={{ pathname: link, query: { id: content.id } }}
+        href={{
+          pathname: link,
+          query: { id: content.id },
+        }}
         className={`relative flex min-h-[500px] w-full flex-col gap-5 rounded-lg  p-3 transition-transform duration-500 ease-in-out hover:-translate-y-4 hover:border-y-2 hover:border-solid hover:border-white max-xl:min-h-[250px]`}
         style={{ backgroundColor: `#111827` }}
       >

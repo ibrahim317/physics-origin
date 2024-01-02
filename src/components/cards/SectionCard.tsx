@@ -4,12 +4,20 @@ import { SectionType } from "@/src/types/global";
 import Container from "./Container";
 
 interface props {
+  // User
   section: SectionType;
   paid?: boolean;
   passed_last_quiz?: boolean;
+  // Admin
+  link?: string | null;
 }
 
-const SectionCard: React.FC<props> = ({ passed_last_quiz, section, paid }) => {
+const SectionCard: React.FC<props> = ({
+  passed_last_quiz,
+  section,
+  paid,
+  link,
+}) => {
   let sectionColor = "yellow-500";
   const tag = section.tag;
   // Card button color
@@ -20,7 +28,7 @@ const SectionCard: React.FC<props> = ({ passed_last_quiz, section, paid }) => {
   } else if (tag == "QUIZ") {
     sectionColor = "bg-blue-400";
   }
-  const sectionLink = `/course/section/`;
+  const sectionLink = link ?? `/course/section/`;
 
   return (
     <Container

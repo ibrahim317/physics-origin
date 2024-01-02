@@ -15,7 +15,20 @@ import {
 const Alert = (props: any) => {
   return (
     <AlertDialog>
-      <AlertDialogTrigger>{props.Button}</AlertDialogTrigger>
+      {props.delete ? (
+        <AlertDialogTrigger
+          type="button"
+          className={
+            props.className
+              ? props.className
+              : "m-10 rounded-md   bg-destructive bg-opacity-50 px-16 py-5 text-2xl hover:opacity-60"
+          }
+        >
+          Delete
+        </AlertDialogTrigger>
+      ) : (
+        <></>
+      )}
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>{props.heading}</AlertDialogTitle>
@@ -25,10 +38,17 @@ const Alert = (props: any) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>
-            <Link href={props.GoTo} className="h-full w-full overflow-visible">
-              Go to {props.GoTo}
-            </Link>
+          <AlertDialogAction onClick={props.callback}>
+            {props.GoTo ? (
+              <Link
+                href={props.GoTo}
+                className="h-full w-full overflow-visible"
+              >
+                Go to {props.GoTo}
+              </Link>
+            ) : (
+              props.actionText
+            )}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

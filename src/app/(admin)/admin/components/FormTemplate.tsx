@@ -7,6 +7,7 @@ import {
   SectionForm,
   FileForm,
   VideoForm,
+  QuizForm,
 } from "./forms/Exports";
 
 type ComponentProps = {
@@ -26,9 +27,11 @@ const FormTemplate = ({ entityType, options, entity }: ComponentProps) => {
     case "section":
       return <SectionForm entity={entity} courseid={options} />;
     case "file":
-      return <FileForm entity={entity} />;
+      return <FileForm entity={entity} courseID={options} />;
     case "video":
-      return <VideoForm entity={entity} />;
+      return <VideoForm entity={entity} courseID={options} />;
+    case "quiz":
+      return <QuizForm entity={entity} courseID={options} />;
     default:
       break;
   }

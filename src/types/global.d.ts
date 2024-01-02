@@ -26,7 +26,7 @@ export interface Progress {
 
 interface ContentType extends Entity {
   name: string;
-  des: string;
+  des: string | null;
   published: boolean | null;
   yourlink?: string | null;
 }

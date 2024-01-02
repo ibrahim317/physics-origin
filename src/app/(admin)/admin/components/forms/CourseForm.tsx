@@ -7,6 +7,7 @@ import { CourseType } from "@/src/types/global";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Content from "./ConentSection";
+import Alert from "@/src/components/Alert";
 interface CourseFormProps {
   entity?: CourseType;
 }
@@ -17,7 +18,11 @@ enum bool {
 
 const CourseForm = ({ entity }: CourseFormProps) => {
   const router = useRouter();
-  const [formData, setFormData] = useState(entity ?? {});
+  const [formData, setFormData] = useState(
+    entity ?? {
+      published: false,
+    },
+  );
 
   const CreateCourse = async (e: any) => {
     e.preventDefault();
@@ -53,15 +58,29 @@ const CourseForm = ({ entity }: CourseFormProps) => {
 
   const handleFormSubmit = !entity ? CreateCourse : UpdateCourse;
   const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    let { name, value } = e.target;
+    if (value == "true") value = true;
+    else if (value == "false") value = false;
+    else if (name === "price") value = Number(value);
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
   };
-
+  const handleDelete = async (e: any) => {
+    try {
+      await axios.post("/api/admin/delete/", {
+        id: entity?.id,
+        entity: "course",
+      });
+    } catch (error) {
+      console.error("Error deleting video", error);
+    }
+  };
   return (
-    <div className="my-28 h-screen w-full p-10">
+    <div className="my-28 h-screen w-full ">
       <form
         onSubmit={handleFormSubmit}
         className="container flex w-full flex-col items-center justify-center"
@@ -86,7 +105,7 @@ const CourseForm = ({ entity }: CourseFormProps) => {
             required
             type="text"
             name="des"
-            defaultValue={entity?.des}
+            defaultValue={entity?.des ?? ""}
             onChange={handleInputChange}
           />
         </label>
@@ -120,7 +139,7 @@ const CourseForm = ({ entity }: CourseFormProps) => {
             className="rounded-md border-2 bg-transparent px-2 py-2 text-2xl text-white sm:px-16 sm:py-10"
             required
             name="published"
-            defaultValue={"false"}
+            defaultValue={String(entity?.published)}
             onChange={handleInputChange}
           >
             {Object.values(bool).map((op) => (
@@ -131,14 +150,28 @@ const CourseForm = ({ entity }: CourseFormProps) => {
           </select>
         </label>
         {/* =========================== */}
-        <button
-          type="submit"
-          className="m-10 rounded-md bg-[#707070] bg-opacity-50 px-16 py-2 text-2xl hover:opacity-60"
-        >
-          تعديل
-        </button>
+        <div>
+          <button
+            type="submit"
+            className="m-10 rounded-md bg-[#707070] bg-opacity-50 px-16 py-5 text-2xl hover:opacity-60"
+          >
+            تعديل
+          </button>
+
+          {entity ? (
+            <Alert
+              heading="Delete this section"
+              description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+              callback={handleDelete}
+              actionText="Delete"
+              delete
+            />
+          ) : (
+            <></>
+          )}
+        </div>
       </form>
-      <div className="mb-20 flex flex-col gap-28">
+      <div className="m-20 flex flex-col gap-28">
         <Content sections={entity?.section} />
         <Link
           href={{

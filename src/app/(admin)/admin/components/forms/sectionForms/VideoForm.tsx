@@ -1,37 +1,80 @@
+"use client";
 import axios from "axios";
 import React, { useState } from "react";
-import { Tag } from "@/prisma/generated/client";
 import toast from "react-hot-toast";
-
+import { useRouter } from "next/navigation";
+import { Tag } from "@/prisma/generated/client";
+import Alert from "@/src/components/Alert";
 interface VideoFormProps {
+  courseID: string;
   entity?: any;
 }
 
-const VideoForm = ({ entity }: VideoFormProps) => {
-  const [formData, setFormData] = useState(entity ?? {});
+enum bool {
+  True = "true",
+  False = "false",
+}
 
-  const handleFormSubmit = async (e: any) => {
+const VideoForm = ({ entity, courseID }: VideoFormProps) => {
+  const [formData, setFormData] = useState(
+    entity ?? { tag: Tag.VIDEO, courseID: Number(courseID) },
+  );
+  const router = useRouter();
+
+  const CreateVideo = async (e: any) => {
     e.preventDefault();
-
     try {
-      const UpdatedSection = await axios.post(
-        `/api/admin/update/section`,
+      const createdVideo = await axios.post(
+        "/api/admin/create/section",
         formData,
       );
-      setFormData(UpdatedSection.data);
-      console.log("Section updated successfully!");
-      toast.success(`تم التعديل بنجاح`);
-    } catch (error) {
-      console.error("Error updating section:", error);
+      toast.success(`تم إنشاء الدرس بنجاح`);
+      setTimeout(() => {
+        router.back();
+      }, 1000);
+    } catch (err) {
+      console.log(err);
     }
   };
 
+  const UpdateVideo = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const UpdatedVideo = await axios.post(
+        `/api/admin/update/section`,
+        formData,
+      );
+      setFormData(UpdatedVideo.data);
+      console.log("Video updated successfully!");
+      toast.success(`تم التعديل بنجاح`);
+    } catch (error) {
+      console.error("Error updating video:", error);
+    }
+  };
+
+  const handleFormSubmit = !entity ? CreateVideo : UpdateVideo;
   const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevData: any) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    let { name, value } = e.target;
+    if (value === "true") value = true;
+    else if (value === "false") value = false;
+    setFormData((prevData: any) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleDelete = async (e: any) => {
+    try {
+      await axios.post("/api/admin/delete/", {
+        id: entity.id,
+        entity: "section",
+      });
+    } catch (error) {
+      console.error("Error deleting video", error);
+    }
   };
 
   return (
@@ -55,6 +98,17 @@ const VideoForm = ({ entity }: VideoFormProps) => {
         {/* =========================== */}
 
         <label className="flex flex-col items-center">
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الوصف: </h3>
+          <input
+            className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
+            required
+            type="text"
+            name="des"
+            defaultValue={entity?.des ?? ""}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label className="flex flex-col items-center">
           <h3 className="m-10 w-full p-2 text-2xl opacity-70">الرابط: </h3>
           <input
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
@@ -67,29 +121,42 @@ const VideoForm = ({ entity }: VideoFormProps) => {
         </label>
         {/* =========================== */}
         <label className="flex flex-col items-center">
-          <h3 className="m-10 w-full p-2 text-2xl opacity-70">نوع السيكشن: </h3>
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">نشر: </h3>
           <select
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
-            name="tag"
+            name="published"
             defaultValue={entity?.tag}
             onChange={handleInputChange}
           >
-            {Object.values(Tag).map((tag) => (
-              <option key={tag} value={tag}>
-                {tag}
+            {Object.values(bool).map((op) => (
+              <option key={op} value={op}>
+                {op}
               </option>
             ))}
           </select>
         </label>
         {/* =========================== */}
 
-        <button
-          type="submit"
-          className="m-10 rounded-md bg-[#707070] bg-opacity-50 px-16 py-5 text-2xl hover:opacity-60"
-        >
-          تعديل
-        </button>
+        <div>
+          <button
+            type="submit"
+            className="m-10 rounded-md bg-[#707070] bg-opacity-50 px-16 py-5 text-2xl hover:opacity-60"
+          >
+            تعديل
+          </button>
+          {entity ? (
+            <Alert
+              heading="Delete this section"
+              description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+              callback={handleDelete}
+              actionText="Delete"
+              delete
+            />
+          ) : (
+            <></>
+          )}
+        </div>
       </form>
     </div>
   );

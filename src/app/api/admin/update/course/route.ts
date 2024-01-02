@@ -12,8 +12,9 @@ export async function POST(request: NextRequest) {
       data: {
         name: res.name,
         des: res.des,
-        price: Number(res.price),
         thumbnail: res.thumbnail,
+        price: res.price,
+        published: res.published,
       },
     });
     return NextResponse.json(UpdatedCourse, { status: 201 });

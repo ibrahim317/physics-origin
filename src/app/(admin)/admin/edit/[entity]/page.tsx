@@ -14,15 +14,23 @@ const page: React.FC<pageProps> = async ({ params, searchParams }) => {
   if (!avaiableEnities.includes(params.entity)) {
     return <NotFound />;
   }
-  const entity = await getEntity(params.entity, Number(searchParams.id));
+  const entity = (await getEntity(
+    params.entity,
+    Number(searchParams.id),
+  )) as any;
+  if (!entity) return <NotFound />;
+  let enetityType = params.entity;
+  if (entity.tag) {
+    enetityType = entity.tag.toLowerCase();
+  }
   return (
     <div className=" rtl flex h-full w-full flex-col gap-10  py-10">
       <h1 className="w-full text-center text-2xl font-medium lg:text-4xl">
         {entity?.name} Edit {params.entity}
       </h1>
-      <div className="container relative">
+      <div className="relative">
         <div>
-          <FormTemplate entityType={params.entity} entity={entity} />
+          <FormTemplate entityType={enetityType} entity={entity} />
         </div>
       </div>
     </div>

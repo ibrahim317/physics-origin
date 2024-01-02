@@ -1,37 +1,68 @@
+"use client";
 import axios from "axios";
 import React, { useState } from "react";
-import { Tag } from "@/prisma/generated/client";
 import toast from "react-hot-toast";
-
+import { useRouter } from "next/navigation";
+import { Tag } from "@/prisma/generated/client";
 interface FileFormProps {
+  courseID: string;
   entity?: any;
 }
 
-const FileForm = ({ entity }: FileFormProps) => {
-  const [formData, setFormData] = useState(entity ?? {});
+enum bool {
+  True = "true",
+  False = "false",
+}
 
-  const handleFormSubmit = async (e: any) => {
+const FileForm = ({ entity, courseID }: FileFormProps) => {
+  const [formData, setFormData] = useState(
+    entity ?? { tag: Tag.FILE, courseID: Number(courseID) },
+  );
+  const router = useRouter();
+
+  const CreateFile = async (e: any) => {
     e.preventDefault();
-
     try {
-      const UpdatedSection = await axios.post(
-        `/api/admin/update/section`,
+      const createdFile = await axios.post(
+        "/api/admin/create/section",
         formData,
       );
-      setFormData(UpdatedSection.data);
-      console.log("Section updated successfully!");
-      toast.success(`تم التعديل بنجاح`);
-    } catch (error) {
-      console.error("Error updating section:", error);
+      toast.success(`تم إنشاء الدرس بنجاح`);
+      setTimeout(() => {
+        router.back();
+      }, 1000);
+    } catch (err) {
+      console.log(err);
     }
   };
 
+  const UpdateFile = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const UpdatedFile = await axios.post(
+        `/api/admin/update/section`,
+        formData,
+      );
+      setFormData(UpdatedFile.data);
+      console.log("File updated successfully!");
+      toast.success(`تم التعديل بنجاح`);
+    } catch (error) {
+      console.error("Error updating video:", error);
+    }
+  };
+
+  const handleFormSubmit = !entity ? CreateFile : UpdateFile;
   const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData((prevData: any) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    let { name, value } = e.target;
+    if (value === "true") value = true;
+    else if (value === "false") value = false;
+    setFormData((prevData: any) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
   };
 
   return (
@@ -55,6 +86,17 @@ const FileForm = ({ entity }: FileFormProps) => {
         {/* =========================== */}
 
         <label className="flex flex-col items-center">
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الوصف: </h3>
+          <input
+            className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
+            required
+            type="text"
+            name="des"
+            defaultValue={entity?.des ?? ""}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label className="flex flex-col items-center">
           <h3 className="m-10 w-full p-2 text-2xl opacity-70">الرابط: </h3>
           <input
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
@@ -67,17 +109,17 @@ const FileForm = ({ entity }: FileFormProps) => {
         </label>
         {/* =========================== */}
         <label className="flex flex-col items-center">
-          <h3 className="m-10 w-full p-2 text-2xl opacity-70">نوع السيكشن: </h3>
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">نشر: </h3>
           <select
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
-            name="tag"
+            name="published"
             defaultValue={entity?.tag}
             onChange={handleInputChange}
           >
-            {Object.values(Tag).map((tag) => (
-              <option key={tag} value={tag}>
-                {tag}
+            {Object.values(bool).map((op) => (
+              <option key={op} value={op}>
+                {op}
               </option>
             ))}
           </select>

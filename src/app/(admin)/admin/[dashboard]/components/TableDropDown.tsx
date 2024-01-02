@@ -18,9 +18,7 @@ const MyDropDown = ({ entity, id }: { entity: string; id: number }) => {
   const router = useRouter();
   const handleDelete = async () => {
     try {
-      console.log(entity);
       const deleteItem = await axios.post("/api/admin/delete/", { id, entity });
-      console.log(deleteItem);
       toast.success("تم حذف العنصر");
       router.refresh();
     } catch (err) {
