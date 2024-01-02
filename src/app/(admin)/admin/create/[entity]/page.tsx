@@ -6,9 +6,10 @@ const avaiableEnities = ["course", "user", "lecture", "section"];
 
 type pageProps = {
   params: { entity: string };
+  searchParams: { courseid: number };
 };
 
-const page = ({ params }: pageProps) => {
+const page = ({ searchParams, params }: pageProps) => {
   if (!avaiableEnities.includes(params.entity)) {
     return <NotFound />;
   }
@@ -19,7 +20,10 @@ const page = ({ params }: pageProps) => {
       </h1>
       <div className="container relative">
         <div>
-          <FormTemplate entityType={params.entity} />
+          <FormTemplate
+            entityType={params.entity}
+            options={searchParams.courseid}
+          />
         </div>
       </div>
     </div>

@@ -1,9 +1,12 @@
 "use client";
 import axios from "axios";
+import { Button } from "@/src/components/ui/button";
+import Link from "next/link";
 import React, { useState } from "react";
 import { CourseType } from "@/src/types/global";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Content from "./ConentSection";
 interface CourseFormProps {
   entity?: CourseType;
 }
@@ -58,7 +61,7 @@ const CourseForm = ({ entity }: CourseFormProps) => {
   };
 
   return (
-    <div className="h-screen w-full">
+    <div className="my-28 h-screen w-full p-10">
       <form
         onSubmit={handleFormSubmit}
         className="container flex w-full flex-col items-center justify-center"
@@ -135,6 +138,17 @@ const CourseForm = ({ entity }: CourseFormProps) => {
           تعديل
         </button>
       </form>
+      <div className="mb-20 flex flex-col gap-28">
+        <Content sections={entity?.section} />
+        <Link
+          href={{
+            pathname: "../create/section",
+            query: { courseid: entity?.id },
+          }}
+        >
+          <Button variant="green">Create New Section</Button>
+        </Link>
+      </div>
     </div>
   );
 };

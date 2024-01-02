@@ -19,11 +19,6 @@ const SideNav = () => {
                 Courses
               </Button>
             </Link>
-            <Link href={"/admin/sections"}>
-              <Button className="w-full" variant={"outline"}>
-                Sections
-              </Button>
-            </Link>{" "}
             <Link href={"/admin/lectures"}>
               <Button className="w-full" variant={"outline"}>
                 Letures
