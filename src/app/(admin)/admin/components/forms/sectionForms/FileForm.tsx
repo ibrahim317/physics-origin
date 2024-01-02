@@ -10,13 +10,17 @@ interface FileFormProps {
 }
 
 enum bool {
-  True = "true",
   False = "false",
+  True = "true",
 }
 
 const FileForm = ({ entity, courseID }: FileFormProps) => {
   const [formData, setFormData] = useState(
-    entity ?? { tag: Tag.FILE, courseID: Number(courseID) },
+    entity ?? {
+      tag: Tag.FILE,
+      courseID: Number(courseID),
+      published: entity?.published ?? false,
+    },
   );
   const router = useRouter();
 

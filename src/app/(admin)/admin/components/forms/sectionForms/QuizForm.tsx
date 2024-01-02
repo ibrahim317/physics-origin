@@ -7,8 +7,8 @@ import { Tag } from "@/prisma/generated/client";
 import Alert from "@/src/components/Alert";
 
 enum bool {
-  True = "true",
   False = "false",
+  True = "true",
 }
 interface QuizFormProps {
   entity: any;
@@ -16,7 +16,11 @@ interface QuizFormProps {
 }
 const QuizForm = ({ entity, courseID }: QuizFormProps) => {
   const [formData, setFormData] = useState(
-    entity ?? { tag: Tag.QUIZ, courseID: Number(courseID) },
+    entity ?? {
+      tag: Tag.QUIZ,
+      courseID: Number(courseID),
+      published: entity?.published ?? false,
+    },
   );
   const router = useRouter();
 
@@ -84,7 +88,7 @@ const QuizForm = ({ entity, courseID }: QuizFormProps) => {
       >
         {/* =========================== */}
         <label className="flex flex-col items-center">
-          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الاسم:</h3>
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الاسم</h3>
           <input
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
@@ -97,7 +101,7 @@ const QuizForm = ({ entity, courseID }: QuizFormProps) => {
         {/* =========================== */}
 
         <label className="flex flex-col items-center">
-          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الوصف: </h3>
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الوصف</h3>
           <input
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
@@ -108,13 +112,13 @@ const QuizForm = ({ entity, courseID }: QuizFormProps) => {
           />
         </label>
         <label className="flex flex-col items-center">
-          <h3 className="m-10 w-full p-2 text-2xl opacity-70">الرابط: </h3>
+          <h3 className="m-10 w-full p-2 text-2xl opacity-70"> وقت الامتحان</h3>
           <input
             className="rounded-md border-2 bg-transparent px-2 py-5 text-2xl text-white sm:px-16 sm:py-10"
             required
             type="text"
-            name="yourlink"
-            defaultValue={entity?.yourlink ?? ""}
+            name="time"
+            defaultValue={entity?.time ?? ""}
             onChange={handleInputChange}
           />
         </label>

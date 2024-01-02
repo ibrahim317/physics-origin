@@ -43,15 +43,19 @@ model Course {
 }
 
 model Section {
+  // All sections
   id        Int        @id @default(autoincrement())
   name      String
   des       String?
-  yourlink  String?
   published Boolean?
   tag       Tag
   course Course @relation(fields: [courseID], references: [id],onDelete: Cascade)
   courseID  Int
+  // Video and file
+  yourlink  String?
+  // Quizzes
   questions Question[]
+  quiz_time Int?
 }
 model Lecture {
   id        Int        @id @default(autoincrement())

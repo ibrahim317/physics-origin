@@ -5,6 +5,7 @@ import UserForm from "./UserForm";
 import VideoForm from "./sectionForms/VideoForm";
 import FileForm from "./sectionForms/FileForm";
 import QuizForm from "./sectionForms/QuizForm";
+import QuestionForm from "./sectionForms/QuestionForm";
 export {
   QuizForm,
   CourseForm,
@@ -13,6 +14,7 @@ export {
   UserForm,
   VideoForm,
   FileForm,
+  QuestionForm,
 };
 export type FormProps<T> = {
   Schema: T;

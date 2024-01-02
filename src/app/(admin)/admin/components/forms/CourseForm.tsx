@@ -12,8 +12,8 @@ interface CourseFormProps {
   entity?: CourseType;
 }
 enum bool {
-  True = "true",
   False = "false",
+  True = "true",
 }
 
 const CourseForm = ({ entity }: CourseFormProps) => {

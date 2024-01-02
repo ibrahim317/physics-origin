@@ -79,7 +79,7 @@ const LectureForm = ({ entity }: LectureFormProps) => {
             required
             type="text"
             name="des"
-            defaultValue={entity?.des}
+            defaultValue={entity?.des ?? ""}
             onChange={handleInputChange}
           />
         </label>

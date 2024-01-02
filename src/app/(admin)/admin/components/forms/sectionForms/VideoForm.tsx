@@ -11,13 +11,17 @@ interface VideoFormProps {
 }
 
 enum bool {
-  True = "true",
   False = "false",
+  True = "true",
 }
 
 const VideoForm = ({ entity, courseID }: VideoFormProps) => {
   const [formData, setFormData] = useState(
-    entity ?? { tag: Tag.VIDEO, courseID: Number(courseID) },
+    entity ?? {
+      tag: Tag.VIDEO,
+      courseID: Number(courseID),
+      published: entity?.published ?? false,
+    },
   );
   const router = useRouter();
 
